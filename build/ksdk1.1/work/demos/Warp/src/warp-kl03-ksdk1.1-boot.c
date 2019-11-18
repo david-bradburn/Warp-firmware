@@ -2463,6 +2463,12 @@ devSSD1331init();
 
 				break;
 			}
+                        case 'c1000':
+                        {
+
+                                SEGGER_RTT_WriteString(0, "\r\n\tTEST\n");
+                                break;
+                        }
 
 
 			/*
@@ -2480,6 +2486,7 @@ devSSD1331init();
 				SEGGER_RTT_printf(0, "\r\tInvalid selection '%c' !\n", key);
 				#endif
 			}
+			
 		}
 	}
 
