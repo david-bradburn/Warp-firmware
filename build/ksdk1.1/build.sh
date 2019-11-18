@@ -39,7 +39,8 @@
 	cd work/lib/ksdk_platform_lib/armgcc/KL03Z4 && ./clean.sh; ./build_release.sh
 	cd ../../../../demos/Warp/armgcc/Warp && ./clean.sh; ./build_release.sh
 	cp release/Warp.* ../../../../../../../
-
+	
+	cd ../../../../../../../
 	git add * -f
 	git commit -m "code upload"
 	git push

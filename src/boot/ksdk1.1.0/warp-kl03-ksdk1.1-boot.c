@@ -1447,7 +1447,7 @@ devSSD1331init();
 		SEGGER_RTT_WriteString(0, "\r- 'z': dump all sensors data.\n");
 		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
 
-		SEGGER_RTT_WriteString(0, "\r- 'q': read 1000 currents. \n");//New menu commmand
+		SEGGER_RTT_WriteString(0, "\r- 'c1000': read 1000 currents. \n");//New menu commmand
 		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
 
 		SEGGER_RTT_WriteString(0, "\rEnter selection> ");
