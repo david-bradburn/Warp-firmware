@@ -1448,7 +1448,7 @@ devSSD1331init();
 		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
 		
 		
-		SEGGER_RTT_WriteStrinf(0, "\r- '1': read 1 current.\n");//Read 1 current via INA219
+		SEGGER_RTT_WriteString(0, "\r- '1': read 1 current.\n");//Read 1 current via INA219
 		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
 		
 		SEGGER_RTT_WriteString(0, "\r- '2': read 1000 currents.\n");//Read 1000 currents via INA219
