@@ -2467,10 +2467,18 @@ devSSD1331init();
 
 				break;
 			}
+
+                        case '1':
+                        {
+
+                                SEGGER_RTT_WriteString(0, "\r\n\tTEST 1\n");
+                                break;
+                        }
+
                         case '2':
                         {
 
-                                SEGGER_RTT_WriteString(0, "\r\n\tTEST\n");
+                                SEGGER_RTT_WriteString(0, "\r\n\tTEST 2\n");
                                 break;
                         }
 
