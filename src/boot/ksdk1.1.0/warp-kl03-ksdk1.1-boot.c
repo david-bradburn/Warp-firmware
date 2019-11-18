@@ -1446,8 +1446,12 @@ devSSD1331init();
 
 		SEGGER_RTT_WriteString(0, "\r- 'z': dump all sensors data.\n");
 		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
-
-		SEGGER_RTT_WriteString(0, "\r- 'c1000': read 1000 currents. \n");//New menu commmand
+		
+		
+		SEGGER_RTT_WriteStrinf(0, "\r- '1': read 1 current.\n");//Read 1 current via INA219
+		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
+		
+		SEGGER_RTT_WriteString(0, "\r- '2': read 1000 currents.\n");//Read 1000 currents via INA219
 		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
 
 		SEGGER_RTT_WriteString(0, "\rEnter selection> ");
@@ -2463,7 +2467,7 @@ devSSD1331init();
 
 				break;
 			}
-                        case 'c1000':
+                        case '2':
                         {
 
                                 SEGGER_RTT_WriteString(0, "\r\n\tTEST\n");
