@@ -84,6 +84,8 @@
 #endif
 
 #	include "devSSD1331.h"
+#	include "INA219.h"
+
 #define WARP_BUILD_ENABLE_SEGGER_RTT_PRINTF
 //#define WARP_BUILD_BOOT_TO_CSVSTREAM
 
