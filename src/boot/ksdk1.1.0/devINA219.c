@@ -83,7 +83,7 @@ writeSensorRegisterINA219(uint8_t deviceRegister, uint8_t payload, uint16_t menu
 }
 
 WarpStatus
-configureSensorINA219(uint8_t payloadF_SETUP, uint8_t payloadCTRL_REG1, uint16_t menuI2cPullupValue)
+configureSensorINA219(uint8_t payloadF_SETUP, uint16_t menuI2cPullupValue)
 {
 	WarpStatus	i2cWriteStatus1;
 
