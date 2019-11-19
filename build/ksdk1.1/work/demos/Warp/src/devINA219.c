@@ -20,7 +20,8 @@ extern volatile uint32_t		gWarpI2cBaudRateKbps;
 extern volatile uint32_t		gWarpI2cTimeoutMilliseconds;
 extern volatile uint32_t		gWarpSupplySettlingDelayMilliseconds;
 
-emun{
+enum
+{
 	kConfigurationRegisterINA219 = 0x00, //R/W
 	kShuntVoltageRegister = 0x01, //R
 	kBusVoltageRegister = 0x02, //R
