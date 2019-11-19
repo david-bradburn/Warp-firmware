@@ -126,8 +126,8 @@ enum {
  *  current/power monitor IC
  */
 
-  Adafruit_INA219(uint8_t addr = INA219_ADDRESS);
-  void begin(TwoWire *theWire = &Wire);
+  Adafruit_INA219();
+  void begin();
   void setCalibration_32V_2A();
   void setCalibration_32V_1A();
   void setCalibration_16V_400mA();
@@ -137,7 +137,6 @@ enum {
   float getPower_mW();
   void powerSave(bool on);
 
-  TwoWire *_i2c;
 
   uint8_t ina219_i2caddr;
   uint32_t ina219_calValue;
@@ -153,5 +152,7 @@ enum {
   int16_t getShuntVoltage_raw();
   int16_t getCurrent_raw();
   int16_t getPower_raw();
+};
+
 
 #endif
