@@ -339,6 +339,33 @@ home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHDC1000.c.s:
 	$(MAKE) -f CMakeFiles/Warp.dir/build.make CMakeFiles/Warp.dir/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHDC1000.c.s
 .PHONY : home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHDC1000.c.s
 
+home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devINA219.obj: home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devINA219.c.obj
+
+.PHONY : home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devINA219.obj
+
+# target to build an object file
+home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devINA219.c.obj:
+	$(MAKE) -f CMakeFiles/Warp.dir/build.make CMakeFiles/Warp.dir/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devINA219.c.obj
+.PHONY : home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devINA219.c.obj
+
+home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devINA219.i: home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devINA219.c.i
+
+.PHONY : home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devINA219.i
+
+# target to preprocess a source file
+home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devINA219.c.i:
+	$(MAKE) -f CMakeFiles/Warp.dir/build.make CMakeFiles/Warp.dir/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devINA219.c.i
+.PHONY : home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devINA219.c.i
+
+home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devINA219.s: home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devINA219.c.s
+
+.PHONY : home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devINA219.s
+
+# target to generate assembly for a file
+home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devINA219.c.s:
+	$(MAKE) -f CMakeFiles/Warp.dir/build.make CMakeFiles/Warp.dir/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devINA219.c.s
+.PHONY : home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devINA219.c.s
+
 home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devL3GD20H.obj: home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devL3GD20H.c.obj
 
 .PHONY : home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devL3GD20H.obj
@@ -678,6 +705,9 @@ help:
 	@echo "... home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHDC1000.obj"
 	@echo "... home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHDC1000.i"
 	@echo "... home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHDC1000.s"
+	@echo "... home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devINA219.obj"
+	@echo "... home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devINA219.i"
+	@echo "... home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devINA219.s"
 	@echo "... home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devL3GD20H.obj"
 	@echo "... home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devL3GD20H.i"
 	@echo "... home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devL3GD20H.s"
