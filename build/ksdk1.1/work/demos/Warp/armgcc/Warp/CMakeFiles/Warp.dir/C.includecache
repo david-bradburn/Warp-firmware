@@ -802,12 +802,6 @@ device/fsl_device_registers.h
 fsl_gpio_driver.h
 /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/boards/Warp/fsl_gpio_driver.h
 
-/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/INA219.c
-INA219.h
-/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/INA219.h
-stdint.h
-/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/stdint.h
-
 /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/INA219.h
 stdint.h
 /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/stdint.h
