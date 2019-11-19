@@ -125,8 +125,7 @@ enum {
  *   @brief  Class that stores state and functions for interacting with INA219
  *  current/power monitor IC
  */
-class Adafruit_INA219 {
-public:
+
   Adafruit_INA219(uint8_t addr = INA219_ADDRESS);
   void begin(TwoWire *theWire = &Wire);
   void setCalibration_32V_2A();
@@ -138,7 +137,6 @@ public:
   float getPower_mW();
   void powerSave(bool on);
 
-private:
   TwoWire *_i2c;
 
   uint8_t ina219_i2caddr;
@@ -155,6 +153,5 @@ private:
   int16_t getShuntVoltage_raw();
   int16_t getCurrent_raw();
   int16_t getPower_raw();
-};
 
 #endif
