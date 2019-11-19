@@ -62,6 +62,7 @@
 */
 /**************************************************************************/
 #include "INA219.h"
+#include "stdint.h"
 //#include "core/systick/systick.h"
 
 extern volatile uint8_t   I2CMasterBuffer[I2C_BUFSIZE];

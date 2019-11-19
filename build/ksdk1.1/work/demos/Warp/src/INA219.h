@@ -32,6 +32,8 @@
 #ifndef _INA219_H_
 #define _INS219_H_
 
+#include "stdint.h"
+
 //#include "projectconfig.h"
 //#include "core/i2c/i2c.h"
 
