@@ -20,12 +20,20 @@ extern volatile uint32_t		gWarpI2cBaudRateKbps;
 extern volatile uint32_t		gWarpI2cTimeoutMilliseconds;
 extern volatile uint32_t		gWarpSupplySettlingDelayMilliseconds;
 
+emun{
+	kConfigurationRegisterINA219 = 0x00, //R/W
+	kShuntVoltageRegister = 0x01, //R
+	kBusVoltageRegister = 0x02, //R
+	kPowerRegister = 0x03, //R
+	kCurrentRegister = 0x04, //R
+	kCallibrationRegister = 0x05 //R/W
+}
 
 void
 initINA219(const uint8_t i2cAddress, WarpI2CDeviceState volatile *  deviceStatePointer)
 {
 	deviceStatePointer->i2cAddress	= i2cAddress;
-	deviceStatePointer->signalType	= ();
+	//deviceStatePointer->signalType	= ();
 	return;
 }
 
@@ -37,14 +45,7 @@ writeSensorRegisterINA219(uint8_t deviceRegister, uint8_t payload, uint16_t menu
 
 	switch (deviceRegister)
 	{
-		case 0x09: case 0x0a: case 0x0e: case 0x0f:
-		case 0x11: case 0x12: case 0x13: case 0x14:
-		case 0x15: case 0x17: case 0x18: case 0x1d:
-		case 0x1f: case 0x20: case 0x21: case 0x23:
-		case 0x24: case 0x25: case 0x26: case 0x27:
-		case 0x28: case 0x29: case 0x2a: case 0x2b:
-		case 0x2c: case 0x2d: case 0x2e: case 0x2f:
-		case 0x30: case 0x31:
+		case 0x00: case 0x05:
 		{
 			/* OK */
 			break;
@@ -83,17 +84,18 @@ writeSensorRegisterINA219(uint8_t deviceRegister, uint8_t payload, uint16_t menu
 WarpStatus
 configureSensorINA219(uint8_t payloadF_SETUP, uint8_t payloadCTRL_REG1, uint16_t menuI2cPullupValue)
 {
-	WarpStatus	i2cWriteStatus1, i2cWriteStatus2;
+	WarpStatus	i2cWriteStatus1;
 
-	i2cWriteStatus1 = writeSensorRegisterINA219(kWarpSensorConfigurationRegisterINA219F_SETUP /* register address F_SETUP */,
+	i2cWriteStatus1 = writeSensorRegisterINA219(kConfigurationRegisterINA219 /* register address F_SETUP */,
 							payloadF_SETUP /* payload: Disable FIFO */,
 							menuI2cPullupValue);
 
-	i2cWriteStatus2 = writeSensorRegisterINA219(kWarpSensorConfigurationRegisterINA219CTRL_REG1 /* register address CTRL_REG1 */,
-							payloadCTRL_REG1 /* payload */,
-							menuI2cPullupValue);
+// 	i2cWriteStatus2 = writeSensorRegisterINA219(kWarpSensorConfigurationRegisterINA219CTRL_REG1 /* register address CTRL_REG1 */,
+// 							payloadCTRL_REG1 /* payload */,
+// 							menuI2cPullupValue);
 
-	return (i2cWriteStatus1 | i2cWriteStatus2);
+//	return (i2cWriteStatus1 | i2cWriteStatus2);
+	return (i2cWriteStatus1);
 }
 
 
@@ -108,16 +110,7 @@ readSensorRegisterINA219(uint8_t deviceRegister, int numberOfBytes)
 	switch (deviceRegister)
 	{
 		case 0x00: case 0x01: case 0x02: case 0x03: 
-		case 0x04: case 0x05: case 0x06: case 0x09:
-		case 0x0a: case 0x0b: case 0x0c: case 0x0d:
-		case 0x0e: case 0x0f: case 0x10: case 0x11:
-		case 0x12: case 0x13: case 0x14: case 0x15:
-		case 0x16: case 0x17: case 0x18: case 0x1d:
-		case 0x1e: case 0x1f: case 0x20: case 0x21:
-		case 0x22: case 0x23: case 0x24: case 0x25:
-		case 0x26: case 0x27: case 0x28: case 0x29:
-		case 0x2a: case 0x2b: case 0x2c: case 0x2d:
-		case 0x2e: case 0x2f: case 0x30: case 0x31:
+		case 0x04: case 0x05:
 		{
 			/* OK */
 			break;
@@ -144,7 +137,7 @@ readSensorRegisterINA219(uint8_t deviceRegister, int numberOfBytes)
 							&slave,
 							cmdBuf,
 							1,
-							(uint8_t *)deviceMMA8451QState.i2cBuffer,
+							(uint8_t *)deviceINA219State.i2cBuffer,
 							numberOfBytes,
 							gWarpI2cTimeoutMilliseconds);
 
@@ -157,7 +150,7 @@ readSensorRegisterINA219(uint8_t deviceRegister, int numberOfBytes)
 }
 
 void
-printSensorDataINA219(bool hexModeFlag)
+printSensorDataINA219(bool hexModeFlag) //disneeds work
 {
 	uint16_t	readSensorRegisterValueLSB;
 	uint16_t	readSensorRegisterValueMSB;
@@ -177,7 +170,7 @@ printSensorDataINA219(bool hexModeFlag)
 	 *	We therefore do 2-byte read transactions, for each of the registers.
 	 *	We could also improve things by doing a 6-byte read transaction.
 	 */
-	i2cReadStatus = readSensorRegisterINA219(kWarpSensorOutputRegisterMMA8451QOUT_X_MSB, 2 /* numberOfBytes */);
+	i2cReadStatus = readSensorRegisterINA219(kWarpSensorOutputRegisterINA219OUT_X_MSB, 2 /* numberOfBytes */);
 	readSensorRegisterValueMSB = deviceINA219State.i2cBuffer[0];
 	readSensorRegisterValueLSB = deviceINA219State.i2cBuffer[1];
 	readSensorRegisterValueCombined = ((readSensorRegisterValueMSB & 0xFF) << 6) | (readSensorRegisterValueLSB >> 2);
