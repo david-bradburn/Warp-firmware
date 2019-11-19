@@ -126,6 +126,33 @@ enum {
  *  current/power monitor IC
  */
 
+  Adafruit_INA219();
+  void begin();
+  void setCalibration_32V_2A();
+  void setCalibration_32V_1A();
+  void setCalibration_16V_400mA();
+  float getBusVoltage_V();
+  float getShuntVoltage_mV();
+  float getCurrent_mA();
+  float getPower_mW();
+  void powerSave(bool on);
+
+
+  uint8_t ina219_i2caddr;
+  uint32_t ina219_calValue;
+  // The following multipliers are used to convert raw current and power
+  // values to mA and mW, taking into account the current config settings
+  uint32_t ina219_currentDivider_mA;
+  float ina219_powerMultiplier_mW;
+
+  void init();
+  void wireWriteRegister(uint8_t reg, uint16_t value);
+  void wireReadRegister(uint8_t reg, uint16_t *value);
+  int16_t getBusVoltage_raw();
+  int16_t getShuntVoltage_raw();
+  int16_t getCurrent_raw();
+  int16_t getPower_raw();
+};
 
 
 #endif
