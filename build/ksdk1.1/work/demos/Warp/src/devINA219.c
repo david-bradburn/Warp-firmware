@@ -28,7 +28,7 @@ enum
 	kPowerRegister = 0x03, //R
 	kCurrentRegister = 0x04, //R
 	kCallibrationRegister = 0x05 //R/W
-}
+};
 
 void
 initINA219(const uint8_t i2cAddress, WarpI2CDeviceState volatile *  deviceStatePointer)
