@@ -18,8 +18,6 @@
 #define _LIB_ADAFRUIT_INA219_
 
 
-#include <Wire.h>
-
 /** default I2C address **/
 #define INA219_ADDRESS (0x40) // 1000000 (A0+A1=GND)
 

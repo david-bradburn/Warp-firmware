@@ -25,9 +25,6 @@
  */
 
 
-
-#include <Wire.h>
-
 #include "Adafruit_INA219.h"
 
 /*!
@@ -473,4 +470,4 @@ float Adafruit_INA219::getPower_mW() {
   float valueDec = getPower_raw();
   valueDec *= ina219_powerMultiplier_mW;
   return valueDec;
- }
+}
