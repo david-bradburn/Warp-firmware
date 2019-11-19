@@ -17,7 +17,7 @@
 #ifndef _LIB_ADAFRUIT_INA219_
 #define _LIB_ADAFRUIT_INA219_
 
-#include "Arduino.h"
+
 #include <Wire.h>
 
 /** default I2C address **/

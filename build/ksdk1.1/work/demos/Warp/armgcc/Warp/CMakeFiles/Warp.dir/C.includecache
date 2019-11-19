@@ -803,16 +803,12 @@ fsl_gpio_driver.h
 /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/boards/Warp/fsl_gpio_driver.h
 
 /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/INA219.c
-Arduino.h
-/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/Arduino.h
 Wire.h
 -
 Adafruit_INA219.h
 /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/Adafruit_INA219.h
 
 /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/INA219.h
-Arduino.h
-/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/Arduino.h
 Wire.h
 -
 
