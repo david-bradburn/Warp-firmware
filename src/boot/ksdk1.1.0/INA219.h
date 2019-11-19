@@ -32,8 +32,8 @@
 #ifndef _INA219_H_
 #define _INS219_H_
 
-#include "projectconfig.h"
-#include "core/i2c/i2c.h"
+//#include "projectconfig.h"
+//#include "core/i2c/i2c.h"
 
 /*=========================================================================
     I2C ADDRESS/BITS
