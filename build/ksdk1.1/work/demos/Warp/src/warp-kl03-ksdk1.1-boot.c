@@ -1262,9 +1262,9 @@ main(void)
 	initMAG3110(	0x0E	/* i2cAddress */,	&deviceMAG3110State	);
 #endif
 
-#ifdef WARP_BUILD_ENABLE_DEVSI7021
-	initSI7021(	0x40	/* i2cAddress */,	&deviceSI7021State	);
-#endif
+// #ifdef WARP_BUILD_ENABLE_DEVSI7021
+// 	initSI7021(	0x40	/* i2cAddress */,	&deviceSI7021State	);
+// #endif
 
 #ifdef WARP_BUILD_ENABLE_DEVL3GD20H
 	initL3GD20H(	0x6A	/* i2cAddress */,	&deviceL3GD20HState	);
@@ -1321,7 +1321,7 @@ main(void)
 // 	SEGGER_RTT_WriteString(0, "\r\tPowerup command failed. INA219 disabled \n");
 // 	#endif
 	
-// 	#endif
+#endif
 
 #ifdef WARP_BUILD_ENABLE_DEVRV8803C7
   initRV8803C7(0x32 /* i2cAddress */, &deviceRV8803C7State);
