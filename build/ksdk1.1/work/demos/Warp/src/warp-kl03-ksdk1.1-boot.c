@@ -1300,6 +1300,7 @@ main(void)
 	
 #ifdef WARP_BUILD_ENABLE_DEVINA219
 	initINA219(	0x40	/* i2cAddress */,	&deviceINA219State	);
+	WarpStatus	status;
 // //	uint8_t i2cWriteStatusA = writeSensorRegisterINA219(0x05 /* register address F_SETUP */,
 // 												0x50 /* payload: Disable FIFO */,
 // 												1);
@@ -1312,15 +1313,15 @@ main(void)
 						0x5000				/*	payloadByte		*/);
 	if (status != kWarpStatusOK)
 	{
-#ifdef WARP_BUILD_ENABLE_SEGGER_RTT_PRINTF
+	#ifdef WARP_BUILD_ENABLE_SEGGER_RTT_PRINTF
 		SEGGER_RTT_printf(0, "\r\tPowerup command failed, code=%d, for INA219 @ 0x%02x.\n", status, deviceBMX055magState.i2cAddress);
-#endif
+	#endif
 	}
 	#else
 	SEGGER_RTT_WriteString(0, "\r\tPowerup command failed. INA219 disabled \n");
-#endif
-}
-#endif
+	#endif
+	
+	#endif
 
 #ifdef WARP_BUILD_ENABLE_DEVRV8803C7
   initRV8803C7(0x32 /* i2cAddress */, &deviceRV8803C7State);
