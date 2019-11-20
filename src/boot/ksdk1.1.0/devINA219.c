@@ -34,6 +34,8 @@ void
 initINA219(const uint8_t i2cAddress, WarpI2CDeviceState volatile *  deviceStatePointer)
 {
 	deviceStatePointer->i2cAddress	= i2cAddress;
+//	configureSensorINA219(0x1000, menuI2cPullupValue);
+	
 	//deviceStatePointer->signalType	= ();
 	return;
 }
@@ -85,6 +87,7 @@ writeSensorRegisterINA219(uint8_t deviceRegister, uint8_t payload, uint16_t menu
 WarpStatus
 configureSensorINA219(uint8_t payloadF_SETUP, uint16_t menuI2cPullupValue)
 {
+
 	WarpStatus	i2cWriteStatus1;
 
 	i2cWriteStatus1 = writeSensorRegisterINA219(kConfigurationRegisterINA219 /* register address F_SETUP */,
