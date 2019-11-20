@@ -1321,7 +1321,7 @@ main(void)
 // 	SEGGER_RTT_WriteString(0, "\r\tPowerup command failed. INA219 disabled \n");
 // 	#endif
 	
-// 	#endif
+#endif
 
 #ifdef WARP_BUILD_ENABLE_DEVRV8803C7
   initRV8803C7(0x32 /* i2cAddress */, &deviceRV8803C7State);
