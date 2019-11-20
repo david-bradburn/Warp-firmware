@@ -177,6 +177,10 @@ volatile WarpI2CDeviceState			deviceAS7263State;
 volatile WarpI2CDeviceState			deviceRV8803C7State;
 #endif
 
+#ifdef WARP_BUILD_ENABLE_DEVINA219
+volatile WarpI2CDeviceState			deviceINA219State;
+#endif
+
 /*
  *	TODO: move this and possibly others into a global structure
  */
@@ -1293,6 +1297,10 @@ main(void)
 #ifdef WARP_BUILD_ENABLE_DEVAS7263
 	initAS7263(	0x49	/* i2cAddress */,	&deviceAS7263State	);
 #endif
+	
+#ifdef WARP_BUILD_ENABLE_DEVINA219
+	initINA219(	0x40	/* i2cAddress */,	&deviceAS7263State	);
+#endif
 
 #ifdef WARP_BUILD_ENABLE_DEVRV8803C7
   initRV8803C7(0x32 /* i2cAddress */, &deviceRV8803C7State);
@@ -1588,6 +1596,12 @@ devSSD1331init();
 				#else
 				SEGGER_RTT_WriteString(0, "\r\t- 'k' AS7263			(0x00--0x2B): 2.7V -- 3.6V (compiled out) \n");
 #endif
+				
+#ifdef WARP_BUILD_ENABLE_DEVINA219
+				SEGGER_RTT_WriteString(0, "\r\t- 'm' INA219			\n");
+				#else
+				SEGGER_RTT_WriteString(0, "\r\t- 'm' INA219			\n");
+#endif
 				OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
 
 				SEGGER_RTT_WriteString(0, "\r\tEnter selection> ");
@@ -1738,6 +1752,15 @@ devSSD1331init();
 					{
 						menuTargetSensor = kWarpSensorAS7263;
 						menuI2cDevice = &deviceAS7263State;
+						break;
+					}
+#endif
+
+#ifdef WARP_BUILD_ENABLE_DEVINA219
+					case 'm':
+					{
+						menuTargetSensor = kWarpSensorINA219;
+						menuI2cDevice = &deviceINA219State;
 						break;
 					}
 #endif
@@ -2478,12 +2501,6 @@ devSSD1331init();
                         {
 
                                 SEGGER_RTT_WriteString(0, "\r\n\tTEST 1\n");
-				SEGGER_RTT_printf(readSensorRegisterINA219(0x00, 16), "\n");
-				SEGGER_RTT_printf(readSensorRegisterINA219(0x01, 16), "\n");
-				SEGGER_RTT_printf(readSensorRegisterINA219(0x02, 16), "\n");
-				SEGGER_RTT_printf(readSensorRegisterINA219(0x03, 16), "\n");
-				SEGGER_RTT_printf(readSensorRegisterINA219(0x04, 16), "\n");
-				SEGGER_RTT_printf(readSensorRegisterINA219(0x05, 16), "\n");
                                 break;
                         }
 
@@ -2932,6 +2949,32 @@ repeatRegisterReadForDeviceAndAddress(WarpSensorDevice warpSensorDevice, uint8_t
 					);
 			#else
 			SEGGER_RTT_WriteString(0, "\r\n\tMMA8451Q Read Aborted. Device Disabled :(");
+#endif
+			break;
+		}
+			
+		case kWarpSensorINA219:
+		{
+			
+#ifdef WARP_BUILD_ENABLE_DEVINA219
+			loopForSensor(	"\r\nINA219:\n\r",		/*	tagString			*/
+					&readSensorRegisterINA219,	/*	readSensorRegisterFunction	*/
+					&deviceINA219State,		/*	i2cDeviceState			*/
+					NULL,				/*	spiDeviceState			*/
+					baseAddress,			/*	baseAddress			*/
+					0x00,				/*	minAddress			*/
+					0x05,				/*	maxAddress			*/
+					repetitionsPerAddress,		/*	repetitionsPerAddress		*/
+					chunkReadsPerAddress,		/*	chunkReadsPerAddress		*/
+					spinDelay,			/*	spinDelay			*/
+					autoIncrement,			/*	autoIncrement			*/
+					sssupplyMillivolts,		/*	sssupplyMillivolts		*/
+					referenceByte,			/*	referenceByte			*/
+					adaptiveSssupplyMaxMillivolts,	/*	adaptiveSssupplyMaxMillivolts	*/
+					chatty				/*	chatty				*/
+					);
+			#else
+			SEGGER_RTT_WriteString(0, "\r\n\tINA219 Read Aborted. Device Disabled :(");
 #endif
 			break;
 		}
