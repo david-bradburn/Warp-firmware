@@ -106,7 +106,7 @@ writeSensorRegisterINA219(uint8_t deviceRegister, uint16_t payload, uint16_t men
 							1,
 							gWarpI2cTimeoutMilliseconds);
 
-	if ((status1 != kStatus_I2C_Success)|(status2 != kStatus_I2C_Success))
+	if ((status1 != kStatus_I2C_Success) || (status2 != kStatus_I2C_Success))
 	{
 		return kWarpStatusDeviceCommunicationFailed;
 	}
