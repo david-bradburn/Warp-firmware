@@ -20,9 +20,6 @@ extern volatile uint32_t		gWarpI2cBaudRateKbps;
 extern volatile uint32_t		gWarpI2cTimeoutMilliseconds;
 extern volatile uint32_t		gWarpSupplySettlingDelayMilliseconds;
 
-int I2C_BUFSIZE = 16;
-extern volatile uint8_t   I2CMasterBuffer[I2C_BUFSIZE];
-extern volatile uint8_t   I2CSlaveBuffer[I2C_BUFSIZE];
 
 enum
 {
