@@ -20,6 +20,7 @@ extern volatile uint32_t		gWarpI2cBaudRateKbps;
 extern volatile uint32_t		gWarpI2cTimeoutMilliseconds;
 extern volatile uint32_t		gWarpSupplySettlingDelayMilliseconds;
 
+int I2C_BUFSIZE = 16;
 extern volatile uint8_t   I2CMasterBuffer[I2C_BUFSIZE];
 extern volatile uint8_t   I2CSlaveBuffer[I2C_BUFSIZE];
 
@@ -49,7 +50,7 @@ writeSensorRegisterINA219(uint8_t deviceRegister, uint16_t payload, uint16_t men
 	uint8_t		payloadByte[2];
 	uint8_t 	commandByte[1];
 	i2c_status_t	status1;
-	i2c_status_2 	status2;
+	i2c_status_t 	status2;
 
 	payloadByte[0] = payload >> 8;
 	payloadByte[1] = payload & 0xFF;
