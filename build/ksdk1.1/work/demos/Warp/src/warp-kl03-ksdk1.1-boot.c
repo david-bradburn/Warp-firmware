@@ -1314,7 +1314,7 @@ main(void)
 	if (status != kWarpStatusOK)
 	{
 	#ifdef WARP_BUILD_ENABLE_SEGGER_RTT_PRINTF
-		SEGGER_RTT_printf(0, "\r\tPowerup command failed, code=%d, for INA219 @ 0x%02x.\n", status, deviceBMX055magState.i2cAddress);
+		SEGGER_RTT_printf(0, "\r\tPowerup command failed, code=%d, for INA219 @ 0x%02x.\n", status, deviceINA219State.i2cAddress);
 	#endif
 	}
 	#else
