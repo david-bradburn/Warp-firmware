@@ -1300,8 +1300,8 @@ main(void)
 	
 #ifdef WARP_BUILD_ENABLE_DEVINA219
 	initINA219(	0x40	/* i2cAddress */,	&deviceINA219State	);
-	i2cWriteStatusA = writeSensorRegisterINA219(0x05 /* register address F_SETUP */,
-												0x5000 /* payload: Disable FIFO */,
+	uint8_t i2cWriteStatusA = writeSensorRegisterINA219(0x05 /* register address F_SETUP */,
+												0x50 /* payload: Disable FIFO */,
 												1);
 #endif
 
