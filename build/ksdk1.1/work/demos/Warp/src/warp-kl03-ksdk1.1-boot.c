@@ -2963,7 +2963,7 @@ repeatRegisterReadForDeviceAndAddress(WarpSensorDevice warpSensorDevice, uint8_t
 					NULL,				/*	spiDeviceState			*/
 					baseAddress,			/*	baseAddress			*/
 					0x00,				/*	minAddress			*/
-					0x04,				/*	maxAddress			*/
+					0x09,				/*	maxAddress			*/
 					repetitionsPerAddress,		/*	repetitionsPerAddress		*/
 					chunkReadsPerAddress,		/*	chunkReadsPerAddress		*/
 					spinDelay,			/*	spinDelay			*/
