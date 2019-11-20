@@ -86,6 +86,7 @@
 #	include "devSSD1331.h"
 #	include "devINA219.h"
 
+readSensorRegisterINA219
 #define WARP_BUILD_ENABLE_SEGGER_RTT_PRINTF
 //#define WARP_BUILD_BOOT_TO_CSVSTREAM
 
@@ -2965,7 +2966,7 @@ repeatRegisterReadForDeviceAndAddress(WarpSensorDevice warpSensorDevice, uint8_t
 					NULL,				/*	spiDeviceState			*/
 					baseAddress,			/*	baseAddress			*/
 					0x00,				/*	minAddress			*/
-					0x09,				/*	maxAddress			*/
+					0x05,				/*	maxAddress			*/
 					repetitionsPerAddress,		/*	repetitionsPerAddress		*/
 					chunkReadsPerAddress,		/*	chunkReadsPerAddress		*/
 					spinDelay,			/*	spinDelay			*/
