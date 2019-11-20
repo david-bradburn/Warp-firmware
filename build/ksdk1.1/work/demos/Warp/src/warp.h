@@ -33,16 +33,18 @@ typedef enum
 	kWarpTypeMaskLambda570Y		= (1 << 19),
 	kWarpTypeMaskLambda600O		= (1 << 20),
 	kWarpTypeMaskLambda650R		= (1 << 21),
-	
+
 	kWarpTypeMaskLambda610R		= (1 << 22),
 	kWarpTypeMaskLambda680S		= (1 << 23),
 	kWarpTypeMaskLambda730T		= (1 << 24),
 	kWarpTypeMaskLambda760U		= (1 << 25),
 	kWarpTypeMaskLambda810V		= (1 << 26),
 	kWarpTypeMaskLambda860W		= (1 << 27),
-	
+
 	kWarpTypeMaskTotalVOC		= (1 << 28),
 	kWarpTypeMaskEquivalentCO2	= (1 << 29),
+
+	//kWarpType
 
 
 	/*
@@ -94,7 +96,7 @@ typedef enum
 	kWarpStatusBadDeviceCommand,
 
 	/*
-	 *	Generic comms error 
+	 *	Generic comms error
 	 */
 	kWarpStatusCommsError,
 
