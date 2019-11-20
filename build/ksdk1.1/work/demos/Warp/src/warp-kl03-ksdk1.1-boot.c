@@ -2474,6 +2474,12 @@ devSSD1331init();
                         {
 
                                 SEGGER_RTT_WriteString(0, "\r\n\tTEST 1\n");
+				SEGGER_RTT_printf(readSensorRegisterINA219(0x00, 16), "\n");
+				SEGGER_RTT_printf(readSensorRegisterINA219(0x01, 16), "\n");
+				SEGGER_RTT_printf(readSensorRegisterINA219(0x02, 16), "\n");
+				SEGGER_RTT_printf(readSensorRegisterINA219(0x03, 16), "\n");
+				SEGGER_RTT_printf(readSensorRegisterINA219(0x04, 16), "\n");
+				SEGGER_RTT_printf(readSensorRegisterINA219(0x05, 16), "\n");
                                 break;
                         }
 
