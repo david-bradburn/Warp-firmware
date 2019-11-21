@@ -2499,19 +2499,37 @@ devSSD1331init();
 				break;
 			}
 
-                        case '1':
-                        {
+      case '1':
+      {
+				WarpStatus		status;
+				uint8_t			address = min(minAddress, baseAddress);
+				int			readCount = repetitionsPerAddress + 1;
+				int			nSuccesses = 0;
+				int			nFailures = 0;
+				int			nCorrects = 0;
+				int			nBadCommands = 0;
+				uint16_t		actualSssupplyMillivolts = sssupplyMillivolts;
 
-                                SEGGER_RTT_WriteString(0, "\r\n\tTEST 1\n");
-                                break;
-                        }
 
-                        case '2':
-                        {
+              SEGGER_RTT_WriteString(0, "\r\n\tTEST 1\n");
+							enableI2Cpins(menuI2cPullupValue);
+							status = readSensorRegisterINA219(0x05, 2);
 
-                                SEGGER_RTT_WriteString(0, "\r\n\tTEST 2\n");
-                                break;
-                        }
+							#ifdef WARP_BUILD_ENABLE_SEGGER_RTT_PRINTF
+													SEGGER_RTT_printf(0, "\r\t0x%02x --> 0x%02x%02x\n",
+														address+j,
+														deviceINA219State->i2cBuffer[0],
+														deviceINA219State->i2cBuffer[1]);
+							#endif
+              break;
+      }
+
+      case '2':
+      {
+
+              SEGGER_RTT_WriteString(0, "\r\n\tTEST 2\n");
+              break;
+      }
 
 
 			/*
@@ -2961,7 +2979,7 @@ repeatRegisterReadForDeviceAndAddress(WarpSensorDevice warpSensorDevice, uint8_t
 
 		case kWarpSensorINA219:
 		{
-					writeSensorRegisterINA219(0x05, 0x5000, 32768);
+					writeSensorRegisterINA219(0x05, 0x50, 32768);
 
 #ifdef WARP_BUILD_ENABLE_DEVINA219
 			loopForSensor(	"\r\nINA219:\n\r",		/*	tagString			*/
