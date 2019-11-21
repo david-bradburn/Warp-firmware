@@ -42,7 +42,7 @@ writeSensorRegisterINA219(uint8_t deviceRegister, uint16_t payload, uint16_t men
 	payloadByte[0] = payload >> 8;
 	payloadByte[1] = payload & 0xFF;
 
-	SEGGER_RTT_WriteString(0, "\r\n\t", payload, "\n");
+	SEGGER_RTT_WriteString(0, "\r\n\t%\n", payload);
 
 	switch (deviceRegister)
 	{
