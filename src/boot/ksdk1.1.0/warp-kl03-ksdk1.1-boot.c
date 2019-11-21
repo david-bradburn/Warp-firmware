@@ -224,7 +224,7 @@ void					disableSssupply(void);
 void					activateAllLowPowerSensorModes(bool verbose);
 void					powerupAllSensors(void);
 uint8_t					readHexByte(void);
-unit16_t				readHexByte16(void);
+uint16_t				readHexByte16(void);
 int					read4digits(void);
 void					printAllSensors(bool printHeadersAndCalibration, bool hexModeFlag, int menuDelayBetweenEachRun, int i2cPullupValue);
 
