@@ -2765,7 +2765,7 @@ loopForSensor(	const char *  tagString,
 	int			nBadCommands = 0;
 	uint16_t		actualSssupplyMillivolts = sssupplyMillivolts;
 
-	SEGGER_RTT_printf(0, "\r\t", status, address, readCount actualSssupplyMillivolts, "n");
+	SEGGER_RTT_printf(0, "\r\t", status, address, readCount, actualSssupplyMillivolts, "n");
 
 
 	if (	(!spiDeviceState && !i2cDeviceState) ||
