@@ -33,7 +33,7 @@ initINA219(const uint8_t i2cAddress, WarpI2CDeviceState volatile *  deviceStateP
 }
 
 WarpStatus
-writeSensorRegisterINA219(uint8_t deviceRegister, int16_t payload, uint16_t menuI2cPullupValue) //need to test write command
+writeSensorRegisterINA219(uint8_t deviceRegister, uint32_t payload, uint16_t menuI2cPullupValue) //need to test write command
 {
 	uint8_t		payloadByte[2];
 	uint8_t 	commandByte[1];
