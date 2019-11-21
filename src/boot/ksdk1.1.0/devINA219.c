@@ -37,8 +37,7 @@ writeSensorRegisterINA219(uint8_t deviceRegister, uint16_t payload, uint16_t men
 {
 	uint8_t		payloadByte[2];
 	uint8_t 	commandByte[1];
-	i2c_status_t	status1;
-	i2c_status_t 	status2;
+	i2c_status_t	status;
 
 	payloadByte[0] = payload >> 8;
 	payloadByte[1] = payload & 0xFF;
