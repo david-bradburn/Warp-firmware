@@ -2502,13 +2502,12 @@ devSSD1331init();
       case '1':
       {
 				WarpStatus		status;
-				uint8_t			address = min(minAddress, baseAddress);
-				int			readCount = repetitionsPerAddress + 1;
+				uint8_t			address = 0x00;
 				int			nSuccesses = 0;
 				int			nFailures = 0;
 				int			nCorrects = 0;
 				int			nBadCommands = 0;
-				uint16_t		actualSssupplyMillivolts = sssupplyMillivolts;
+				uint16_t		actualSssupplyMillivolts = 1800;
 
 
               SEGGER_RTT_WriteString(0, "\r\n\tTEST 1\n");
@@ -2517,9 +2516,9 @@ devSSD1331init();
 
 							#ifdef WARP_BUILD_ENABLE_SEGGER_RTT_PRINTF
 													SEGGER_RTT_printf(0, "\r\t0x%02x --> 0x%02x%02x\n",
-														address+j,
-														deviceINA219State->i2cBuffer[0],
-														deviceINA219State->i2cBuffer[1]);
+														0x50
+														deviceINA219State.i2cBuffer[0],
+														deviceINA219State.i2cBuffer[1]);
 							#endif
               break;
       }
