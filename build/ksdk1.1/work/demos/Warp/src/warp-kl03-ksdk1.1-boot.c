@@ -2573,7 +2573,7 @@ devSSD1331init();
 
               SEGGER_RTT_WriteString(0, "\r\n\tType configuraion value\n");
 							enableI2Cpins(menuI2cPullupValue);
-							uint16_t towrite = readHexByte();
+							uint16_t towrite = readHexByte16();
 							writeSensorRegisterINA219(0x05, towrite, 32768);
               break;
       }
@@ -3521,6 +3521,18 @@ readHexByte(void)
 	return (char2int(topNybble) << 4) + char2int(bottomNybble);
 }
 
+uint16_t
+readHexByte16(void)
+{
+	uint8_t		toptopNybble, topbottomNybble, bottomtopNybble, bottombottomNybble;
+
+	toptopNybble = SEGGER_RTT_WaitKey();
+	topbottomNybble = SEGGER_RTT_WaitKey();
+	bottomtopNybble = SEGGER_RTT_WaitKey();
+	bottombottomNybble = SEGGER_RTT_WaitKey();
+
+	return (char2int(toptopNybble) << 12) + (char2int(topbottomNybble) << 8) + (char2int(bottomtopNybble) << 4) + char2int(bottombottomNybble);
+}
 
 
 int
