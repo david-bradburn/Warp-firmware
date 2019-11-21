@@ -2788,8 +2788,12 @@ loopForSensor(	const char *  tagString,
 		for (int i = 0; i < readCount; i++) for (int j = 0; j < chunkReadsPerAddress; j++)
 		{
 			status = readSensorRegisterFunction(address+j, 1 /* numberOfBytes */);
+
+			#ifdef WARP_BUILD_ENABLE_SEGGER_RTT_PRINTF
 			SEGGER_RTT_printf(0, "\r\t", status, "\n");
 			SEGGER_RTT_printf(0, "\r\t", kWarpStatusOK, "\n");
+			#endif
+			
 			if (status == kWarpStatusOK)
 			{
 				nSuccesses++;
