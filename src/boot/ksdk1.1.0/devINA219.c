@@ -28,12 +28,12 @@ initINA219(const uint8_t i2cAddress, WarpI2CDeviceState volatile *  deviceStateP
 	deviceStatePointer->i2cAddress	= i2cAddress;
 	//configureSensorINA219(0x1000, menuI2cPullupValue);
 
-	deviceStatePointer->signalType  = (kWarpTypeMaskCurrent);
+	deviceStatePointer->signalType  = (kWarpTypeMaskCurrent); //this is kinda pointless
 	return;
 }
 
 WarpStatus
-writeSensorRegisterINA219(uint8_t deviceRegister, uint16_t payload, uint16_t menuI2cPullupValue)
+writeSensorRegisterINA219(uint8_t deviceRegister, uint16_t payload, uint16_t menuI2cPullupValue) //need to test write command
 {
 	uint8_t		payloadByte[2];
 	uint8_t 	commandByte[1];
@@ -102,6 +102,7 @@ readSensorRegisterINA219(uint8_t deviceRegister, int numberOfBytes)
 	uint8_t		cmdBuf[1] = {0xFF};
 	i2c_status_t	status;
 
+	
 
 	USED(numberOfBytes);
 	switch (deviceRegister)
