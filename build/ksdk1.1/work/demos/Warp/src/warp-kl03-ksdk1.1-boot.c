@@ -2765,7 +2765,7 @@ loopForSensor(	const char *  tagString,
 	int			nBadCommands = 0;
 	uint16_t		actualSssupplyMillivolts = sssupplyMillivolts;
 
-	SEGGER_RTT_printf(0, "\r\t", status, address, readCount, actualSssupplyMillivolts, "n");
+	SEGGER_RTT_printf(0, "\r\t", address, readCount, actualSssupplyMillivolts, "n");
 
 
 	if (	(!spiDeviceState && !i2cDeviceState) ||
@@ -2961,6 +2961,7 @@ repeatRegisterReadForDeviceAndAddress(WarpSensorDevice warpSensorDevice, uint8_t
 
 		case kWarpSensorINA219:
 		{
+					writeSensorRegisterINA219(0x05, 0x5000, menuI2cPullupValue);
 
 #ifdef WARP_BUILD_ENABLE_DEVINA219
 			loopForSensor(	"\r\nINA219:\n\r",		/*	tagString			*/
