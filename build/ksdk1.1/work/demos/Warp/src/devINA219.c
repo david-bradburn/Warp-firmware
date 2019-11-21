@@ -21,15 +21,6 @@ extern volatile uint32_t		gWarpI2cTimeoutMilliseconds;
 extern volatile uint32_t		gWarpSupplySettlingDelayMilliseconds;
 
 
-enum
-{
-	kConfigurationRegisterINA219 = 0x00, //R/W
-	kShuntVoltageRegisterINA219 = 0x01, //R
-	kBusVoltageRegisterINA219 = 0x02, //R
-	kPowerRegisterINA219 = 0x03, //R
-	kCurrentRegisterINA219 = 0x04, //R
-	kCallibrationRegisterINA219 = 0x05 //R/W
-};
 
 void
 initINA219(const uint8_t i2cAddress, WarpI2CDeviceState volatile *  deviceStatePointer)
@@ -94,17 +85,10 @@ writeSensorRegisterINA219(uint8_t deviceRegister, uint16_t payload, uint16_t men
 							&slave,
 							commandByte,
 							1,
-							payloadByte[0],
-							1,
+							payloadByte,
+							2,
 							gWarpI2cTimeoutMilliseconds);
-	status2 = I2C_DRV_MasterSendDataBlocking(
-							0 /* I2C instance */,
-							&slave,
-							commandByte,
-							1,
-							payloadByte[1],
-							1,
-							gWarpI2cTimeoutMilliseconds);
+
 
 	if ((status1 != kStatus_I2C_Success) || (status2 != kStatus_I2C_Success))
 	{
@@ -136,6 +120,25 @@ configureSensorINA219(uint16_t payloadF_SETUP, uint16_t menuI2cPullupValue)
 WarpStatus
 readSensorRegisterINA219(uint8_t deviceRegister, int numberOfBytes)
 {
+
+	// // Clear write buffers
+	//   uint32_t i;
+	//   for ( i = 0; i < I2C_BUFSIZE; i++ )
+	//   {
+	//     I2CMasterBuffer[i] = 0x00;
+	//   }
+	//
+	//   I2CWriteLength = 2;
+	//   I2CReadLength = 2;
+	//   I2CMasterBuffer[0] = INA219_ADDRESS;            // I2C device address
+	//   I2CMasterBuffer[1] = reg;                       // Command register
+	//   // Append address w/read bit
+	//   I2CMasterBuffer[2] = INA219_ADDRESS | INA219_READ;
+	//   i2cEngine();
+	//
+	//   // Shift values to create properly formed integer
+	//   *value = ((I2CSlaveBuffer[0] << 8) | I2CSlaveBuffer[1]);
+
 	uint8_t		cmdBuf[1] = {0xFF};
 	i2c_status_t	status;
 
@@ -191,8 +194,8 @@ readSensorRegisterINA219(uint8_t deviceRegister, int numberOfBytes)
 // 	uint16_t	readSensorRegisterValueMSB;
 // 	int16_t		readSensorRegisterValueCombined;
 // 	WarpStatus	i2cReadStatus;
-
-
+//
+//
 // 	/*
 // 	 *	From the MMA8451Q datasheet:
 // 	 *
@@ -209,13 +212,13 @@ readSensorRegisterINA219(uint8_t deviceRegister, int numberOfBytes)
 // 	readSensorRegisterValueMSB = deviceINA219State.i2cBuffer[0];
 // 	readSensorRegisterValueLSB = deviceINA219State.i2cBuffer[1];
 // 	readSensorRegisterValueCombined = ((readSensorRegisterValueMSB & 0xFF) << 6) | (readSensorRegisterValueLSB >> 2);
-
+//
 // 	/*
 // 	 *	Sign extend the 14-bit value based on knowledge that upper 2 bit are 0:
 // 	 */
 // 	readSensorRegisterValueCombined = (readSensorRegisterValueCombined ^ (1 << 13)) - (1 << 13);
-
-
+//
+//
 // 	if (i2cReadStatus != kWarpStatusOK)
 // 	{
 // 		SEGGER_RTT_WriteString(0, " ----,");
@@ -231,19 +234,19 @@ readSensorRegisterINA219(uint8_t deviceRegister, int numberOfBytes)
 // 			SEGGER_RTT_printf(0, " %d,", readSensorRegisterValueCombined);
 // 		}
 // 	}
-
-
+//
+//
 // 	i2cReadStatus = readSensorRegisterINA219(kWarpSensorOutputRegisterMMA8451QOUT_Y_MSB, 2 /* numberOfBytes */);
 // 	readSensorRegisterValueMSB = deviceINA219State.i2cBuffer[0];
 // 	readSensorRegisterValueLSB = deviceINA219State.i2cBuffer[1];
 // 	readSensorRegisterValueCombined = ((readSensorRegisterValueMSB & 0xFF) << 6) | (readSensorRegisterValueLSB >> 2);
-
+//
 // 	/*
 // 	 *	Sign extend the 14-bit value based on knowledge that upper 2 bit are 0:
 // 	 */
 // 	readSensorRegisterValueCombined = (readSensorRegisterValueCombined ^ (1 << 13)) - (1 << 13);
-
-
+//
+//
 // 	if (i2cReadStatus != kWarpStatusOK)
 // 	{
 // 		SEGGER_RTT_WriteString(0, " ----,");
@@ -259,19 +262,19 @@ readSensorRegisterINA219(uint8_t deviceRegister, int numberOfBytes)
 // 			SEGGER_RTT_printf(0, " %d,", readSensorRegisterValueCombined);
 // 		}
 // 	}
-
-
+//
+//
 // 	i2cReadStatus = readSensorRegisterINA219(kWarpSensorOutputRegisterMMA8451QOUT_Z_MSB, 2 /* numberOfBytes */);
 // 	readSensorRegisterValueMSB = deviceINA219State.i2cBuffer[0];
 // 	readSensorRegisterValueLSB = deviceINA219State.i2cBuffer[1];
 // 	readSensorRegisterValueCombined = ((readSensorRegisterValueMSB & 0xFF) << 6) | (readSensorRegisterValueLSB >> 2);
-
+//
 // 	/*
 // 	 *	Sign extend the 14-bit value based on knowledge that upper 2 bit are 0:
 // 	 */
 // 	readSensorRegisterValueCombined = (readSensorRegisterValueCombined ^ (1 << 13)) - (1 << 13);
-
-
+//
+//
 // 	if (i2cReadStatus != kWarpStatusOK)
 // 	{
 // 		SEGGER_RTT_WriteString(0, " ----,");

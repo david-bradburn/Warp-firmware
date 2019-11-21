@@ -297,6 +297,13 @@ typedef enum
 	kWarpSensorOutputRegisterBME680temp_xlsb			= 0x24,
 	kWarpSensorOutputRegisterBME680hum_msb				= 0x25,
 	kWarpSensorOutputRegisterBME680hum_lsb				= 0x26,
+
+	kConfigurationRegisterINA219								 	= 0x00, //R/W
+	kShuntVoltageRegisterINA219 									= 0x01, //R
+	kBusVoltageRegisterINA219 										= 0x02, //R
+	kPowerRegisterINA219 													= 0x03, //R
+	kCurrentRegisterINA219 												= 0x04, //R
+	kCallibrationRegisterINA219 									= 0x05, //R/W
 } WarpSensorOutputRegister;
 
 typedef struct
