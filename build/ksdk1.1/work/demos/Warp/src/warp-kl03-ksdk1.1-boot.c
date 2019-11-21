@@ -2510,13 +2510,58 @@ devSSD1331init();
 				uint16_t		actualSssupplyMillivolts = 1800;
 
 
-              SEGGER_RTT_WriteString(0, "\r\n\tTEST 1\n");
+              SEGGER_RTT_WriteString(0, "\r\n\tPrinting INA219 registers\n");
 							enableI2Cpins(menuI2cPullupValue);
-							status = readSensorRegisterINA219(0x05, 2);
+							status = readSensorRegisterINA219(0x00, 2);
 
 							#ifdef WARP_BUILD_ENABLE_SEGGER_RTT_PRINTF
 													SEGGER_RTT_printf(0, "\r\t0x%02x --> 0x%02x%02x\n",
-														0x50,
+														0x00,
+														deviceINA219State.i2cBuffer[0],
+														deviceINA219State.i2cBuffer[1]);
+							#endif
+
+							status = readSensorRegisterINA219(0x01, 2);
+
+							#ifdef WARP_BUILD_ENABLE_SEGGER_RTT_PRINTF
+													SEGGER_RTT_printf(0, "\r\t0x%02x --> 0x%02x%02x\n",
+														0x01,
+														deviceINA219State.i2cBuffer[0],
+														deviceINA219State.i2cBuffer[1]);
+							#endif
+
+							status = readSensorRegisterINA219(0x02, 2);
+
+							#ifdef WARP_BUILD_ENABLE_SEGGER_RTT_PRINTF
+													SEGGER_RTT_printf(0, "\r\t0x%02x --> 0x%02x%02x\n",
+														0x02,
+														deviceINA219State.i2cBuffer[0],
+														deviceINA219State.i2cBuffer[1]);
+							#endif
+
+							status = readSensorRegisterINA219(0x03, 2);
+
+							#ifdef WARP_BUILD_ENABLE_SEGGER_RTT_PRINTF
+													SEGGER_RTT_printf(0, "\r\t0x%02x --> 0x%02x%02x\n",
+														0x03,
+														deviceINA219State.i2cBuffer[0],
+														deviceINA219State.i2cBuffer[1]);
+							#endif
+
+							status = readSensorRegisterINA219(0x04, 2);
+
+							#ifdef WARP_BUILD_ENABLE_SEGGER_RTT_PRINTF
+													SEGGER_RTT_printf(0, "\r\t0x%02x --> 0x%02x%02x\n",
+														0x04,
+														deviceINA219State.i2cBuffer[0],
+														deviceINA219State.i2cBuffer[1]);
+							#endif
+
+							status = readSensorRegisterINA219(0x01, 2);
+
+							#ifdef WARP_BUILD_ENABLE_SEGGER_RTT_PRINTF
+													SEGGER_RTT_printf(0, "\r\t0x%02x --> 0x%02x%02x\n",
+														0x05,
 														deviceINA219State.i2cBuffer[0],
 														deviceINA219State.i2cBuffer[1]);
 							#endif
@@ -2526,8 +2571,10 @@ devSSD1331init();
       case '2':
       {
 
-              SEGGER_RTT_WriteString(0, "\r\n\tTEST 2\n");
-
+              SEGGER_RTT_WriteString(0, "\r\n\tType configuraion value\n");
+							enableI2Cpins(menuI2cPullupValue);
+							uint16_t towrite = readHexByte()
+							writeSensorRegisterINA219(0x05, towrite, 32768);
               break;
       }
 
