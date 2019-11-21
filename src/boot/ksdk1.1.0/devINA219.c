@@ -135,7 +135,7 @@ readSensorRegisterINA219(uint8_t deviceRegister, int numberOfBytes)
 							cmdBuf,
 							1,
 							(uint8_t *)deviceINA219State.i2cBuffer,
-							numberOfBytes,
+							2,
 							gWarpI2cTimeoutMilliseconds);
 
 	if (status != kStatus_I2C_Success)
