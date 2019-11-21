@@ -35,9 +35,12 @@ void
 initINA219(const uint8_t i2cAddress, WarpI2CDeviceState volatile *  deviceStatePointer)
 {
 	deviceStatePointer->i2cAddress	= i2cAddress;
-//	configureSensorINA219(0x1000, menuI2cPullupValue);
+	//configureSensorINA219(0x1000, menuI2cPullupValue);
 
-	//deviceStatePointer->signalType	= ();
+	deviceStatePointer->signalType  = (kWarpTypeMaskCurrent
+																		| kWarpTypeMaskPower
+																		| kWarpTypeMadkBusVoltage
+																		| kWarpTypeMaskShuntVoltage);
 	return;
 }
 
