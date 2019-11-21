@@ -28,10 +28,7 @@ initINA219(const uint8_t i2cAddress, WarpI2CDeviceState volatile *  deviceStateP
 	deviceStatePointer->i2cAddress	= i2cAddress;
 	//configureSensorINA219(0x1000, menuI2cPullupValue);
 
-	deviceStatePointer->signalType  = (kWarpTypeMaskCurrent
-																		| kWarpTypeMaskPower
-																		| kWarpTypeMadkBusVoltage
-																		| kWarpTypeMaskShuntVoltage);
+	deviceStatePointer->signalType  = (kWarpTypeMaskCurrent);
 	return;
 }
 
@@ -80,7 +77,7 @@ writeSensorRegisterINA219(uint8_t deviceRegister, uint16_t payload, uint16_t men
 	// I2CMasterBuffer[3] = value & 0xFF;          // Lower 8-bits
 
 	commandByte[0] = deviceRegister;
-	status1 = I2C_DRV_MasterSendDataBlocking(
+	status = I2C_DRV_MasterSendDataBlocking(
 							0 /* I2C instance */,
 							&slave,
 							commandByte,
@@ -90,7 +87,7 @@ writeSensorRegisterINA219(uint8_t deviceRegister, uint16_t payload, uint16_t men
 							gWarpI2cTimeoutMilliseconds);
 
 
-	if ((status1 != kStatus_I2C_Success) || (status2 != kStatus_I2C_Success))
+	if ((status != kStatus_I2C_Success))
 	{
 		return kWarpStatusDeviceCommunicationFailed;
 	}
