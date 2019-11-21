@@ -2527,6 +2527,7 @@ devSSD1331init();
       {
 
               SEGGER_RTT_WriteString(0, "\r\n\tTEST 2\n");
+
               break;
       }
 
@@ -2978,7 +2979,7 @@ repeatRegisterReadForDeviceAndAddress(WarpSensorDevice warpSensorDevice, uint8_t
 
 		case kWarpSensorINA219:
 		{
-					writeSensorRegisterINA219(0x05, 0x50, 32768);
+					writeSensorRegisterINA219(0x05, 20480, 32768);
 
 #ifdef WARP_BUILD_ENABLE_DEVINA219
 			loopForSensor(	"\r\nINA219:\n\r",		/*	tagString			*/
