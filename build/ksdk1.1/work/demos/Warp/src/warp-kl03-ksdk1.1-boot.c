@@ -2961,7 +2961,7 @@ repeatRegisterReadForDeviceAndAddress(WarpSensorDevice warpSensorDevice, uint8_t
 
 		case kWarpSensorINA219:
 		{
-					writeSensorRegisterINA219(0x05, 0x5000, menuI2cPullupValue);
+					writeSensorRegisterINA219(0x05, 0x5000, 32768);
 
 #ifdef WARP_BUILD_ENABLE_DEVINA219
 			loopForSensor(	"\r\nINA219:\n\r",		/*	tagString			*/
