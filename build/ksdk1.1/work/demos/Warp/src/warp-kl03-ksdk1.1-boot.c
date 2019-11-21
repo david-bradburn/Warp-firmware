@@ -2789,11 +2789,6 @@ loopForSensor(	const char *  tagString,
 		{
 			status = readSensorRegisterFunction(address+j, 1 /* numberOfBytes */);
 
-			#ifdef WARP_BUILD_ENABLE_SEGGER_RTT_PRINTF
-			SEGGER_RTT_printf(0, "\r\t", status, "\n");
-			SEGGER_RTT_printf(0, "\r\t", kWarpStatusOK, "\n");
-			#endif
-			
 			if (status == kWarpStatusOK)
 			{
 				nSuccesses++;
@@ -2831,9 +2826,10 @@ loopForSensor(	const char *  tagString,
 					if (chatty)
 					{
 #ifdef WARP_BUILD_ENABLE_SEGGER_RTT_PRINTF
-						SEGGER_RTT_printf(0, "\r\t0x%02x --> 0x%02x\n",
+						SEGGER_RTT_printf(0, "\r\t0x%02x --> 0x%02x%02x\n",
 							address+j,
-							i2cDeviceState->i2cBuffer[0]);
+							i2cDeviceState->i2cBuffer[0],
+							i2cDeviceState->i2cBuffer[1]);
 #endif
 					}
 				}
