@@ -2573,7 +2573,7 @@ devSSD1331init();
 
               SEGGER_RTT_WriteString(0, "\r\n\tType configuraion value\n");
 							enableI2Cpins(menuI2cPullupValue);
-							uint16_t towrite = readHexByte()
+							uint16_t towrite = readHexByte();
 							writeSensorRegisterINA219(0x05, towrite, 32768);
               break;
       }
