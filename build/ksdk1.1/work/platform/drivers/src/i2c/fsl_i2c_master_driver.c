@@ -380,7 +380,7 @@ void I2C_DRV_MasterIRQHandler(uint32_t instance)
         else
         {
             /* Continue send if still have data. TxSize/txBuff index need
-             * increment first because one byte is already sent in order 
+             * increment first because one byte is already sent in order
              * to trigger interrupt */
             if (--master->txSize > 0)
             {
@@ -573,7 +573,7 @@ static i2c_status_t I2C_DRV_SendAddress(uint32_t instance,
     /*--------------- Send Address Again ------------------*/
     /* Send slave address again if receiving data from 10-bit address slave,
        OR conducting a cmd receive */
-    if ((master->status == kStatus_I2C_Success) && (direction == kI2CReceive) 
+    if ((master->status == kStatus_I2C_Success) && (direction == kI2CReceive)
           && (is10bitAddr || cmdBuff))
     {
         /* Need to send slave address again. */
@@ -666,7 +666,7 @@ static i2c_status_t I2C_DRV_MasterSend(uint32_t instance,
     {
             goto pipskip;
     }
-    
+
     /* Send out data in transmit buffer. */
     if (master->status == kStatus_I2C_Success)
     {
@@ -809,4 +809,3 @@ static i2c_status_t I2C_DRV_MasterReceive(uint32_t instance,
 /*******************************************************************************
  * EOF
  ******************************************************************************/
-
