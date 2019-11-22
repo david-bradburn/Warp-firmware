@@ -2516,12 +2516,13 @@ devSSD1331init();
               SEGGER_RTT_WriteString(0, "\r\n\tPrinting INA219 registers\n");
 							enableI2Cpins(menuI2cPullupValue);
 							status = readSensorRegisterINA219(0x00, 2);
-
+							uint16_t hexout = (deviceINA219State.i2cBuffer[0] << 8) + (deviceINA219State.i2cBuffer[1])
 							#ifdef WARP_BUILD_ENABLE_SEGGER_RTT_PRINTF
 													SEGGER_RTT_printf(0, "\r\t0x%02x --> 0x%02x%02x --> %d\n",
 														0x00,
 														deviceINA219State.i2cBuffer[0],
-														deviceINA219State.i2cBuffer[1]);
+														deviceINA219State.i2cBuffer[1],
+														hexout);
 							#endif
 
 							status = readSensorRegisterINA219(0x01, 2);
