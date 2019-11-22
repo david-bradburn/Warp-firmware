@@ -2609,7 +2609,7 @@ devSSD1331init();
 
               SEGGER_RTT_WriteString(0, "\r\n\tPrinting INA219 register 0x04 1000 times \n");
 							enableI2Cpins(menuI2cPullupValue);
-
+							uint16_t hexout;
 							#ifdef WARP_BUILD_ENABLE_SEGGER_RTT_PRINTF
 							int i = 0;
 							for (i = 0; i<1000; i++)
