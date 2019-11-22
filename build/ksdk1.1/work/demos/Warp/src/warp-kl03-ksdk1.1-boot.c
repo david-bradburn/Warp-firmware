@@ -1465,10 +1465,13 @@ devSSD1331init();
 		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
 
 
-		SEGGER_RTT_WriteString(0, "\r- '1': read 1 current.\n");//Read 1 current via INA219
+		SEGGER_RTT_WriteString(0, "\r- '1': read INA219 registers\n");//Read 1 current via INA219
 		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
 
 		SEGGER_RTT_WriteString(0, "\r- '2': read 1000 currents.\n");//Read 1000 currents via INA219
+		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
+
+		SEGGER_RTT_WriteString(0, "\r- '3': write 0x1000 to 0x50\n");//Read 1000 currents via INA219
 		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
 
 		SEGGER_RTT_WriteString(0, "\rEnter selection> ");
@@ -2576,9 +2579,16 @@ devSSD1331init();
 							enableI2Cpins(menuI2cPullupValue);
 							uint16_t towrite = readHexByte16();
 							SEGGER_RTT_printf(0, towrite);
+							SEGGER_RTT_WriteString(0, towrite);
 							writeSensorRegisterINA219(0x05, towrite, menuI2cPullupValue); //get the system to take a 16 bit hex value so we can just write to registers
               break;
       }
+			case '3':
+			{
+
+							SEGGER_RTT_WriteString(0, "\r\n\t Write 0x1000 to 0x05 of INA219\n");
+							writeSensorRegisterINA219(0x05, 0x1000, menuI2cPullupValue); //get the system to take a 16 bit hex value so we can just write to registers
+							break;
 
 
 			/*
