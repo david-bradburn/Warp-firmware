@@ -2590,7 +2590,7 @@ devSSD1331init();
 							writeSensorRegisterINA219(0x05, 0x1000, menuI2cPullupValue); //get the system to take a 16 bit hex value so we can just write to registers
 							break;
 
-
+			}
 			/*
 			 *	Ignore naked returns.
 			 */
