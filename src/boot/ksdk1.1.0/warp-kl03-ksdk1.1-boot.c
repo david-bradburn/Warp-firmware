@@ -2568,7 +2568,7 @@ devSSD1331init();
 														deviceINA219State.i2cBuffer[0],
 														deviceINA219State.i2cBuffer[1],
 														hexout,
-														hexout/100);
+														hexout/10);
 							#endif
 
 							status = readSensorRegisterINA219(0x05, 2);
