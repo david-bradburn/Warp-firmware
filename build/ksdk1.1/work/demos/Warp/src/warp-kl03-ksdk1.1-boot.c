@@ -3535,7 +3535,7 @@ readHexByte(void)
 uint16_t
 readHexByte16(void)
 {
-	uint8_t		toptopNybble, topbottomNybble, bottomtopNybble, bottombottomNybble;
+	uint16_t		toptopNybble, topbottomNybble, bottomtopNybble, bottombottomNybble;
 
 	toptopNybble = SEGGER_RTT_WaitKey();
 	topbottomNybble = SEGGER_RTT_WaitKey();
