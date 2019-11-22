@@ -1464,8 +1464,7 @@ devSSD1331init();
 		SEGGER_RTT_WriteString(0, "\r- 'z': dump all sensors data.\n");
 		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
 
-
-		SEGGER_RTT_WriteString(0, "\r- '1': read INA219 registers\n");//Read 1 current via INA219
+		SEGGER_RTT_WriteString(0, "\r- '1': read INA219 registers.\n");//Read 1 current via INA219
 		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
 
 		SEGGER_RTT_WriteString(0, "\r- '2': read 1000 currents.\n");//Read 1000 currents via INA219
