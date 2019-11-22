@@ -2560,7 +2560,7 @@ devSSD1331init();
 														deviceINA219State.i2cBuffer[1]);
 							#endif
 
-							status = readSensorRegisterINA219(0x01, 2);
+							status = readSensorRegisterINA219(0x05, 2);
 
 							#ifdef WARP_BUILD_ENABLE_SEGGER_RTT_PRINTF
 													SEGGER_RTT_printf(0, "\r\t0x%02x --> 0x%02x%02x\n",
