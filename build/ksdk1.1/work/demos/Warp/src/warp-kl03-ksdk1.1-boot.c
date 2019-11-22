@@ -2619,6 +2619,7 @@ devSSD1331init();
 													SEGGER_RTT_printf(0, "\r\t%d,\n",
 														hexout/100.0);
 							}
+							#endif
 							break;
 
 			}
