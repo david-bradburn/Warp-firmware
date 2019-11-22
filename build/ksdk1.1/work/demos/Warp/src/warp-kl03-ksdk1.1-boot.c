@@ -2568,7 +2568,7 @@ devSSD1331init();
 														deviceINA219State.i2cBuffer[0],
 														deviceINA219State.i2cBuffer[1],
 														hexout,
-														hexout/100);
+														hexout/100.0);
 							#endif
 
 							status = readSensorRegisterINA219(0x05, 2);
@@ -2598,8 +2598,27 @@ devSSD1331init();
 			case '3':
 			{
 
-							SEGGER_RTT_WriteString(0, "\r\n\t Write 0x1000 to 0x05 of INA219\n");
-							writeSensorRegisterINA219(0x05, 0x1234, menuI2cPullupValue); //get the system to take a 16 bit hex value so we can just write to registers
+				WarpStatus		status;
+				uint8_t			address = 0x00;
+				int			nSuccesses = 0;
+				int			nFailures = 0;
+				int			nCorrects = 0;
+				int			nBadCommands = 0;
+				uint16_t		actualSssupplyMillivolts = 1800;
+
+
+              SEGGER_RTT_WriteString(0, "\r\n\tPrinting INA219 register 0x04 1000 times \n");
+							enableI2Cpins(menuI2cPullupValue);
+
+							#ifdef WARP_BUILD_ENABLE_SEGGER_RTT_PRINTF
+							int i = 0;
+							for (i = 0; i<1000; i++)
+							{
+							status = readSensorRegisterINA219(0x04, 2);
+							hexout = (deviceINA219State.i2cBuffer[0] << 8) + (deviceINA219State.i2cBuffer[1]);
+													SEGGER_RTT_printf(0, "\r\t%d,\n",
+														hexout/100.0);
+							}
 							break;
 
 			}
