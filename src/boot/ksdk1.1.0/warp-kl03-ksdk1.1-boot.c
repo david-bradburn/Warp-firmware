@@ -2568,7 +2568,7 @@ devSSD1331init();
 														deviceINA219State.i2cBuffer[0],
 														deviceINA219State.i2cBuffer[1],
 														hexout,
-														hexout/100.0);
+														hexout/100);
 							#endif
 
 							status = readSensorRegisterINA219(0x05, 2);
@@ -2617,7 +2617,7 @@ devSSD1331init();
 							status = readSensorRegisterINA219(0x04, 2);
 							hexout = (deviceINA219State.i2cBuffer[0] << 8) + (deviceINA219State.i2cBuffer[1]);
 													SEGGER_RTT_printf(0, "\r\t%d,\n",
-														hexout/100.0);
+														hexout/100);
 							}
 							#endif
 							break;
