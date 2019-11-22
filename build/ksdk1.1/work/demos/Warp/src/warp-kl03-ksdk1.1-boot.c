@@ -2575,7 +2575,7 @@ devSSD1331init();
               SEGGER_RTT_WriteString(0, "\r\n\tType configuraion value\n");
 							enableI2Cpins(menuI2cPullupValue);
 							uint16_t towrite = readHexByte16();
-							SEGGER_RTT_printf(0, towrite)
+							SEGGER_RTT_printf(0, towrite);
 							writeSensorRegisterINA219(0x05, towrite, menuI2cPullupValue); //get the system to take a 16 bit hex value so we can just write to registers
               break;
       }
