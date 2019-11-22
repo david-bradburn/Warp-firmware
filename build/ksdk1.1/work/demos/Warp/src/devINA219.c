@@ -82,9 +82,9 @@ writeSensorRegisterINA219(uint8_t deviceRegister, uint16_t payload, uint16_t men
 							0 /* I2C instance */,
 							&slave,
 							commandByte,
-							0,
+							1,
 							payloadByte,
-							2,
+							3,
 							gWarpI2cTimeoutMilliseconds);
 
 
