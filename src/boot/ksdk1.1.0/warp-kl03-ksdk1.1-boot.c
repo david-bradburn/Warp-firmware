@@ -2518,7 +2518,7 @@ devSSD1331init();
 							status = readSensorRegisterINA219(0x00, 2);
 
 							#ifdef WARP_BUILD_ENABLE_SEGGER_RTT_PRINTF
-													SEGGER_RTT_printf(0, "\r\t0x%02x --> 0x%02x%02x\n",
+													SEGGER_RTT_printf(0, "\r\t0x%02x --> 0x%02x%02x --> %d\n",
 														0x00,
 														deviceINA219State.i2cBuffer[0],
 														deviceINA219State.i2cBuffer[1]);
@@ -2527,7 +2527,7 @@ devSSD1331init();
 							status = readSensorRegisterINA219(0x01, 2);
 
 							#ifdef WARP_BUILD_ENABLE_SEGGER_RTT_PRINTF
-													SEGGER_RTT_printf(0, "\r\t0x%02x --> 0x%02x%02x\n",
+													SEGGER_RTT_printf(0, "\r\t0x%02x --> 0x%02x%02x --> %d\n",
 														0x01,
 														deviceINA219State.i2cBuffer[0],
 														deviceINA219State.i2cBuffer[1]);
@@ -2536,7 +2536,7 @@ devSSD1331init();
 							status = readSensorRegisterINA219(0x02, 2);
 
 							#ifdef WARP_BUILD_ENABLE_SEGGER_RTT_PRINTF
-													SEGGER_RTT_printf(0, "\r\t0x%02x --> 0x%02x%02x\n",
+													SEGGER_RTT_printf(0, "\r\t0x%02x --> 0x%02x%02x --> %d\n",
 														0x02,
 														deviceINA219State.i2cBuffer[0],
 														deviceINA219State.i2cBuffer[1]);
@@ -2545,7 +2545,7 @@ devSSD1331init();
 							status = readSensorRegisterINA219(0x03, 2);
 
 							#ifdef WARP_BUILD_ENABLE_SEGGER_RTT_PRINTF
-													SEGGER_RTT_printf(0, "\r\t0x%02x --> 0x%02x%02x\n",
+													SEGGER_RTT_printf(0, "\r\t0x%02x --> 0x%02x%02x --> %d\n",
 														0x03,
 														deviceINA219State.i2cBuffer[0],
 														deviceINA219State.i2cBuffer[1]);
@@ -2554,7 +2554,7 @@ devSSD1331init();
 							status = readSensorRegisterINA219(0x04, 2);
 
 							#ifdef WARP_BUILD_ENABLE_SEGGER_RTT_PRINTF
-													SEGGER_RTT_printf(0, "\r\t0x%02x --> 0x%02x%02x\n",
+													SEGGER_RTT_printf(0, "\r\t0x%02x --> 0x%02x%02x --> %d\n",
 														0x04,
 														deviceINA219State.i2cBuffer[0],
 														deviceINA219State.i2cBuffer[1]);
@@ -2563,7 +2563,7 @@ devSSD1331init();
 							status = readSensorRegisterINA219(0x05, 2);
 
 							#ifdef WARP_BUILD_ENABLE_SEGGER_RTT_PRINTF
-													SEGGER_RTT_printf(0, "\r\t0x%02x --> 0x%02x%02x\n",
+													SEGGER_RTT_printf(0, "\r\t0x%02x --> 0x%02x%02x --> %d\n",
 														0x05,
 														deviceINA219State.i2cBuffer[0],
 														deviceINA219State.i2cBuffer[1]);
@@ -2841,7 +2841,7 @@ loopForSensor(	const char *  tagString,
 	int			nBadCommands = 0;
 	uint16_t		actualSssupplyMillivolts = sssupplyMillivolts;
 
-	SEGGER_RTT_printf(0, "\r\t", address, readCount, actualSssupplyMillivolts, "n");
+	//SEGGER_RTT_printf(0, "\r\t", address, readCount, actualSssupplyMillivolts, "n");
 
 
 	if (	(!spiDeviceState && !i2cDeviceState) ||
