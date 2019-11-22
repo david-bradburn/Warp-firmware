@@ -3522,7 +3522,7 @@ readHexByte(void)
 	return (char2int(topNybble) << 4) + char2int(bottomNybble);
 }
 
-
+uint16_t
 readHexByte16(void)
 {
 	uint8_t		toptopNybble, topbottomNybble, bottomtopNybble, bottombottomNybble;
