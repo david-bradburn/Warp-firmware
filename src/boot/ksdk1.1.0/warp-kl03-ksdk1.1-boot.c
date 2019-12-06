@@ -2631,12 +2631,7 @@ devSSD1331init();
 			{
 
 				WarpStatus		status;
-				uint8_t			address = 0x00;
-				int			nSuccesses = 0;
-				int			nFailures = 0;
-				int			nCorrects = 0;
-				int			nBadCommands = 0;
-				uint16_t		actualSssupplyMillivolts = 1800;
+				//WarpStatus		status1;
 
 
               SEGGER_RTT_WriteString(0, "\r\n\tPrinting MMA8451Q register 1000 times \n");
@@ -2646,8 +2641,9 @@ devSSD1331init();
 							int i = 0;
 							for (i = 0; i<1000; i++)
 							{
-							status = readSensorRegisterMMA8451Q(0x01, 1);
-							hexout = (deviceMMA8451QState.i2cBuffer[0]);
+							status = readSensorRegisterMMA8451Q(0x02, 1);
+							//status1 = readSensorRegisterMMA8451Q(0x01, 1);
+							hexout = (deviceMMA8451QState.i2cBuffer[0] << 8) + ();
 													SEGGER_RTT_printf(0, "\r\t%02x,\n",
 														hexout);
 							}
