@@ -2640,7 +2640,7 @@ devSSD1331init();
 							int i = 0;
 							int i_max = 1000;
 
-							SEGGER_RTT_printf(0, "\r\tX Acceleration\n");
+							SEGGER_RTT_printf(0, "\r\t \n \nX Acceleration\n");
 							for (i = 0; i<i_max; i++)
 							{
 							status = readSensorRegisterMMA8451Q(0x01, 2);
@@ -2648,36 +2648,39 @@ devSSD1331init();
 							hexout = (deviceMMA8451QState.i2cBuffer[0] << 8) + (deviceMMA8451QState.i2cBuffer[1]);
 
 							SEGGER_RTT_printf(0,
-													"\r\t0x%02x%02x, 0x%04x\n",
-													deviceMMA8451QState.i2cBuffer[0],
-													deviceMMA8451QState.i2cBuffer[1],
+													"\r\t0x%04x --> %d\n",
+													hexout,
 													hexout);
 							}
 
 
-							SEGGER_RTT_printf(0, "\r\tY Acceleration\n");
+							SEGGER_RTT_printf(0, "\r\t \n \nY Acceleration\n");
 							for (i = 0; i<i_max; i++)
 							{
 							status = readSensorRegisterMMA8451Q(0x03, 2);
 							//status1 = readSensorRegisterMMA8451Q(0x01, 1);
 							//hexout = (deviceMMA8451QState.i2cBuffer[0]);
+							hexout = (deviceMMA8451QState.i2cBuffer[0] << 8) + (deviceMMA8451QState.i2cBuffer[1]);
+
 							SEGGER_RTT_printf(0,
-													"\r\t0x%02x%02x,\n",
-													deviceMMA8451QState.i2cBuffer[0],
-													deviceMMA8451QState.i2cBuffer[1]);
+													"\r\t0x%04x--> %d\n",
+													hexout,
+													hexout);
 							}
 
 
-							SEGGER_RTT_printf(0, "\r\tZ Acceleration\n");
+							SEGGER_RTT_printf(0, "\r\t \n \nZ Acceleration\n");
 							for (i = 0; i<i_max; i++)
 							{
 							status = readSensorRegisterMMA8451Q(0x05, 2);
 							//status1 = readSensorRegisterMMA8451Q(0x01, 1);
 							// hexout = (deviceMMA8451QState.i2cBuffer[0]);
+							hexout = (deviceMMA8451QState.i2cBuffer[0] << 8) + (deviceMMA8451QState.i2cBuffer[1]);
+
 							SEGGER_RTT_printf(0,
-													"\r\t0x%02x%02x,\n",
-													deviceMMA8451QState.i2cBuffer[0],
-													deviceMMA8451QState.i2cBuffer[1]);
+													"\r\t0x%04x--> %d\n",
+													hexout,
+													hexout);
 							}
 
 							#endif
