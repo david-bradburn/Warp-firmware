@@ -2508,12 +2508,6 @@ devSSD1331init();
       case '1':
       {
 				WarpStatus		status;
-				uint8_t			address = 0x00;
-				int			nSuccesses = 0;
-				int			nFailures = 0;
-				int			nCorrects = 0;
-				int			nBadCommands = 0;
-				uint16_t		actualSssupplyMillivolts = 1800;
 
 
               SEGGER_RTT_WriteString(0, "\r\n\tPrinting INA219 registers\n");
@@ -2602,12 +2596,6 @@ devSSD1331init();
 			{
 
 				WarpStatus		status;
-				uint8_t			address = 0x00;
-				int			nSuccesses = 0;
-				int			nFailures = 0;
-				int			nCorrects = 0;
-				int			nBadCommands = 0;
-				uint16_t		actualSssupplyMillivolts = 1800;
 
 
               SEGGER_RTT_WriteString(0, "\r\n\tPrinting INA219 register 0x04 1000 times \n");
@@ -2644,7 +2632,7 @@ devSSD1331init();
 							{
 							status = readSensorRegisterMMA8451Q(0x01, 1);
 							//status1 = readSensorRegisterMMA8451Q(0x01, 1);
-							hexout = (deviceMMA8451QState.i2cBuffer[0]) + ();
+							hexout = (deviceMMA8451QState.i2cBuffer[0]);
 													SEGGER_RTT_printf(0, "\r\t%02x,\n",
 														hexout);
 							}
@@ -2654,7 +2642,7 @@ devSSD1331init();
 							{
 							status = readSensorRegisterMMA8451Q(0x02, 1);
 							//status1 = readSensorRegisterMMA8451Q(0x01, 1);
-							hexout = (deviceMMA8451QState.i2cBuffer[0]) + ();
+							hexout = (deviceMMA8451QState.i2cBuffer[0]);
 													SEGGER_RTT_printf(0, "\r\t%02x,\n",
 														hexout);
 							}
@@ -2664,7 +2652,7 @@ devSSD1331init();
 							{
 							status = readSensorRegisterMMA8451Q(0x03, 1);
 							//status1 = readSensorRegisterMMA8451Q(0x01, 1);
-							hexout = (deviceMMA8451QState.i2cBuffer[0]) + ();
+							hexout = (deviceMMA8451QState.i2cBuffer[0]);
 													SEGGER_RTT_printf(0, "\r\t%02x,\n",
 														hexout);
 							}
@@ -2674,7 +2662,7 @@ devSSD1331init();
 							{
 							status = readSensorRegisterMMA8451Q(0x04, 1);
 							//status1 = readSensorRegisterMMA8451Q(0x01, 1);
-							hexout = (deviceMMA8451QState.i2cBuffer[0]) + ();
+							hexout = (deviceMMA8451QState.i2cBuffer[0]);
 													SEGGER_RTT_printf(0, "\r\t%02x,\n",
 														hexout);
 							}
@@ -2684,7 +2672,7 @@ devSSD1331init();
 							{
 							status = readSensorRegisterMMA8451Q(0x05, 1);
 							//status1 = readSensorRegisterMMA8451Q(0x01, 1);
-							hexout = (deviceMMA8451QState.i2cBuffer[0]) + ();
+							hexout = (deviceMMA8451QState.i2cBuffer[0]);
 													SEGGER_RTT_printf(0, "\r\t%02x,\n", hexout);
 							}
 
@@ -2693,7 +2681,7 @@ devSSD1331init();
 							{
 							status = readSensorRegisterMMA8451Q(0x06, 1);
 							//status1 = readSensorRegisterMMA8451Q(0x01, 1);
-							hexout = (deviceMMA8451QState.i2cBuffer[0]) + ();
+							hexout = (deviceMMA8451QState.i2cBuffer[0]);
 													SEGGER_RTT_printf(0, "\r\t%02x,\n", hexout);
 							}
 							#endif
