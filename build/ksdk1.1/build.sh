@@ -1,6 +1,7 @@
 #!/bin/sh
-	
+
 	# Uncomment this to set ARMGCC_DIR correctly: export ARMGCC_DIR=<full path to arm-gcc directory>
+	git pull
 
 	mkdir -p work
 	mkdir -p work/boards/Warp
@@ -41,10 +42,9 @@
 	cd work/lib/ksdk_platform_lib/armgcc/KL03Z4 && ./clean.sh; ./build_release.sh
 	cd ../../../../demos/Warp/armgcc/Warp && ./clean.sh; ./build_release.sh
 	cp release/Warp.* ../../../../../../../
-	
+
 	cd ../../../../../../../
 	git add * -f
 	git commit -m "code upload"
 	git push
 	echo "\n\nNow, run\n\n\t/Applications/SEGGER/JLink/JLinkExe -device MKL03Z32XXX4 -if SWD -speed 100000 -CommanderScript ../../tools/scripts/jlink.commands\n\n"
-
