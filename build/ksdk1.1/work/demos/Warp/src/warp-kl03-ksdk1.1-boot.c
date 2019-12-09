@@ -2626,7 +2626,7 @@ devSSD1331init();
 							enableI2Cpins(menuI2cPullupValue);
 							uint16_t hexout;
 
-							status = writeSensorRegisterMMA8451Q(0x09, 0x00, menuI2cPullupValue);
+							status = writeSensorRegisterMMA8451Q(0x2A, 0x01, menuI2cPullupValue);
 
 							#ifdef WARP_BUILD_ENABLE_SEGGER_RTT_PRINTF
 
