@@ -2630,76 +2630,56 @@ devSSD1331init();
 
 							#ifdef WARP_BUILD_ENABLE_SEGGER_RTT_PRINTF
 
-							SEGGER_RTT_printf(0, "\r\t0x00,\n");
-							status = readSensorRegisterMMA8451Q(0x00, 1);
-							SEGGER_RTT_printf(0,
-													"\r\t%02x,\n",
-													deviceMMA8451QState.i2cBuffer[0]);
-
+							// SEGGER_RTT_printf(0, "\r\t0x00,\n");
+							// status = readSensorRegisterMMA8451Q(0x00, 1);
+							// SEGGER_RTT_printf(0,
+							// 						"\r\t%02x,\n",
+							// 						deviceMMA8451QState.i2cBuffer[0]);
+							//
 
 							int i = 0;
-							int i_max = 100;
+							int i_max = 1000;
 
-							SEGGER_RTT_printf(0, "\r\t0x01,\n");
+							SEGGER_RTT_printf(0, "\r\tX Acceleration\n");
 							for (i = 0; i<i_max; i++)
 							{
 							status = readSensorRegisterMMA8451Q(0x01, 2);
 							//status1 = readSensorRegisterMMA8451Q(0x01, 1);
-							//hexout = (deviceMMA8451QState.i2cBuffer[0]);
+							hexout = (deviceMMA8451QState.i2cBuffer[0] << 8) + (deviceMMA8451QState.i2cBuffer[1]);
 
 							SEGGER_RTT_printf(0,
-													"\r\t%02x%02x,\n",
+													"\r\t0x%02x%02x, 0x%04x\n",
+													deviceMMA8451QState.i2cBuffer[0],
+													deviceMMA8451QState.i2cBuffer[1],
+													hexout);
+							}
+
+
+							SEGGER_RTT_printf(0, "\r\tY Acceleration\n");
+							for (i = 0; i<i_max; i++)
+							{
+							status = readSensorRegisterMMA8451Q(0x03, 2);
+							//status1 = readSensorRegisterMMA8451Q(0x01, 1);
+							//hexout = (deviceMMA8451QState.i2cBuffer[0]);
+							SEGGER_RTT_printf(0,
+													"\r\t0x%02x%02x,\n",
 													deviceMMA8451QState.i2cBuffer[0],
 													deviceMMA8451QState.i2cBuffer[1]);
 							}
 
-							SEGGER_RTT_printf(0, "\r\t0x02,\n");
+
+							SEGGER_RTT_printf(0, "\r\tZ Acceleration\n");
 							for (i = 0; i<i_max; i++)
 							{
-							status = readSensorRegisterMMA8451Q(0x02, 1);
+							status = readSensorRegisterMMA8451Q(0x05, 2);
 							//status1 = readSensorRegisterMMA8451Q(0x01, 1);
-							hexout = (deviceMMA8451QState.i2cBuffer[0]);
-													SEGGER_RTT_printf(0, "\r\t%02x,\n",
-														hexout);
+							// hexout = (deviceMMA8451QState.i2cBuffer[0]);
+							SEGGER_RTT_printf(0,
+													"\r\t0x%02x%02x,\n",
+													deviceMMA8451QState.i2cBuffer[0],
+													deviceMMA8451QState.i2cBuffer[1]);
 							}
 
-							SEGGER_RTT_printf(0, "\r\t0x03,\n");
-							for (i = 0; i<i_max; i++)
-							{
-							status = readSensorRegisterMMA8451Q(0x03, 1);
-							//status1 = readSensorRegisterMMA8451Q(0x01, 1);
-							hexout = (deviceMMA8451QState.i2cBuffer[0]);
-													SEGGER_RTT_printf(0, "\r\t%02x,\n",
-														hexout);
-							}
-
-							SEGGER_RTT_printf(0, "\r\t0x04,\n");
-							for (i = 0; i<i_max; i++)
-							{
-							status = readSensorRegisterMMA8451Q(0x04, 1);
-							//status1 = readSensorRegisterMMA8451Q(0x01, 1);
-							hexout = (deviceMMA8451QState.i2cBuffer[0]);
-													SEGGER_RTT_printf(0, "\r\t%02x,\n",
-														hexout);
-							}
-
-							SEGGER_RTT_printf(0, "\r\t0x05,\n");
-							for (i = 0; i<i_max; i++)
-							{
-							status = readSensorRegisterMMA8451Q(0x05, 1);
-							//status1 = readSensorRegisterMMA8451Q(0x01, 1);
-							hexout = (deviceMMA8451QState.i2cBuffer[0]);
-													SEGGER_RTT_printf(0, "\r\t%02x,\n", hexout);
-							}
-
-							SEGGER_RTT_printf(0, "\r\t0x06,\n");
-							for (i = 0; i<i_max; i++)
-							{
-							status = readSensorRegisterMMA8451Q(0x06, 1);
-							//status1 = readSensorRegisterMMA8451Q(0x01, 1);
-							hexout = (deviceMMA8451QState.i2cBuffer[0]);
-													SEGGER_RTT_printf(0, "\r\t%02x,\n", hexout);
-							}
 							#endif
 							break;
 
