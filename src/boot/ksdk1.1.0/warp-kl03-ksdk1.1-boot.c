@@ -2624,11 +2624,15 @@ devSSD1331init();
 
               SEGGER_RTT_WriteString(0, "\r\n\tPrinting MMA8451Q register 1000 times \n");
 							enableI2Cpins(menuI2cPullupValue);
-							uint8_t hexout;
+							uint16_t hexout;
+
 							#ifdef WARP_BUILD_ENABLE_SEGGER_RTT_PRINTF
+
 							int i = 0;
+							int i_max = 100;
+
 							SEGGER_RTT_printf(0, "\r\t0x01,\n");
-							for (i = 0; i<1000; i++)
+							for (i = 0; i<i_max; i++)
 							{
 							status = readSensorRegisterMMA8451Q(0x01, 1);
 							//status1 = readSensorRegisterMMA8451Q(0x01, 1);
@@ -2638,7 +2642,7 @@ devSSD1331init();
 							}
 
 							SEGGER_RTT_printf(0, "\r\t0x02,\n");
-							for (i = 0; i<1000; i++)
+							for (i = 0; i<i_max; i++)
 							{
 							status = readSensorRegisterMMA8451Q(0x02, 1);
 							//status1 = readSensorRegisterMMA8451Q(0x01, 1);
@@ -2648,7 +2652,7 @@ devSSD1331init();
 							}
 
 							SEGGER_RTT_printf(0, "\r\t0x03,\n");
-							for (i = 0; i<1000; i++)
+							for (i = 0; i<i_max; i++)
 							{
 							status = readSensorRegisterMMA8451Q(0x03, 1);
 							//status1 = readSensorRegisterMMA8451Q(0x01, 1);
@@ -2658,7 +2662,7 @@ devSSD1331init();
 							}
 
 							SEGGER_RTT_printf(0, "\r\t0x04,\n");
-							for (i = 0; i<1000; i++)
+							for (i = 0; i<i_max; i++)
 							{
 							status = readSensorRegisterMMA8451Q(0x04, 1);
 							//status1 = readSensorRegisterMMA8451Q(0x01, 1);
@@ -2668,7 +2672,7 @@ devSSD1331init();
 							}
 
 							SEGGER_RTT_printf(0, "\r\t0x05,\n");
-							for (i = 0; i<1000; i++)
+							for (i = 0; i<i_max; i++)
 							{
 							status = readSensorRegisterMMA8451Q(0x05, 1);
 							//status1 = readSensorRegisterMMA8451Q(0x01, 1);
@@ -2677,7 +2681,7 @@ devSSD1331init();
 							}
 
 							SEGGER_RTT_printf(0, "\r\t0x06,\n");
-							for (i = 0; i<1000; i++)
+							for (i = 0; i<i_max; i++)
 							{
 							status = readSensorRegisterMMA8451Q(0x06, 1);
 							//status1 = readSensorRegisterMMA8451Q(0x01, 1);
