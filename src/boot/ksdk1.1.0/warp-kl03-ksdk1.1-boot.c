@@ -2668,15 +2668,15 @@ devSSD1331init();
 													hexout);
 							}
 
-							double z_accel;
+							float z_accel;
+
 							SEGGER_RTT_printf(0, "\r\t \n \nZ Acceleration\n");
-							for (i = 0; i<i_max; i++)
+							for (i = 0; i < i_max; i++)
 							{
 							status = readSensorRegisterMMA8451Q(0x05, 2);
-							//status1 = readSensorRegisterMMA8451Q(0x01, 1);
-							// hexout = (deviceMMA8451QState.i2cBuffer[0]);
 							hexout = (deviceMMA8451QState.i2cBuffer[0] << 8) + (deviceMMA8451QState.i2cBuffer[1]);
-							z_accel = hexout * 9.81/4096;
+							z_accel = hexout;
+
 							SEGGER_RTT_printf(0,
 													"\r\t0x%04x--> %d --> %f \n",
 													hexout,
