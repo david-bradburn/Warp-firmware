@@ -2650,7 +2650,7 @@ devSSD1331init();
 													hexout,
 													hexout);
 
-							SEGGER_RTT_WriteString(0, "%f", frac);
+							SEGGER_RTT_WriteString(0, frac);
 
 							}
 
