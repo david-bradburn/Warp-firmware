@@ -2675,11 +2675,10 @@ devSSD1331init();
 							{
 							status = readSensorRegisterMMA8451Q(0x05, 2);
 							hexout = (deviceMMA8451QState.i2cBuffer[0] << 8) + (deviceMMA8451QState.i2cBuffer[1]);
-							z_accel = hexout;
+							z_accel = hexout / 4096;
 
-							SEGGER_RTT_printf(0, hexout +"\n");
 							SEGGER_RTT_printf(0,
-													"\r\t0x%04x--> %d --> %f \n",
+													"\r\t0x%04x--> %d --> %s \n",
 													hexout,
 													hexout,
 													z_accel);
