@@ -2677,7 +2677,7 @@ devSSD1331init();
 							hexout = (deviceMMA8451QState.i2cBuffer[0] << 8) + (deviceMMA8451QState.i2cBuffer[1]);
 							z_accel = hexout;
 
-							SEGGER_RTT_printf(0, hexout +"\n")
+							SEGGER_RTT_printf(0, hexout +"\n");
 							SEGGER_RTT_printf(0,
 													"\r\t0x%04x--> %d --> %f \n",
 													hexout,
