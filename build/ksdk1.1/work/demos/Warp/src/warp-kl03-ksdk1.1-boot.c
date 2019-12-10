@@ -2625,6 +2625,7 @@ devSSD1331init();
               SEGGER_RTT_WriteString(0, "\r\n\tPrinting MMA8451Q register 1000 times \n");
 							enableI2Cpins(menuI2cPullupValue);
 							int16_t hexout;
+							float frac;
 
 							status = writeSensorRegisterMMA8451Q(0x2A, 0x01, menuI2cPullupValue);
 
@@ -2642,11 +2643,15 @@ devSSD1331init();
 
 							hexout = (hexout ^ (1 << 13)) - (1 << 13);
 
+							frac = hexout / 4096;
+
 							SEGGER_RTT_printf(0,
-													"\r\t0x%04x --> %d --> %dg\n",
+													"\r\t0x%04x --> %d --> ",
 													hexout,
-													hexout,
-													hexout >> 12);
+													hexout);
+
+							SEGGER_RTT_WriteString(0, "%f", frac);
+
 							}
 
 
@@ -2659,6 +2664,7 @@ devSSD1331init();
 
 							hexout = (hexout ^ (1 << 13)) - (1 << 13);
 
+
 							SEGGER_RTT_printf(0,
 													"\r\t0x%04x --> %d --> %dg\n",
 													hexout,
@@ -2666,7 +2672,6 @@ devSSD1331init();
 													hexout >> 12);
 							}
 
-							float z_accel;
 
 							SEGGER_RTT_printf(0, "\r\t \n \nZ Acceleration\n");
 							for (i = 0; i < i_max; i++)
