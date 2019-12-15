@@ -59,6 +59,29 @@ writeCommand(uint8_t commandByte)
 	return status;
 }
 
+int
+recttest(void)
+{
+	writeCommand(kSSD1331CommandDRAWRECT);
+	writeCommand(0x00);
+	writeCommand(0x00);
+	writeCommand(0x5F);
+	writeCommand(0x3F);
+	writeCommand(0x00);
+	writeCommand(0x3F);
+	writeCommand(0x00);
+	writeCommand(0x00);
+	writeCommand(0x3F);
+	writeCommand(0x00);
+
+	return 0;
+}
+
+int
+drawone(uint8_t loc)
+{
+	return 0;
+}
 
 
 int
@@ -156,19 +179,8 @@ devSSD1331init(void)
 	 *	Any post-initialization drawing commands go here.
 	 */
 	//...
-        writeCommand(kSSD1331CommandDRAWRECT);
-        writeCommand(0x00);
-        writeCommand(0x00);
-        writeCommand(0x5F);
-        writeCommand(0x3F);
-        writeCommand(0x00);
-        writeCommand(0x3F);
-        writeCommand(0x00);
-        writeCommand(0x00);
-        writeCommand(0x3F);
-        writeCommand(0x00);
 
-
+	recttest();
 
 	return 0;
 }
