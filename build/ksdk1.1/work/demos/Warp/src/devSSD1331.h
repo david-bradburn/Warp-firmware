@@ -43,3 +43,5 @@ typedef enum
 } SSD1331Commands;
 
 int	devSSD1331init(void);
+int drawone(uint8_t loc);
+int recttest(void);
