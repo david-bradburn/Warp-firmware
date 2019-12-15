@@ -78,6 +78,7 @@ recttest(void)
 
 	default_colour();
 	default_colour();
+
 	return 0;
 }
 
@@ -192,7 +193,7 @@ devSSD1331init(void)
 	 */
 	//...
 
-	recttest();
+	drawone(0x00, 0x00);
 
 	return 0;
 }
