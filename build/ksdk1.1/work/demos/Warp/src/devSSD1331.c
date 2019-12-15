@@ -89,9 +89,51 @@ drawone(uint8_t loc_x, uint8_t loc_y)
 	writeCommand(loc_x);
 	writeCommand(loc_y);
 	writeCommand(loc_x);
-	writeCommand(loc_y + 5);
+	writeCommand(loc_y + 56);
 
 	default_colour();
+
+	return 0;
+}
+
+int
+drawtwo(uint8_t loc_x, uint8_t loc_y)
+{
+	writeCommand(kSSD1331CommandDRAWLINE);
+	writeCommand(loc_x);
+	writeCommand(loc_y);
+	writeCommand(loc_x + 42);
+	writeCommand(loc_y);
+	default_colour();
+
+	writeCommand(kSSD1331CommandDRAWLINE);
+	writeCommand(loc_x + 42);
+	writeCommand(loc_y);
+	writeCommand(loc_x + 42);
+	writeCommand(loc_y + 28);
+	default_colour();
+
+	writeCommand(kSSD1331CommandDRAWLINE);
+	writeCommand(loc_x + 42);
+	writeCommand(loc_y + 28);
+	writeCommand(loc_x);
+	writeCommand(loc_y + 28);
+	default_colour();
+
+	writeCommand(kSSD1331CommandDRAWLINE);
+	writeCommand(loc_x);
+	writeCommand(loc_y + 28);
+	writeCommand(loc_x);
+	writeCommand(loc_y + 56);
+	default_colour();
+
+	writeCommand(kSSD1331CommandDRAWLINE);
+	writeCommand(loc_x);
+	writeCommand(loc_y + 56;
+	writeCommand(loc_x + 42);
+	writeCommand(loc_y + 56);
+	default_colour();
+
 
 	return 0;
 }
@@ -192,8 +234,10 @@ devSSD1331init(void)
 	 *	Any post-initialization drawing commands go here.
 	 */
 	//...
-
-	drawone(40, 32);
+	//3,3
+	//50, 3
+	drawone(3, 3);
+	drawtwo(50, 3);
 
 	return 0;
 }
