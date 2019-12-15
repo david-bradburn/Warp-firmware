@@ -45,4 +45,5 @@ typedef enum
 int	devSSD1331init(void);
 int default_colour(void);
 int drawone(uint8_t loc_x, uint8_t loc_y);
+int drawtwo(uint8_t loc_x, uint8_t loc_y);
 int recttest(void);
