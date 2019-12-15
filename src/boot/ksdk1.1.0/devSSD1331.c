@@ -86,10 +86,10 @@ int
 drawone(uint8_t loc_x, uint8_t loc_y)
 {
 	writeCommand(kSSD1331CommandDRAWLINE);
-	writeCommand(40);
-	writeCommand(32);
-	writeCommand(50);
-	writeCommand(32);
+	writeCommand(loc_x);
+	writeCommand(loc_y);
+	writeCommand(loc_x);
+	writeCommand(loc_y + 5);
 
 	default_colour();
 
@@ -193,7 +193,7 @@ devSSD1331init(void)
 	 */
 	//...
 
-	drawone(0x00, 0x00);
+	drawone(40, 32);
 
 	return 0;
 }
