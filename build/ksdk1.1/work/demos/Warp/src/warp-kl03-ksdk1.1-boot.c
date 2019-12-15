@@ -2646,11 +2646,10 @@ devSSD1331init();
 							frac = hexout / 4096;
 
 							SEGGER_RTT_printf(0,
-													"\r\t0x%04x --> %d --> ",
+													"\r\t0x%04x --> %d\n",
 													hexout,
 													hexout);
 
-							SEGGER_RTT_WriteString(0, sprintf(frac));
 
 							}
 
@@ -2666,10 +2665,9 @@ devSSD1331init();
 
 
 							SEGGER_RTT_printf(0,
-													"\r\t0x%04x --> %d --> %dg\n",
+													"\r\t0x%04x --> %d\n",
 													hexout,
-													hexout,
-													hexout >> 12);
+													hexout);
 							}
 
 
@@ -2686,10 +2684,9 @@ devSSD1331init();
 							//z_accel = hexout / 4096;
 
 							SEGGER_RTT_printf(0,
-													"\r\t0x%04x --> %d --> %dg\n",
+													"\r\t0x%04x --> %d\n",
 													hexout,
-													hexout,
-													hexout >> 12);
+													hexout);
 
 							}
 
