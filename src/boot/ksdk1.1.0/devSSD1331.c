@@ -178,6 +178,7 @@ drawthree(uint8_t loc_x, uint8_t loc_y)
 
 }
 
+
 int
 drawfour(uint8_t loc_x, uint8_t loc_y)
 {
@@ -204,6 +205,91 @@ drawfour(uint8_t loc_x, uint8_t loc_y)
 
 	return 0;
 
+}
+
+
+int
+drawfive(uint8_t loc_x, uint8_t loc_y)
+{
+	writeCommand(kSSD1331CommandDRAWLINE);
+	writeCommand(loc_x + 42);
+	writeCommand(loc_y);
+	writeCommand(loc_x);
+	writeCommand(loc_y);
+	default_colour();
+
+	writeCommand(kSSD1331CommandDRAWLINE);
+	writeCommand(loc_x);
+	writeCommand(loc_y);
+	writeCommand(loc_x);
+	writeCommand(loc_y + 28);
+	default_colour();
+
+	writeCommand(kSSD1331CommandDRAWLINE);
+	writeCommand(loc_x);
+	writeCommand(loc_y + 28);
+	writeCommand(loc_x + 42);
+	writeCommand(loc_y + 28);
+	default_colour();
+
+	writeCommand(kSSD1331CommandDRAWLINE);
+	writeCommand(loc_x + 42);
+	writeCommand(loc_y + 28);
+	writeCommand(loc_x + 42);
+	writeCommand(loc_y + 56);
+	default_colour();
+
+	writeCommand(kSSD1331CommandDRAWLINE);
+	writeCommand(loc_x + 42);
+	writeCommand(loc_y + 56);
+	writeCommand(loc_x);
+	writeCommand(loc_y + 56);
+	default_colour();
+
+	return 0;
+}
+
+
+int
+drawsix(uint8_t loc_x, uint8_t loc_y)
+{
+	writeCommand(kSSD1331CommandDRAWLINE);
+	writeCommand(loc_x + 42);
+	writeCommand(loc_y);
+	writeCommand(loc_x);
+	writeCommand(loc_y);
+	default_colour();
+
+	writeCommand(kSSD1331CommandDRAWLINE);
+	writeCommand(loc_x);
+	writeCommand(loc_y);
+	writeCommand(loc_x);
+	writeCommand(loc_y + 56);
+	default_colour();
+
+	writeCommand(kSSD1331CommandDRAWLINE);
+	writeCommand(loc_x);
+	writeCommand(loc_y + 56);
+	writeCommand(loc_x + 42);
+	writeCommand(loc_y + 56);
+	default_colour();
+
+	writeCommand(kSSD1331CommandDRAWLINE);
+	writeCommand(loc_x + 42);
+	writeCommand(loc_y + 56);
+	writeCommand(loc_x + 42);
+	writeCommand(loc_y + 28);
+	default_colour();
+
+	writeCommand(kSSD1331CommandDRAWLINE);
+	writeCommand(loc_x + 42);
+	writeCommand(loc_y + 28);
+	writeCommand(loc_x);
+	writeCommand(loc_y + 28);
+	default_colour();
+
+
+	return 0;
 }
 
 
@@ -315,8 +401,8 @@ devSSD1331init(void)
 	//...
 	//3,3
 	//50, 3
-	drawthree(3, 3);
-	drawfour(50, 3);
+	drawfive(3, 3);
+	drawsix(50, 3);
 
 	return 0;
 }
