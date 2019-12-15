@@ -197,7 +197,7 @@ drawfour(uint8_t loc_x, uint8_t loc_y)
 
 	writeCommand(kSSD1331CommandDRAWLINE);
 	writeCommand(loc_x + 21);
-	writeCommand(loc_y + 14);
+	writeCommand(loc_y + 28);
 	writeCommand(loc_x + 21);
 	writeCommand(loc_y + 56);
 	default_colour();
