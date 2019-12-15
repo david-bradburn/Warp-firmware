@@ -58,6 +58,14 @@ writeCommand(uint8_t commandByte)
 
 	return status;
 }
+int
+default_colour(void)
+{
+	writeCommand(0x00);
+	writeCommand(0x3F);
+	writeCommand(0x00);
+	return 0;
+}
 
 int
 recttest(void)
@@ -67,19 +75,23 @@ recttest(void)
 	writeCommand(0x00);
 	writeCommand(0x5F);
 	writeCommand(0x3F);
-	writeCommand(0x00);
-	writeCommand(0x3F);
-	writeCommand(0x00);
-	writeCommand(0x00);
-	writeCommand(0x3F);
-	writeCommand(0x00);
 
+	default_colour();
+	default_colour();
 	return 0;
 }
 
 int
-drawone(uint8_t loc)
+drawone(uint8_t loc_x, uint8_t loc_y)
 {
+	writeCommand(kSSD1331CommandDRAWLINE);
+	writeCommand(40);
+	writeCommand(32);
+	writeCommand(50);
+	writeCommand(32);
+
+	default_colour();
+
 	return 0;
 }
 
