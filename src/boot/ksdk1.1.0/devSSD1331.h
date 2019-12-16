@@ -43,6 +43,7 @@ typedef enum
 } SSD1331Commands;
 
 int	devSSD1331init(void);
+int clearscreen(void);
 
 int default_colour(void);
 
