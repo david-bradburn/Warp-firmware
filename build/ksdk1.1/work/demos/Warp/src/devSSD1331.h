@@ -44,6 +44,7 @@ typedef enum
 
 int	devSSD1331init(void);
 int clearscreen(void);
+int writetoscreen(int ar);
 
 int default_colour(void);
 
