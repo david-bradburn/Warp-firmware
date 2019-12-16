@@ -2627,8 +2627,8 @@ devSSD1331init();
 
 					int ar[2];
 
-					ar[0] = SEGGER_RTT_WaitKey();
-					ar[1] = SEGGER_RTT_WaitKey();
+					ar[0] = char2int(SEGGER_RTT_WaitKey());
+					ar[1] = char2int(SEGGER_RTT_WaitKey());
 
 					writetoscreen(ar);
 					break;
