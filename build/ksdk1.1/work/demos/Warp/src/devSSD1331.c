@@ -604,7 +604,7 @@ devSSD1331init(void)
 	//...
 	//3,3
 	//50, 3
-	int bv[2] = {6, 9};
+	int bv[2] = {0, 0};
 	writetoscreen(bv);
 
 	return 0;
