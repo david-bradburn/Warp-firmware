@@ -1476,6 +1476,9 @@ devSSD1331init();
 		SEGGER_RTT_WriteString(0, "\r- '4': write to OLED\n");
 		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
 
+		SEGGER_RTT_WriteString(0, "\r- '5': Rowing System\n");
+		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
+
 		SEGGER_RTT_WriteString(0, "\r- '9': Read n accelerations \n");//Read 1000 currents via INA219
 		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
 
@@ -2586,6 +2589,7 @@ devSSD1331init();
               break;
       }
 
+
       case '2':
       {
 
@@ -2597,17 +2601,17 @@ devSSD1331init();
 							writeSensorRegisterINA219(0x05, towrite, menuI2cPullupValue); //get the system to take a 16 bit hex value so we can just write to registers
               break;
       }
+
+
 			case '3':
 			{
-
-
 
               SEGGER_RTT_WriteString(0, "\r\n\tPrinting INA219 register 0x04 1000 times \n");
 							enableI2Cpins(menuI2cPullupValue);
 							uint16_t hexout;
 							#ifdef WARP_BUILD_ENABLE_SEGGER_RTT_PRINTF
 							int i = 0;
-							for (i = 0; i<1000; i++)
+							for (i = 0; i < 1000; i++)
 							{
 
 							readSensorRegisterINA219(0x04, 2);
@@ -2619,6 +2623,7 @@ devSSD1331init();
 							break;
 
 			}
+
 
 			case '4':
 			{
@@ -2634,10 +2639,42 @@ devSSD1331init();
 					break;
 			}
 
+			case '5':
+			{
+				enableI2Cpins(menuI2cPullupValue);
+				int16_t hexout;
+
+				writeSensorRegisterMMA8451Q(0x2A, 0x03, menuI2cPullupValue);
+
+				#ifdef WARP_BUILD_ENABLE_SEGGER_RTT_PRINTF
+
+				int i = 0;
+				int i_max = 1000;
+
+				SEGGER_RTT_printf(0, "\r\t \n \nX Acceleration\n");
+
+				for (i = 0; i<i_max; i++)
+				{
+				readSensorRegisterMMA8451Q(0x01, 2);
+
+				hexout = (deviceMMA8451QState.i2cBuffer[0] & 0xFF);
+
+				hexout = (hexout ^ (1 << 7)) - (1 << 7);
+
+				SEGGER_RTT_printf(0,
+										"\r\t0x%04x --> %d\n",
+										hexout,
+										hexout);
+
+
+				}
+
+				break
+			}
+
+
 			case '9':
 			{
-
-
 
               SEGGER_RTT_WriteString(0, "\r\n\tPrinting MMA8451Q register 1000 times \n");
 							enableI2Cpins(menuI2cPullupValue);

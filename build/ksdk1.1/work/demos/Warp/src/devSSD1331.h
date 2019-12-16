@@ -45,18 +45,3 @@ typedef enum
 int	devSSD1331init(void);
 int clearscreen(void);
 int writetoscreen(int ar[]);
-
-int default_colour(void);
-
-int drawone(uint8_t loc_x, uint8_t loc_y);
-int drawtwo(uint8_t loc_x, uint8_t loc_y);
-int drawthree(uint8_t loc_x, uint8_t loc_y);
-int drawfour(uint8_t loc_x, uint8_t loc_y);
-int drawfive(uint8_t loc_x, uint8_t loc_y);
-int drawsix(uint8_t loc_x, uint8_t loc_y);
-int drawseven(uint8_t loc_x, uint8_t loc_y);
-int draweight(uint8_t loc_x, uint8_t loc_y);
-int drawnine(uint8_t loc_x, uint8_t loc_y);
-int drawzero(uint8_t loc_x, uint8_t loc_y);
-
-int recttest(void);
