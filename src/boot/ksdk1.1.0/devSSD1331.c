@@ -430,6 +430,7 @@ drawzero(uint8_t loc_x, uint8_t loc_y)
 	return 0;
 }
 
+
 int
 writetoscreen(int ar[2])
 {
