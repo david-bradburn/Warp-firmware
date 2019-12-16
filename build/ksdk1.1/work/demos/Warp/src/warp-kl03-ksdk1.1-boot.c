@@ -2623,7 +2623,7 @@ devSSD1331init();
 			case '4':
 			{
 
-					SEGGER_RTT_WriteString(0, "\r- Please enter 2 number\n")
+					SEGGER_RTT_WriteString(0, "\r- Please enter 2 number\n");
 					int ar[2];
 
 					ar = read2digits();
@@ -3678,12 +3678,12 @@ read4digits(void)
 int
 read2digits(void)
 {
-	uint8_t digit1, digit2;
+	int ar[2];
 
-	digit1 = SEGGER_RTT_WaitKey();
-	digit2 = SEGGER_RTT_WaitKey();
+	ar[0] = SEGGER_RTT_WaitKey();
+	ar[1] = SEGGER_RTT_WaitKey();
 
-	return {digit1, digit2}
+	return ar;
 }
 
 
