@@ -439,9 +439,9 @@ writetoscreen(int ar[2])
 
 	int x[2] = {3, 50};
 	int y[2] = {3, 3};
-	drawzero(3, 3);
+	drawzero(x[0], y[0]);
 
-	for(i = 0; i<(&ar)[1]-ar; i++)
+	for(i = 0; i<2; i++)
 	{
 		if(ar[i] == 0)
 		{
