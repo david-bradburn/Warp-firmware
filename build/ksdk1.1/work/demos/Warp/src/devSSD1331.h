@@ -50,5 +50,7 @@ int drawone(uint8_t loc_x, uint8_t loc_y);
 int drawtwo(uint8_t loc_x, uint8_t loc_y);
 int drawthree(uint8_t loc_x, uint8_t loc_y);
 int drawfour(uint8_t loc_x, uint8_t loc_y);
+int drawfive(uint8_t loc_x, uint8_t loc_y);
+int drawsix(uint8_t loc_x, uint8_t loc_y);
 
 int recttest(void);
