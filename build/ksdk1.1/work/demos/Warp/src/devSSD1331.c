@@ -436,7 +436,7 @@ writetoscreen(int ar[2])
 	clearscreen();
 
 	int i;
-	ar = {0, 0};
+	int ar = {0, 0};
 	int x[2] = {3, 50};
 	int y[2] = {3, 3};
 
