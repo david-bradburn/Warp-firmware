@@ -539,8 +539,8 @@ devSSD1331init(void)
 	//...
 	//3,3
 	//50, 3
-	drawseven(3, 3);
-	draweight(50, 3);
+	drawnine(3, 3);
+	drawzero(50, 3);
 
 	return 0;
 }
