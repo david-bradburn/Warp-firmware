@@ -433,6 +433,7 @@ drawzero(uint8_t loc_x, uint8_t loc_y)
 int
 writetoscreen(int ar[2])
 {
+	clearscreen();
 
 	int i;
 
@@ -441,7 +442,14 @@ writetoscreen(int ar[2])
 
 	for(i = 0; (&ar)[1]-ar; i++)
 	{
-		writeCommand(kSSD1331CommandFILL);
+		if(ar[i] == 0)
+		{
+			drawzero(x[i], y[i]);
+		}
+		else if(ar[i] == 1)
+		{
+			drawone(x[i], y[i]);
+		}
 	}
 	return 0;
 }
@@ -451,7 +459,21 @@ writetoscreen(int ar[2])
 
 
 
+int
+clearscreen(void)
+{
 
+	/*
+	 *	Clear Screen
+	 */
+	writeCommand(kSSD1331CommandCLEAR);
+	writeCommand(0x00);
+	writeCommand(0x00);
+	writeCommand(0x5F);
+	writeCommand(0x3F);
+
+	return 0;
+}
 
 
 
@@ -538,15 +560,8 @@ devSSD1331init(void)
 	writeCommand(kSSD1331CommandFILL);
 	writeCommand(0x01);
 
-	/*
-	 *	Clear Screen
-	 */
-	writeCommand(kSSD1331CommandCLEAR);
-	writeCommand(0x00);
-	writeCommand(0x00);
-	writeCommand(0x5F);
-	writeCommand(0x3F);
 
+	clearscreen();
 
 
 	/*
@@ -555,8 +570,8 @@ devSSD1331init(void)
 	//...
 	//3,3
 	//50, 3
-	drawnine(3, 3);
-	drawzero(50, 3);
+	int bv = {0, 0}
+	writetoscreen(bv);
 
 	return 0;
 }
