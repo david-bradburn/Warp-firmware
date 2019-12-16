@@ -448,9 +448,41 @@ writetoscreen(int ar[2])
 		{
 			drawzero(x[i], y[i]);
 		}
-		else if(ar[i] == '1')
+		else if(ar[i] == 1)
 		{
 			drawone(x[i], y[i]);
+		}
+		else if(ar[i] == 2)
+		{
+			drawtwo(x[i], y[i]);
+		}
+		else if(ar[i] == 3)
+		{
+			drawthree(x[i], y[i]);
+		}
+		else if(ar[i] == 4)
+		{
+			drawfour(x[i], y[i]);
+		}
+		else if(ar[i] == 5)
+		{
+			drawfive(x[i], y[i]);
+		}
+		else if(ar[i] == 6)
+		{
+			drawsix(x[i], y[i]);
+		}
+		else if(ar[i] == 7)
+		{
+			drawseven(x[i], y[i]);
+		}
+		else if(ar[i] == 8)
+		{
+			draweight(x[i], y[i]);
+		}
+		else if(ar[i] == 9)
+		{
+			drawnine(x[i], y[i]);
 		}
 	}
 	return 0;
@@ -572,7 +604,7 @@ devSSD1331init(void)
 	//...
 	//3,3
 	//50, 3
-	int bv[2] = {0, 0};
+	int bv[2] = {6, 9};
 	writetoscreen(bv);
 
 	return 0;
