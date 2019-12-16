@@ -2507,12 +2507,14 @@ devSSD1331init();
 
       case '1':
       {
-				WarpStatus		status;
+			
 
 
               SEGGER_RTT_WriteString(0, "\r\n\tPrinting INA219 registers\n");
 							enableI2Cpins(menuI2cPullupValue);
-							status = readSensorRegisterINA219(0x00, 2);
+
+							readSensorRegisterINA219(0x00, 2);
+
 							uint16_t hexout = (deviceINA219State.i2cBuffer[0] << 8) + (deviceINA219State.i2cBuffer[1]);
 
 							#ifdef WARP_BUILD_ENABLE_SEGGER_RTT_PRINTF
@@ -2523,7 +2525,7 @@ devSSD1331init();
 														hexout);
 							#endif
 
-							status = readSensorRegisterINA219(0x01, 2);
+							readSensorRegisterINA219(0x01, 2);
 							hexout = (deviceINA219State.i2cBuffer[0] << 8) + (deviceINA219State.i2cBuffer[1]);
 
 							#ifdef WARP_BUILD_ENABLE_SEGGER_RTT_PRINTF
@@ -2534,7 +2536,7 @@ devSSD1331init();
 														hexout);
 							#endif
 
-							status = readSensorRegisterINA219(0x02, 2);
+							readSensorRegisterINA219(0x02, 2);
 							hexout = (deviceINA219State.i2cBuffer[0] << 8) + (deviceINA219State.i2cBuffer[1]);
 
 							#ifdef WARP_BUILD_ENABLE_SEGGER_RTT_PRINTF
@@ -2545,7 +2547,7 @@ devSSD1331init();
 														hexout);
 							#endif
 
-							status = readSensorRegisterINA219(0x03, 2);
+							readSensorRegisterINA219(0x03, 2);
 							hexout = (deviceINA219State.i2cBuffer[0] << 8) + (deviceINA219State.i2cBuffer[1]);
 
 							#ifdef WARP_BUILD_ENABLE_SEGGER_RTT_PRINTF
@@ -2556,7 +2558,7 @@ devSSD1331init();
 														hexout);
 							#endif
 
-							status = readSensorRegisterINA219(0x04, 2);
+							readSensorRegisterINA219(0x04, 2);
 							hexout = (deviceINA219State.i2cBuffer[0] << 8) + (deviceINA219State.i2cBuffer[1]);
 
 							#ifdef WARP_BUILD_ENABLE_SEGGER_RTT_PRINTF
@@ -2568,7 +2570,7 @@ devSSD1331init();
 														hexout/10);
 							#endif
 
-							status = readSensorRegisterINA219(0x05, 2);
+							readSensorRegisterINA219(0x05, 2);
 							hexout = (deviceINA219State.i2cBuffer[0] << 8) + (deviceINA219State.i2cBuffer[1]);
 
 							#ifdef WARP_BUILD_ENABLE_SEGGER_RTT_PRINTF
@@ -2595,7 +2597,6 @@ devSSD1331init();
 			case '3':
 			{
 
-				WarpStatus		status;
 
 
               SEGGER_RTT_WriteString(0, "\r\n\tPrinting INA219 register 0x04 1000 times \n");
@@ -2605,7 +2606,8 @@ devSSD1331init();
 							int i = 0;
 							for (i = 0; i<1000; i++)
 							{
-							status = readSensorRegisterINA219(0x04, 2);
+
+							readSensorRegisterINA219(0x04, 2);
 							hexout = (deviceINA219State.i2cBuffer[0] << 8) + (deviceINA219State.i2cBuffer[1]);
 													SEGGER_RTT_printf(0, "\r\t%d,\n",
 														hexout);
@@ -2634,7 +2636,7 @@ devSSD1331init();
 							SEGGER_RTT_printf(0, "\r\t \n \nX Acceleration\n");
 							for (i = 0; i<i_max; i++)
 							{
-							status = readSensorRegisterMMA8451Q(0x01, 2);
+							readSensorRegisterMMA8451Q(0x01, 2);
 
 							hexout = ((deviceMMA8451QState.i2cBuffer[0] & 0xFF) << 6) | (deviceMMA8451QState.i2cBuffer[1] >> 2);
 
