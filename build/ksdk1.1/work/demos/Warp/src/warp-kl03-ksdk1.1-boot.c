@@ -2669,6 +2669,7 @@ devSSD1331init();
 
 				}
 
+				#endif
 				break
 			}
 
