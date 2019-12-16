@@ -2618,8 +2618,6 @@ devSSD1331init();
 			case '9':
 			{
 
-				WarpStatus		status;
-				//WarpStatus		status1;
 
 
               SEGGER_RTT_WriteString(0, "\r\n\tPrinting MMA8451Q register 1000 times \n");
@@ -2642,8 +2640,6 @@ devSSD1331init();
 
 							hexout = (hexout ^ (1 << 13)) - (1 << 13);
 
-							frac = hexout / 4096;
-
 							SEGGER_RTT_printf(0,
 													"\r\t0x%04x --> %d\n",
 													hexout,
@@ -2656,7 +2652,8 @@ devSSD1331init();
 							SEGGER_RTT_printf(0, "\r\t \n \nY Acceleration\n");
 							for (i = 0; i<i_max; i++)
 							{
-							status = readSensorRegisterMMA8451Q(0x03, 2);
+
+							readSensorRegisterMMA8451Q(0x03, 2);
 
 							hexout = ((deviceMMA8451QState.i2cBuffer[0] & 0xFF) << 6) | (deviceMMA8451QState.i2cBuffer[1] >> 2);
 
@@ -2673,14 +2670,12 @@ devSSD1331init();
 							SEGGER_RTT_printf(0, "\r\t \n \nZ Acceleration\n");
 							for (i = 0; i < i_max; i++)
 							{
-							status = readSensorRegisterMMA8451Q(0x05, 2);
-							//hexout = (deviceMMA8451QState.i2cBuffer[0] << 8) + (deviceMMA8451QState.i2cBuffer[1]);
+
+							readSensorRegisterMMA8451Q(0x05, 2);
 
 							hexout = ((deviceMMA8451QState.i2cBuffer[0] & 0xFF) << 6) | (deviceMMA8451QState.i2cBuffer[1] >> 2);
 
 							hexout = (hexout ^ (1 << 13)) - (1 << 13);
-
-							//z_accel = hexout / 4096;
 
 							SEGGER_RTT_printf(0,
 													"\r\t0x%04x --> %d\n",
