@@ -441,7 +441,6 @@ writetoscreen(int ar[2])
 	int x[2] = {3, 50};
 	int y[2] = {3, 3};
 
-
 	for(i = 0; i < 2; i++)
 	{
 		if(ar[i] == 0)
@@ -492,7 +491,6 @@ writetoscreen(int ar[2])
 int
 clearscreen(void)
 {
-
 	/*
 	 *	Clear Screen
 	 */
