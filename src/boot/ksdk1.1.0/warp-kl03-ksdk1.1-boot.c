@@ -1476,6 +1476,9 @@ devSSD1331init();
 		SEGGER_RTT_WriteString(0, "\r- '4': write to OLED\n");
 		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
 
+		SEGGER_RTT_WriteString(0, "\r- '5': Rowing System\n");
+		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
+
 		SEGGER_RTT_WriteString(0, "\r- '9': Read n accelerations \n");//Read 1000 currents via INA219
 		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
 
