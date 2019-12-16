@@ -441,14 +441,14 @@ writetoscreen(int ar[2])
 	int y[2] = {3, 3};
 
 
-	for(i = 0; i<2; i++)
+	for(i = 0; i < 2; i++)
 	{
-		drawzero(x[i], y[i]);
-		if(ar[i] == 0)
+		//drawzero(x[i], y[i]);
+		if(ar[i] == '0')
 		{
 			drawzero(x[i], y[i]);
 		}
-		else if(ar[i] == 1)
+		else if(ar[i] == '1')
 		{
 			drawone(x[i], y[i]);
 		}
