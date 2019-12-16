@@ -438,10 +438,10 @@ writetoscreen(int ar[2])
 
 	int x[2] = {3, 50};
 	int y[2] = {3, 3};
-	
+
 	for(i = 0; (&ar)[1]-ar; i++)
 	{
-
+		writeCommand(kSSD1331CommandFILL);
 	}
 	return 0;
 }
