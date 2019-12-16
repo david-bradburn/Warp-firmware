@@ -2624,9 +2624,8 @@ devSSD1331init();
 			{
 
 					SEGGER_RTT_WriteString(0, "\r- Please enter 2 number\n");
-					int ar[2];
 
-					ar = read2digits();
+					int ar[] = read2digits();
 
 					writetoscreen(ar);
 					break;
@@ -3675,15 +3674,16 @@ read4digits(void)
 	return (digit1 - '0')*1000 + (digit2 - '0')*100 + (digit3 - '0')*10 + (digit4 - '0');
 }
 
+
 int
 read2digits(void)
 {
-	int ar[2];
+	int arr[2];
 
-	ar[0] = SEGGER_RTT_WaitKey();
-	ar[1] = SEGGER_RTT_WaitKey();
+	arr[0] = SEGGER_RTT_WaitKey();
+	arr[1] = SEGGER_RTT_WaitKey();
 
-	return ar;
+	return arr;
 }
 
 
