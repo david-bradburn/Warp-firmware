@@ -1473,6 +1473,9 @@ devSSD1331init();
 		SEGGER_RTT_WriteString(0, "\r- '3': write 0x1000 to 0x50\n");//Read 1000 currents via INA219
 		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
 
+		SEGGER_RTT_WriteString(0, "\r- '4': write to OLED\n");
+		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
+
 		SEGGER_RTT_WriteString(0, "\r- '9': Read n accelerations \n");//Read 1000 currents via INA219
 		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
 
@@ -2507,7 +2510,7 @@ devSSD1331init();
 
       case '1':
       {
-			
+
 
 
               SEGGER_RTT_WriteString(0, "\r\n\tPrinting INA219 registers\n");
@@ -2615,6 +2618,18 @@ devSSD1331init();
 							#endif
 							break;
 
+			}
+
+			case '4':
+			{
+
+					SEGGER_RTT_WriteString(0, "\r- Please enter 2 number\n")
+					int ar[2];
+
+					ar = read2digits();
+
+					writetoscreen(ar);
+					break;
 			}
 
 			case '9':
@@ -3658,6 +3673,17 @@ read4digits(void)
 	digit4 = SEGGER_RTT_WaitKey();
 
 	return (digit1 - '0')*1000 + (digit2 - '0')*100 + (digit3 - '0')*10 + (digit4 - '0');
+}
+
+int
+read2digits(void)
+{
+	uint8_t digit1, digit2;
+
+	digit1 = SEGGER_RTT_WaitKey();
+	digit2 = SEGGER_RTT_WaitKey();
+
+	return {digit1, digit2}
 }
 
 
