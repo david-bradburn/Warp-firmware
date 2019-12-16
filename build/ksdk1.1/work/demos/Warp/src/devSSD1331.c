@@ -431,7 +431,7 @@ drawzero(uint8_t loc_x, uint8_t loc_y)
 }
 
 int
-writetoscreen(int ar[2])
+writetoscreen(void)
 {
 	clearscreen();
 
@@ -444,7 +444,7 @@ writetoscreen(int ar[2])
 	for(i = 0; i < 2; i++)
 	{
 		//drawzero(x[i], y[i]);
-		if(0 == 0)
+		if(ar[i] == 0)
 		{
 			drawzero(x[i], y[i]);
 		}
@@ -573,7 +573,7 @@ devSSD1331init(void)
 	//3,3
 	//50, 3
 	int bv = {0, 0};
-	writetoscreen(bv);
+	writetoscreen();
 
 	return 0;
 }
