@@ -2641,7 +2641,33 @@ devSSD1331init();
 
 			case '5':
 			{
-				
+				enableI2Cpins(menuI2cPullupValue);
+				int16_t hexout;
+
+				writeSensorRegisterMMA8451Q(0x2A, 0x03, menuI2cPullupValue);
+
+				#ifdef WARP_BUILD_ENABLE_SEGGER_RTT_PRINTF
+
+				int i = 0;
+				int i_max = 1000;
+
+				SEGGER_RTT_printf(0, "\r\t \n \nX Acceleration\n");
+
+				for (i = 0; i<i_max; i++)
+				{
+				readSensorRegisterMMA8451Q(0x01, 2);
+
+				hexout = (deviceMMA8451QState.i2cBuffer[0] & 0xFF);
+
+				hexout = (hexout ^ (1 << 7)) - (1 << 7);
+
+				SEGGER_RTT_printf(0,
+										"\r\t0x%04x --> %d\n",
+										hexout,
+										hexout);
+
+
+				}
 
 				break
 			}
