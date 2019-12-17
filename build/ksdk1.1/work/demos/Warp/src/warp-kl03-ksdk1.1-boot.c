@@ -40,7 +40,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-//#incldue <time.h>
+#include <time.h>
 
 #include "fsl_misc_utilities.h"
 #include "fsl_device_registers.h"
@@ -2673,7 +2673,7 @@ devSSD1331init();
 										hexout);
 
 				int ar[2] = {0,0};
-				
+
 				writetoscreen(ar);
 
 				}
