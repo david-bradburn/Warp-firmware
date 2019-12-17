@@ -2672,7 +2672,8 @@ devSSD1331init();
 										hexout,
 										hexout);
 
-				int ar[2] = {0,0}
+				int ar[2] = {0,0};
+				
 				writetoscreen(ar);
 
 				}
