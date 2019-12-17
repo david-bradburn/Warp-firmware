@@ -2667,13 +2667,12 @@ devSSD1331init();
 
 				hexout = (hexout ^ (1 << 13)) - (1 << 13);
 
-				hexout = hexout >> 10;
-
 				SEGGER_RTT_printf(0,
 										"\r\t0x%04x --> %d\n",
 										hexout,
 										hexout);
 
+				writetoscreen({0,0})
 				}
 				#endif
 				break;
