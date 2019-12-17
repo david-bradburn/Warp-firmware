@@ -2647,6 +2647,7 @@ devSSD1331init();
 				enableI2Cpins(menuI2cPullupValue);
 				int16_t hexout;
 				int16_t acc_prev = 0;
+				int16_t acc_prev_prev = 0;
 
 				#ifdef WARP_BUILD_ENABLE_SEGGER_RTT_PRINTF
 
@@ -2683,14 +2684,16 @@ devSSD1331init();
 				if(acc_prev != hexout)
 				{
 					ar[1] = 1;
+					writetoscreen(ar);
 				}
-				else
+				else if (acc_prev == hexout && acc_prev != acc_prev_prev)
 				{
 					ar[1] = 0;
+					writetoscreen(ar);
 				}
 
-				writetoscreen(ar);
 
+				acc_prev_prev = acc_prev;
 				acc_prev = hexout;
 
 				}
