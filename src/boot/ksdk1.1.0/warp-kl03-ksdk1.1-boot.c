@@ -2677,13 +2677,15 @@ devSSD1331init();
 
 				int ar[2];
 
+				ar[0] = 0;
+
 				if(hexout > 0)
 				{
-					ar = {0, 1};
+					ar[1] = 1;
 				}
 				else
 				{
-					ar = {0, 0};
+					ar[1] = 0;
 				}
 
 				writetoscreen(ar);
