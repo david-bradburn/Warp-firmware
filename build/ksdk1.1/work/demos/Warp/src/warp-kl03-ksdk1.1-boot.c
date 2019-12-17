@@ -2652,7 +2652,7 @@ devSSD1331init();
 				int i = 0;
 				int i_max = 1000;
 
-
+				rtc_datetime_t time_now;
 
 				SEGGER_RTT_printf(0, "\r\t \n \nX Acceleration\n");
 
@@ -2667,13 +2667,14 @@ devSSD1331init();
 
 				hexout = (hexout ^ (1 << 13)) - (1 << 13);
 
+				time_now = RTC_DRV_GetDatetime(0, &warpBootDate);
 				//time_t time_now = time(NULL);
 
 				SEGGER_RTT_printf(0,
 										"\r\t0x%04x --> %d --> %u\n",
 										hexout,
 										hexout,
-										warpBootDate);
+										time_now);
 
 
 
