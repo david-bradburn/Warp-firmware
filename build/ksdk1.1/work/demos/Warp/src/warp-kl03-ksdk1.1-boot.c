@@ -2647,8 +2647,6 @@ devSSD1331init();
 				enableI2Cpins(menuI2cPullupValue);
 				int16_t hexout;
 
-
-
 				#ifdef WARP_BUILD_ENABLE_SEGGER_RTT_PRINTF
 
 				int i = 0;
@@ -2667,14 +2665,15 @@ devSSD1331init();
 
 				hexout = (hexout ^ (1 << 13)) - (1 << 13);
 
+				time_t time_now = time()
+
 				SEGGER_RTT_printf(0,
-										"\r\t0x%04x --> %d\n",
+										"\r\t0x%04x --> %d --> %d\n",
 										hexout,
-										hexout);
+										hexout,
+										time_now);
 
-				int ar[2] = {0,0};
 
-				writetoscreen(ar);
 
 				}
 				#endif
