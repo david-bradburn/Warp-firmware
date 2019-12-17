@@ -2652,7 +2652,7 @@ devSSD1331init();
 				int i = 0;
 				int i_max = 1000;
 
-				time_t time_start = time(NULL);
+
 
 				SEGGER_RTT_printf(0, "\r\t \n \nX Acceleration\n");
 
@@ -2667,13 +2667,13 @@ devSSD1331init();
 
 				hexout = (hexout ^ (1 << 13)) - (1 << 13);
 
-				time_t time_now = time(NULL);
+				//time_t time_now = time(NULL);
 
 				SEGGER_RTT_printf(0,
 										"\r\t0x%04x --> %d --> %u\n",
 										hexout,
 										hexout,
-										(time_now - time_start));
+										warpBootDate);
 
 
 
