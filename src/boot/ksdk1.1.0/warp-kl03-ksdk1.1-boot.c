@@ -40,6 +40,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+#incldue <time.h>
+
 #include "fsl_misc_utilities.h"
 #include "fsl_device_registers.h"
 #include "fsl_i2c_master_driver.h"
@@ -54,6 +56,7 @@
 #include "gpio_pins.h"
 #include "SEGGER_RTT.h"
 #include "warp.h"
+
 
 #define WARP_FRDMKL03
 
