@@ -2667,7 +2667,7 @@ devSSD1331init();
 
 				hexout = (hexout ^ (1 << 13)) - (1 << 13);
 
-				time_now = RTC_DRV_GetDatetime(0, &warpBootDate);
+				RTC_DRV_GetDatetime(0, &time_now);
 				//time_t time_now = time(NULL);
 
 				SEGGER_RTT_printf(0,
