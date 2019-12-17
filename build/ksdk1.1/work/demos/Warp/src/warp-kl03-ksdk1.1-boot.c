@@ -2668,7 +2668,7 @@ devSSD1331init();
 				time_t time_now = time(NULL);
 
 				SEGGER_RTT_printf(0,
-										"\r\t0x%04x --> %d --> %s\n",
+										"\r\t0x%04x --> %d --> %u\n",
 										hexout,
 										hexout,
 										time_now);
