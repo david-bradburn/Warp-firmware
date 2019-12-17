@@ -2672,7 +2672,7 @@ devSSD1331init();
 										hexout,
 										hexout);
 
-				writetoscreen({0,0})
+				writetoscreen({0,0});
 				}
 				#endif
 				break;
