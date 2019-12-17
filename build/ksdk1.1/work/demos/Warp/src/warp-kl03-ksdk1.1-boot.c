@@ -40,6 +40,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+#incldue <time.h>
+
 #include "fsl_misc_utilities.h"
 #include "fsl_device_registers.h"
 #include "fsl_i2c_master_driver.h"
@@ -54,6 +56,7 @@
 #include "gpio_pins.h"
 #include "SEGGER_RTT.h"
 #include "warp.h"
+
 
 #define WARP_FRDMKL03
 
@@ -2644,7 +2647,7 @@ devSSD1331init();
 				enableI2Cpins(menuI2cPullupValue);
 				int16_t hexout;
 
-				writeSensorRegisterMMA8451Q(0x2A, 0x03, menuI2cPullupValue);
+
 
 				#ifdef WARP_BUILD_ENABLE_SEGGER_RTT_PRINTF
 
@@ -2655,6 +2658,22 @@ devSSD1331init();
 
 				for (i = 0; i<i_max; i++)
 				{
+
+				writeSensorRegisterMMA8451Q(0x2A, 0x03, menuI2cPullupValue);
+
+				readSensorRegisterMMA8451Q(0x01, 2);
+
+				hexout = ((deviceMMA8451QState.i2cBuffer[0] & 0xFF) << 6) | (deviceMMA8451QState.i2cBuffer[1] >> 2);
+
+				hexout = (hexout ^ (1 << 13)) - (1 << 13);
+
+				SEGGER_RTT_printf(0,
+										"\r\t0x%04x --> %d\n",
+										hexout,
+										hexout);
+
+				writeSensorRegisterMMA8451Q(0x2A, 0x01, menuI2cPullupValue);
+
 				readSensorRegisterMMA8451Q(0x01, 2);
 
 				hexout = ((deviceMMA8451QState.i2cBuffer[0] & 0xFF) << 6) | (deviceMMA8451QState.i2cBuffer[1] >> 2);
