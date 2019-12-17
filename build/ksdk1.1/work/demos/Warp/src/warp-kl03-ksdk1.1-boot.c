@@ -2652,8 +2652,8 @@ devSSD1331init();
 				#ifdef WARP_BUILD_ENABLE_SEGGER_RTT_PRINTF
 
 				int i = 0;
-				int i_max = 10000;
-				int threshold = 1000;
+				int i_max = 50000;
+				int threshold = 5000;
 				int counter = 0;
 
 				//rtc_datetime_t time_now;
