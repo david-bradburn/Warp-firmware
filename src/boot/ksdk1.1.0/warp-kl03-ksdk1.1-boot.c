@@ -2652,6 +2652,8 @@ devSSD1331init();
 				int i = 0;
 				int i_max = 1000;
 
+				time_t time_start = time(NULL);
+
 				SEGGER_RTT_printf(0, "\r\t \n \nX Acceleration\n");
 
 				for (i = 0; i<i_max; i++)
@@ -2671,7 +2673,7 @@ devSSD1331init();
 										"\r\t0x%04x --> %d --> %u\n",
 										hexout,
 										hexout,
-										time_now);
+										(time_now - time start));
 
 
 
