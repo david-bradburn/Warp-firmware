@@ -2673,7 +2673,7 @@ devSSD1331init();
 										"\r\t0x%04x --> %d --> %u\n",
 										hexout,
 										hexout,
-										(time_now - time start));
+										(time_now - time_start));
 
 
 
