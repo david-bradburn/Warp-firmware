@@ -2652,7 +2652,9 @@ devSSD1331init();
 				#ifdef WARP_BUILD_ENABLE_SEGGER_RTT_PRINTF
 
 				int i = 0;
-				int i_max = 1000;
+				int i_max = 10000;
+				int threshold = 1000;
+				int counter = 0;
 
 				//rtc_datetime_t time_now;
 
@@ -2672,29 +2674,36 @@ devSSD1331init();
 				//RTC_DRV_GetDatetime(0, &time_now);
 				//time_t time_now = time(NULL);
 
+				if(counter == threshold)
+				{
+				counter = 0;
 				SEGGER_RTT_printf(0,
 										"\r\t0x%04x --> %d\n",
 										hexout,
 										hexout);
-
-				int ar[2];
-
-				ar[0] = 0;
-
-				if(acc_prev != hexout)
-				{
-					ar[1] = 1;
-					writetoscreen(ar);
 				}
-				else if (acc_prev == hexout && acc_prev != acc_prev_prev)
+				else
 				{
-					ar[1] = 0;
-					writetoscreen(ar);
+						counter++;
 				}
-
-
-				acc_prev_prev = acc_prev;
-				acc_prev = hexout;
+				// int ar[2];
+				//
+				// ar[0] = 0;
+				//
+				// if(acc_prev != hexout)
+				// {
+				// 	ar[1] = 1;
+				// 	writetoscreen(ar);
+				// }
+				// else if (acc_prev == hexout && acc_prev != acc_prev_prev)
+				// {
+				// 	ar[1] = 0;
+				// 	writetoscreen(ar);
+				// }
+				//
+				//
+				// acc_prev_prev = acc_prev;
+				// acc_prev = hexout;
 
 				}
 				#endif
