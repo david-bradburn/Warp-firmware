@@ -2652,7 +2652,7 @@ devSSD1331init();
 				int i = 0;
 				int i_max = 1000;
 
-				rtc_datetime_t time_now;
+				//rtc_datetime_t time_now;
 
 				SEGGER_RTT_printf(0, "\r\t \n \nX Acceleration\n");
 
@@ -2667,14 +2667,26 @@ devSSD1331init();
 
 				hexout = (hexout ^ (1 << 13)) - (1 << 13);
 
-				RTC_DRV_GetDatetime(1, &time_now);
+				//RTC_DRV_GetDatetime(0, &time_now);
 				//time_t time_now = time(NULL);
 
 				SEGGER_RTT_printf(0,
-										"\r\t0x%04x --> %d --> %u\n",
+										"\r\t0x%04x --> %d\n",
 										hexout,
-										hexout,
-										time_now);
+										hexout);
+
+				int ar[2];
+
+				if(hexout > 0)
+				{
+					ar = {0, 1};
+				}
+				else
+				{
+					ar = {0, 0};
+				}
+
+				writetoscreen(ar);
 
 
 
