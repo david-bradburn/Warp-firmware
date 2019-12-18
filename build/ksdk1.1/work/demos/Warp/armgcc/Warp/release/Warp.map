@@ -1907,7 +1907,7 @@ LOAD /usr/lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtn.o
                 0x0000000000000000                __VECTOR_RAM = DEFINED (__ram_vector_table__)?__VECTOR_RAM__:ORIGIN (m_interrupts)
                 0x0000000000000000                __RAM_VECTOR_TABLE_SIZE_BYTES = DEFINED (__ram_vector_table__)?(__interrupts_ram_end__ - __interrupts_ram_start__):0x0
 
-.data           0x000000001ffffe00      0x1ac load address 0x0000000000007400
+.data           0x000000001ffffe00      0x1b4 load address 0x0000000000007400
                 0x000000001ffffe00                . = ALIGN (0x4)
                 0x000000001ffffe00                __DATA_RAM = .
                 0x000000001ffffe00                __data_start__ = .
@@ -1940,66 +1940,67 @@ LOAD /usr/lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtn.o
                 0x000000001ffffe1c                clockManagerCallbackUserlevelStructure
  .data.clockCallbackTable
                 0x000000001ffffe28        0x4 CMakeFiles/Warp.dir/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/warp-kl03-ksdk1.1-boot.c.obj
+ .data.acc_prev
+                0x000000001ffffe2c        0x8 CMakeFiles/Warp.dir/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devSSD1331.c.obj
+                0x000000001ffffe2c                acc_prev
  .data.inputPins
-                0x000000001ffffe2c       0x10 CMakeFiles/Warp.dir/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/boards/Warp/gpio_pins.c.obj
-                0x000000001ffffe2c                inputPins
+                0x000000001ffffe34       0x10 CMakeFiles/Warp.dir/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/boards/Warp/gpio_pins.c.obj
+                0x000000001ffffe34                inputPins
  .data.outputPins
-                0x000000001ffffe3c       0xf0 CMakeFiles/Warp.dir/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/boards/Warp/gpio_pins.c.obj
-                0x000000001ffffe3c                outputPins
+                0x000000001ffffe44       0xf0 CMakeFiles/Warp.dir/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/boards/Warp/gpio_pins.c.obj
+                0x000000001ffffe44                outputPins
  .data.g_defaultClockConfigurations
-                0x000000001fffff2c       0x18 ../../../../lib/ksdk_platform_lib/armgcc/KL03Z4/release/libksdk_platform.a(fsl_clock_MKL03Z4.c.obj)
-                0x000000001fffff2c                g_defaultClockConfigurations
+                0x000000001fffff34       0x18 ../../../../lib/ksdk_platform_lib/armgcc/KL03Z4/release/libksdk_platform.a(fsl_clock_MKL03Z4.c.obj)
+                0x000000001fffff34                g_defaultClockConfigurations
  .data.impure_data
-                0x000000001fffff44       0x60 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv6-m/libc_nano.a(lib_a-impure.o)
+                0x000000001fffff4c       0x60 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv6-m/libc_nano.a(lib_a-impure.o)
  .data._impure_ptr
-                0x000000001fffffa4        0x4 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv6-m/libc_nano.a(lib_a-impure.o)
-                0x000000001fffffa4                _impure_ptr
+                0x000000001fffffac        0x4 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv6-m/libc_nano.a(lib_a-impure.o)
+                0x000000001fffffac                _impure_ptr
  *(.jcr*)
- .jcr           0x000000001fffffa8        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtbegin.o
- .jcr           0x000000001fffffa8        0x4 /usr/lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtend.o
-                0x000000001fffffac                . = ALIGN (0x4)
-                0x000000001fffffac                __data_end__ = .
-                0x00000000000075ac                __DATA_END = (__DATA_ROM + (__data_end__ - __data_start__))
+ .jcr           0x000000001fffffb0        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtbegin.o
+ .jcr           0x000000001fffffb0        0x4 /usr/lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtend.o
+                0x000000001fffffb4                . = ALIGN (0x4)
+                0x000000001fffffb4                __data_end__ = .
+                0x00000000000075b4                __DATA_END = (__DATA_ROM + (__data_end__ - __data_start__))
 
 .tm_clone_table
-                0x000000001fffffac        0x0 load address 0x00000000000075ac
+                0x000000001fffffb4        0x0 load address 0x00000000000075b4
  .tm_clone_table
-                0x000000001fffffac        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtbegin.o
+                0x000000001fffffb4        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtbegin.o
  .tm_clone_table
-                0x000000001fffffac        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtend.o
+                0x000000001fffffb4        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtend.o
 
-.igot.plt       0x000000001fffffac        0x0 load address 0x00000000000075ac
- .igot.plt      0x000000001fffffac        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtbegin.o
+.igot.plt       0x000000001fffffb4        0x0 load address 0x00000000000075b4
+ .igot.plt      0x000000001fffffb4        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtbegin.o
 
-.bss            0x000000001fffffac      0x324 load address 0x00000000000075ac
-                0x000000001fffffac                . = ALIGN (0x4)
-                0x000000001fffffac                __START_BSS = .
-                0x000000001fffffac                __bss_start__ = .
+.bss            0x000000001fffffb4      0x31c load address 0x00000000000075b4
+                0x000000001fffffb4                . = ALIGN (0x4)
+                0x000000001fffffb4                __START_BSS = .
+                0x000000001fffffb4                __bss_start__ = .
  *(.bss)
- .bss           0x000000001fffffac       0x1c /usr/lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtbegin.o
+ .bss           0x000000001fffffb4       0x1c /usr/lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtbegin.o
  *(.bss*)
  .bss.heap_end.5228
-                0x000000001fffffc8        0x4 CMakeFiles/Warp.dir/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/platform/utilities/src/fsl_misc_utilities.c.obj
+                0x000000001fffffd0        0x4 CMakeFiles/Warp.dir/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/platform/utilities/src/fsl_misc_utilities.c.obj
  .bss.i2cMasterState
-                0x000000001fffffcc       0x24 CMakeFiles/Warp.dir/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/warp-kl03-ksdk1.1-boot.c.obj
-                0x000000001fffffcc                i2cMasterState
+                0x000000001fffffd4       0x24 CMakeFiles/Warp.dir/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/warp-kl03-ksdk1.1-boot.c.obj
+                0x000000001fffffd4                i2cMasterState
  .bss.deviceINA219State
-                0x000000001ffffff0       0x10 CMakeFiles/Warp.dir/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/warp-kl03-ksdk1.1-boot.c.obj
-                0x000000001ffffff0                deviceINA219State
+                0x000000001ffffff8       0x10 CMakeFiles/Warp.dir/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/warp-kl03-ksdk1.1-boot.c.obj
+                0x000000001ffffff8                deviceINA219State
  .bss.deviceMMA8451QState
-                0x0000000020000000       0x10 CMakeFiles/Warp.dir/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/warp-kl03-ksdk1.1-boot.c.obj
-                0x0000000020000000                deviceMMA8451QState
+                0x0000000020000008       0x10 CMakeFiles/Warp.dir/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/warp-kl03-ksdk1.1-boot.c.obj
+                0x0000000020000008                deviceMMA8451QState
  .bss.spiUserConfig
-                0x0000000020000010        0x8 CMakeFiles/Warp.dir/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/warp-kl03-ksdk1.1-boot.c.obj
-                0x0000000020000010                spiUserConfig
+                0x0000000020000018        0x8 CMakeFiles/Warp.dir/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/warp-kl03-ksdk1.1-boot.c.obj
+                0x0000000020000018                spiUserConfig
  .bss.gWarpSleeptimeSeconds
-                0x0000000020000018        0x4 CMakeFiles/Warp.dir/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/warp-kl03-ksdk1.1-boot.c.obj
-                0x0000000020000018                gWarpSleeptimeSeconds
+                0x0000000020000020        0x4 CMakeFiles/Warp.dir/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/warp-kl03-ksdk1.1-boot.c.obj
+                0x0000000020000020                gWarpSleeptimeSeconds
  .bss.spiMasterState
-                0x000000002000001c       0x30 CMakeFiles/Warp.dir/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/warp-kl03-ksdk1.1-boot.c.obj
-                0x000000002000001c                spiMasterState
- .bss.acc_prev  0x000000002000004c        0x8 CMakeFiles/Warp.dir/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devSSD1331.c.obj
-                0x000000002000004c                acc_prev
+                0x0000000020000024       0x30 CMakeFiles/Warp.dir/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/warp-kl03-ksdk1.1-boot.c.obj
+                0x0000000020000024                spiMasterState
  .bss.inBuffer  0x0000000020000054        0x1 CMakeFiles/Warp.dir/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devSSD1331.c.obj
                 0x0000000020000054                inBuffer
  .bss.payloadBytes
