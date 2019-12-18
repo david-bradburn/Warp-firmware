@@ -92,9 +92,9 @@ int
 drawone(uint8_t loc_x, uint8_t loc_y)
 {
 	writeCommand(kSSD1331CommandDRAWLINE);
-	writeCommand(loc_x);
+	writeCommand(loc_x + 21);
 	writeCommand(loc_y);
-	writeCommand(loc_x);
+	writeCommand(loc_x + 21);
 	writeCommand(loc_y + 56);
 
 	default_colour();
