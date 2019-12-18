@@ -1,3 +1,3 @@
 
 
-int intsplittoarray(int data);
+int[] intsplittoarray(int data);
