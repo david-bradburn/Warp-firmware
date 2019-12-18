@@ -600,7 +600,7 @@ writetoscreen(int ar[2]) //this bit is just to save processing as the the writin
 	}
 	else if(ar[0] == acc_prev[0] &&  ar[1] != acc_prev[1])
 	{
-		wrtietoscreenlower(ar[1]);
+		writetoscreenlower(ar[1]);
 	}
 	else if (ar[0] != acc_prev[0] && ar[1] == acc_prev[1])
 	{
