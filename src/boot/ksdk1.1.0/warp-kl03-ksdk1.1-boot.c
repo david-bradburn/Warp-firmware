@@ -87,7 +87,8 @@
 #endif
 
 #	include "devSSD1331.h"
-#	include "devINA219.h"
+//#	include "devINA219.h"
+# include "ergsystem.h"
 
 #define WARP_BUILD_ENABLE_SEGGER_RTT_PRINTF
 //#define WARP_BUILD_BOOT_TO_CSVSTREAM
@@ -2646,8 +2647,8 @@ devSSD1331init();
 			{
 				enableI2Cpins(menuI2cPullupValue);
 				int16_t hexout;
-				int16_t acc_prev = 0;
-				int16_t acc_prev_prev = 0;
+				// int16_t acc_prev = 0;
+				// int16_t acc_prev_prev = 0;
 
 				#ifdef WARP_BUILD_ENABLE_SEGGER_RTT_PRINTF
 
@@ -2723,6 +2724,22 @@ devSSD1331init();
 				}
 				#endif
 				break;
+			}
+
+
+			case '6':
+			{
+				SEGGER_RTT_printf(0, "Writing 00 to 99 to OLED");
+
+				int i;
+				int ar[2];
+
+				for(i = 0; i < 100; i++)
+				{
+					ar = intsplittoarray(i);
+					writetoscreen(ar);
+				}
+				break
 			}
 
 
