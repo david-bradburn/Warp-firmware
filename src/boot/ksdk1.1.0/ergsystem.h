@@ -1,4 +1,4 @@
 
 
 int intsplittoarrayupper(int data);
-int intsplittoarraylower(int data)
+int intsplittoarraylower(int data);
