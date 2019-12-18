@@ -34,7 +34,7 @@ intsplittoarrayupper(int data) //so we can actually get the data in the format t
   }
   else
   {
-    data -= (data % 10)
+    data -= (data % 10);
     return data/10;
   }
 }
