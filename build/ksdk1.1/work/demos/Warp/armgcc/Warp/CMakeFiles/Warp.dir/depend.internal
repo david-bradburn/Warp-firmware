@@ -481,6 +481,7 @@ CMakeFiles/Warp.dir/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/
  /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devBMX055.h
  /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devCCS811.h
  /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHDC1000.h
+ /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devINA219.h
  /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devL3GD20H.h
  /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devMAG3110.h
  /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devMMA8451Q.h
