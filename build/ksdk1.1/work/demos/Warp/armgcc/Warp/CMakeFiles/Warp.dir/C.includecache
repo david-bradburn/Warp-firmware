@@ -858,8 +858,6 @@ SEGGER_RTT.h
 warp.h
 /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/warp.h
 
-/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devAMG8834.h
-
 /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devBME680.c
 stdlib.h
 -
@@ -887,8 +885,6 @@ SEGGER_RTT.h
 /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/SEGGER_RTT.h
 warp.h
 /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/warp.h
-
-/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devBME680.h
 
 /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devBMX055.c
 stdlib.h
@@ -918,8 +914,6 @@ SEGGER_RTT.h
 warp.h
 /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/warp.h
 
-/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devBMX055.h
-
 /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devCCS811.c
 stdlib.h
 -
@@ -948,8 +942,6 @@ SEGGER_RTT.h
 warp.h
 /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/warp.h
 
-/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devCCS811.h
-
 /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHDC1000.c
 stdlib.h
 -
@@ -977,8 +969,6 @@ SEGGER_RTT.h
 /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/SEGGER_RTT.h
 warp.h
 /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/warp.h
-
-/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHDC1000.h
 
 /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devINA219.c
 stdlib.h
@@ -1038,8 +1028,6 @@ SEGGER_RTT.h
 warp.h
 /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/warp.h
 
-/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devL3GD20H.h
-
 /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devMAG3110.c
 stdlib.h
 -
@@ -1067,8 +1055,6 @@ SEGGER_RTT.h
 /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/SEGGER_RTT.h
 warp.h
 /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/warp.h
-
-/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devMAG3110.h
 
 /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devMMA8451Q.c
 stdlib.h
@@ -1161,22 +1147,6 @@ SEGGER_RTT.h
 /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/SEGGER_RTT.h
 warp.h
 /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/warp.h
-devBMX055.h
-/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devBMX055.h
-devMMA8451Q.h
-/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devMMA8451Q.h
-devHDC1000.h
-/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHDC1000.h
-devMAG3110.h
-/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devMAG3110.h
-devL3GD20H.h
-/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devL3GD20H.h
-devBME680.h
-/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devBME680.h
-devCCS811.h
-/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devCCS811.h
-devAMG8834.h
-/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devAMG8834.h
 devMMA8451Q.h
 /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devMMA8451Q.h
 devSSD1331.h
