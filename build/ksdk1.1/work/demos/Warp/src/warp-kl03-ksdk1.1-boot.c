@@ -2732,12 +2732,14 @@ devSSD1331init();
 				SEGGER_RTT_printf(0, "Writing 00 to 99 to OLED");
 
 				int i;
-				//int ar[2];
+				int ar[2];
 
 				for(i = 0; i < 100; i++)
 				{
 
-					writetoscreen(intsplittoarray(i));
+					ar[0] = intsplittoarrayupper(i);
+					ar[1] = intsplittoarraylower(i);
+					writetoscreen(i);
 				}
 				break;
 			}

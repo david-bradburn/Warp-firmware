@@ -1,3 +1,4 @@
 
 
-int[] intsplittoarray(int data);
+int intsplittoarrayupper(int data);
+int intsplittoarraylower(int data)
