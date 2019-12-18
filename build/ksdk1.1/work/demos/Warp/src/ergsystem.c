@@ -3,7 +3,7 @@
 
 #include "ergsystem.h"
 
-int
+int[]
 intsplittoarray(int data) //so we can actually get the data in the format the OLED is designed for.
 {
   int ar[2];
