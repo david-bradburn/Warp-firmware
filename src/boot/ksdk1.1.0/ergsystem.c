@@ -20,7 +20,7 @@ intsplittoarraylower(int data) //so we can actually get the data in the format t
 }
 
 int
-intsplittoarraylower(int data) //so we can actually get the data in the format the OLED is designed for.
+intsplittoarrayupper(int data) //so we can actually get the data in the format the OLED is designed for.
 {
   int ar2;
 
