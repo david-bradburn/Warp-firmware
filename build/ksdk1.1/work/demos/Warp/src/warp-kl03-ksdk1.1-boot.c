@@ -2739,7 +2739,7 @@ devSSD1331init();
 
 					ar[0] = intsplittoarrayupper(i);
 					ar[1] = intsplittoarraylower(i);
-					writetoscreen(i);
+					writetoscreen(ar);
 				}
 				break;
 			}
