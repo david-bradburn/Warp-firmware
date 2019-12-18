@@ -40,7 +40,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include <time.h>
+//#include <time.h>
 
 #include "fsl_misc_utilities.h"
 #include "fsl_device_registers.h"
