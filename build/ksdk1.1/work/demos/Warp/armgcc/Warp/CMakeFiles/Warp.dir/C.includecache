@@ -1008,8 +1008,6 @@ SEGGER_RTT.h
 warp.h
 /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/warp.h
 
-/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devINA219.h
-
 /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devL3GD20H.c
 stdlib.h
 -
@@ -1118,6 +1116,14 @@ devSSD1331.h
 
 /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devSSD1331.h
 
+/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/ergsystem.c
+stdint.h
+-
+ergsystem.h
+/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/ergsystem.h
+
+/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/ergsystem.h
+
 /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/warp-kl03-ksdk1.1-boot.c
 stdio.h
 -
@@ -1173,8 +1179,8 @@ devMMA8451Q.h
 /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devMMA8451Q.h
 devSSD1331.h
 /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devSSD1331.h
-devINA219.h
-/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devINA219.h
+ergsystem.h
+/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/ergsystem.h
 
 /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/warp-kl03-ksdk1.1-powermodes.c
 stdint.h

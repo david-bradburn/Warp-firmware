@@ -10,6 +10,7 @@
 
 volatile uint8_t	inBuffer[1];
 volatile uint8_t	payloadBytes[1];
+volatile int acc_prev[2] = {0, 0};
 
 
 /*
@@ -430,9 +431,112 @@ drawzero(uint8_t loc_x, uint8_t loc_y)
 	return 0;
 }
 
+//need to split Writing
 
 int
-writetoscreen(int ar[2])
+writetoscreenupper(int upper)
+{
+	clearscreenupper();
+
+	int x = 3;
+	int y = 3;
+
+	if(upper == 0)
+	{
+		drawzero(x, y);
+	}
+	else if(upper == 1)
+	{
+		drawone(x, y);
+	}
+	else if(upper == 2)
+	{
+		drawtwo(x, y);
+	}
+	else if(upper == 3)
+	{
+		drawthree(x, y);
+	}
+	else if(upper == 4)
+	{
+		drawfour(x, y);
+	}
+	else if(upper == 5)
+	{
+		drawfive(x, y);
+	}
+	else if(upper == 6)
+	{
+		drawsix(x, y);
+	}
+	else if(upper == 7)
+	{
+		drawseven(x, y);
+	}
+	else if(upper == 8)
+	{
+		draweight(x, y);
+	}
+	else if(upper == 9)
+	{
+		drawnine(x, y);
+	}
+	return 0;
+}
+
+int
+writetoscreenlower(int lower)
+{
+	clearscreenlower();
+
+	int x = 50;
+	int y = 3;
+
+	if(lower == 0)
+	{
+		drawzero(x, y);
+	}
+	else if(lower == 1)
+	{
+		drawone(x, y);
+	}
+	else if(lower == 2)
+	{
+		drawtwo(x, y);
+	}
+	else if(lower == 3)
+	{
+		drawthree(x, y);
+	}
+	else if(lower == 4)
+	{
+		drawfour(x, y);
+	}
+	else if(lower == 5)
+	{
+		drawfive(x, y);
+	}
+	else if(lower == 6)
+	{
+		drawsix(x, y);
+	}
+	else if(lower == 7)
+	{
+		drawseven(x, y);
+	}
+	else if(lower == 8)
+	{
+		draweight(x, y);
+	}
+	else if(lower == 9)
+	{
+		drawnine(x, y);
+	}
+	return 0;  // This can be compressed into 1 function but i'm to bored to write it.
+}
+
+int
+writetoscreenboth(int ar[2])
 {
 	clearscreen();
 
@@ -487,6 +591,28 @@ writetoscreen(int ar[2])
 	return 0;
 }
 
+int
+writetoscreen(int ar[2]) //this bit is just to save processing as the the writing command is rather slow, so by reducing the amount need to be rewritten we can save time.
+{
+	if(ar[0] != acc_prev[0] && ar[1] != acc_prev[1])
+	{
+		writetoscreenboth(ar);
+	}
+	else if(ar[0] == acc_prev[0] &&  ar[1] != acc_prev[1])
+	{
+		wrtietoscreenlower(ar[1]);
+	}
+	else if (ar[0] != acc_prev[0] && ar[1] == acc_prev[1])
+	{
+		writetoscreenupper(ar[0]);
+	}
+
+	acc_prev[0] = ar[0]; // i fucjen hopes this works
+	acc_prev[1] = ar[1];
+
+	return 0;
+}
+
 
 int
 clearscreen(void)
@@ -496,6 +622,31 @@ clearscreen(void)
 	 */
 	writeCommand(kSSD1331CommandCLEAR);
 	writeCommand(0x00);
+	writeCommand(0x00);
+	writeCommand(0x5F);
+	writeCommand(0x3F);
+
+	return 0;
+}
+
+
+int
+clearscreenupper(void)
+{
+	writeCommand(kSSD1331CommandCLEAR);
+	writeCommand(0x00);
+	writeCommand(0x00);
+	writeCommand(0x2F);
+	writeCommand(0x3F);
+
+	return 0;
+}
+
+int
+clearscreenlower(void)
+{
+	writeCommand(kSSD1331CommandCLEAR);
+	writeCommand(0x30);
 	writeCommand(0x00);
 	writeCommand(0x5F);
 	writeCommand(0x3F);
