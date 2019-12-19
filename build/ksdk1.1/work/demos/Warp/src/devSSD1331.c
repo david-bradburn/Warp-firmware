@@ -431,7 +431,49 @@ drawzero(uint8_t loc_x, uint8_t loc_y)
 	return 0;
 }
 
-//need to split Writing
+
+
+
+int
+clearscreen(void)
+{
+	/*
+	 *	Clear Screen
+	 */
+	writeCommand(kSSD1331CommandCLEAR);
+	writeCommand(0x00);
+	writeCommand(0x00);
+	writeCommand(0x5F);
+	writeCommand(0x3F);
+
+	return 0;
+}
+
+int
+clearscreenupper(void)
+{
+	writeCommand(kSSD1331CommandCLEAR);
+	writeCommand(0x00);
+	writeCommand(0x00);
+	writeCommand(0x2F);
+	writeCommand(0x3F);
+
+	return 0;
+}
+
+int
+clearscreenlower(void)
+{
+	writeCommand(kSSD1331CommandCLEAR);
+	writeCommand(0x30);
+	writeCommand(0x00);
+	writeCommand(0x5F);
+	writeCommand(0x3F);
+
+	return 0;
+}
+
+
 
 int
 writetoscreenupper(int upper)
@@ -614,45 +656,10 @@ writetoscreen(int ar[2]) //this bit is just to save processing as the the writin
 }
 
 
-int
-clearscreen(void)
-{
-	/*
-	 *	Clear Screen
-	 */
-	writeCommand(kSSD1331CommandCLEAR);
-	writeCommand(0x00);
-	writeCommand(0x00);
-	writeCommand(0x5F);
-	writeCommand(0x3F);
-
-	return 0;
-}
 
 
-int
-clearscreenupper(void)
-{
-	writeCommand(kSSD1331CommandCLEAR);
-	writeCommand(0x00);
-	writeCommand(0x00);
-	writeCommand(0x2F);
-	writeCommand(0x3F);
 
-	return 0;
-}
 
-int
-clearscreenlower(void)
-{
-	writeCommand(kSSD1331CommandCLEAR);
-	writeCommand(0x30);
-	writeCommand(0x00);
-	writeCommand(0x5F);
-	writeCommand(0x3F);
-
-	return 0;
-}
 
 
 
