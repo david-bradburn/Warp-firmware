@@ -2599,9 +2599,9 @@ devSSD1331init();
 				SEGGER_RTT_printf(0, "\r\t \n \nTest\n");
 
 				int imax = 50;
-				int y[];
+				int y[imax];
 				int i;
-				
+
 				for(i = 0; i < imax; i++)
 				{
 					y[i] = i;
