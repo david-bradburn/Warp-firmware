@@ -2646,9 +2646,12 @@ devSSD1331init();
 
 				readSensorRegisterMMA8451Q(0x05, 2);
 
-				hexouty = ((deviceMMA8451QState.i2cBuffer[0] & 0xFF) << 6) | (deviceMMA8451QState.i2cBuffer[1] >> 2);
+				hexoutz = ((deviceMMA8451QState.i2cBuffer[0] & 0xFF) << 6) | (deviceMMA8451QState.i2cBuffer[1] >> 2);
 
-				hexouty = (hexouty ^ (1 << 13)) - (1 << 13);
+				hexoutz = (hexoutz ^ (1 << 13)) - (1 << 13);
+
+
+
 
 
 
