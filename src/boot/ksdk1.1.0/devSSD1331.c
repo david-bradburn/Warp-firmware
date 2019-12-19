@@ -661,13 +661,15 @@ int
 pullingforceprint(int x[], int y[])
 {
 	clearscreen();
-	
+
 	writeCommand(kSSD1331CommandDRAWLINE);
 	writeCommand(x);
 	writeCommand(y);
 	writeCommand(x);
 	writeCommand(y);
 	default_colour();
+
+	return 0;
 }
 
 
