@@ -1471,7 +1471,7 @@ devSSD1331init();
 		SEGGER_RTT_WriteString(0, "\r- '1': read INA219 registers.\n");//Read 1 current via INA219
 		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
 
-		SEGGER_RTT_WriteString(0, "\r- '2': read 1000 currents.\n");//Read 1000 currents via INA219
+		SEGGER_RTT_WriteString(0, "\r- '2': Place point on OLED\n");//Read 1000 currents via INA219
 		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
 
 		SEGGER_RTT_WriteString(0, "\r- '3': Read all accelerations (X,Y,Z) for data collection\n");//Read 1000 currents via INA219
@@ -2596,11 +2596,18 @@ devSSD1331init();
 
       case '2':
       {
+				SEGGER_RTT_printf(0, "\r\t \n \nTest\n");
 
-      	int16_t x = char2int(SEGGER_RTT_WaitKey());
-				int16_t y = char2int(SEGGER_RTT_WaitKey());
+				int imax = 50;
+				int y[];
+				int i;
+				
+				for(i = 0; i < imax; i++)
+				{
+					y[i] = i;
+				}
 
-				pullingforceprint(x, y);
+				pullingforceprint(y);
 
 				break;
       }
