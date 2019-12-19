@@ -657,6 +657,18 @@ writetoscreen(int ar[2]) //this bit is just to save processing as the the writin
 
 
 
+int
+pullingforceprint(int x[], int y[])
+{
+	clearscreen();
+	
+	writeCommand(kSSD1331CommandDRAWLINE);
+	writeCommand(x);
+	writeCommand(y);
+	writeCommand(x);
+	writeCommand(y);
+	default_colour();
+}
 
 
 
