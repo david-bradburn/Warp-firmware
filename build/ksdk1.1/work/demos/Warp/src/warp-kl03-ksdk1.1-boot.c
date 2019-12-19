@@ -2619,7 +2619,7 @@ devSSD1331init();
 
 
 				int i = 0;
-				int i_max = 10000;
+				int i_max = 1000;
 
 
 				writeSensorRegisterMMA8451Q(0x2A, 0x01, menuI2cPullupValue);
@@ -2649,8 +2649,6 @@ devSSD1331init();
 				hexoutz = ((deviceMMA8451QState.i2cBuffer[0] & 0xFF) << 6) | (deviceMMA8451QState.i2cBuffer[1] >> 2);
 
 				hexoutz = (hexoutz ^ (1 << 13)) - (1 << 13);
-
-
 
 
 
