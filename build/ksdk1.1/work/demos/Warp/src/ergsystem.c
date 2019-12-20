@@ -38,3 +38,40 @@ intsplittoarrayupper(int data) //so we can actually get the data in the format t
     return data/10;
   }
 }
+
+
+// int *
+// reduce_accel_array_and_resize(int acc[])
+// {
+//   static int accel_fit[96];
+//   int i;
+//   int n;
+//   int n_1 = 1;
+//
+//   int acc_len = (sizeof(acc)/sizeof(acc[0]));
+//
+//   if(acc_len > 96)
+//   {
+//     float p;
+//     float q;
+//
+//     for(n = 0; n < 96; n++)
+//     {
+//       p = 0;
+//       q = 0;
+//       for(i = 0; i < acc_len; i++)
+//       {
+//         if(i/acc_len >= n/96 && i/acc_len < n_1/96)
+//         {
+//           p += acc[i] ;
+//           q++;
+//
+//         }
+//
+//       }
+//       n_prev++;
+//     }
+//   }
+//
+//   return acc;
+// }
