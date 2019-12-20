@@ -2625,14 +2625,14 @@ devSSD1331init();
 
 
 				int i = 0;
-				int i_max = 1000;
+				int i_max = 5000;
 
 
 				writeSensorRegisterMMA8451Q(0x2A, 0x01, menuI2cPullupValue);
 
 				SEGGER_RTT_printf(0, "\r\t \n \nX, Y, Z\n");
 
-				for (i = 0; i<i_max; i++)
+				for (i = 0; i < i_max; i++)
 				{
 
 
