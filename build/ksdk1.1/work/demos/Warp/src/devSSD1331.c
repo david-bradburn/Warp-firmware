@@ -666,7 +666,7 @@ pullingforceprint(int y[])
 	int i;
 	int sizey = (int)(sizeof(y)/sizeof(y[0]));
 
-	SEGGER_RTT_printf(0, "\r\n %d", sizey)
+	SEGGER_RTT_printf(0, "\r\n %d", sizey);
 
 	if(sizey > 96)
 	{
