@@ -48,10 +48,7 @@ reduce_accel_array_resize_offset(int acc[], int offset, int length, int index)
 
 
 
-  // for(i = 0; i < length; i++)
-  // {
-  //   acc[i] -= offset;
-  // }
+
 
   if(length > 96)
   {
