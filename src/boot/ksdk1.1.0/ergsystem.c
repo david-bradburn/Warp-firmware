@@ -51,36 +51,36 @@ reduce_accel_array_resize_offset(int acc[], int length, int index)
     float p;
     float q;
 
-      p = 0;
-      q = 0;
+    p = 0;
+    q = 0;
 
-      for(i = 0; i < length; i++)
+    for(i = 0; i < length; i++)
+    {
+      if(i/length < index/96 && (i + 1)/length > index/96)
       {
-        if(i/length < index/96 && (i + 1)/length > index/96)
-        {
-          p += acc[i]*(((i + 1)/length) - index/96);
-          q += (((i + 1)/length) - index/96)/(1/length);
-        }
-        else if(i/length >= index/96 && (i + 1)/length < (index + 1)/96)
-        {
-          p += acc[i];
-          q++;
-        }
-        else if(i/length < (index + 1)/96 && (i + 1)/length > (index + 1)/96)
-        {
-          p += acc[i]*((index + 1)/96 - ((i)/length));
-          q += ((index + 1)/96 - ((i)/length))/(1/length);
-        }
-
-        if(i/length > (index + 1)/96)
-        {
-          break;
-        }
-
+        p += acc[i]*(((i + 1)/length) - index/96);
+        q += (((i + 1)/length) - index/96)/(1/length);
+      }
+      else if(i/length >= index/96 && (i + 1)/length < (index + 1)/96)
+      {
+        p += acc[i];
+        q++;
+      }
+      else if(i/length < (index + 1)/96 && (i + 1)/length > (index + 1)/96)
+      {
+        p += acc[i]*((index + 1)/96 - ((i)/length));
+        q += ((index + 1)/96 - ((i)/length))/(1/length);
       }
 
+      if(i/length > (index + 1)/96)
+      {
+        break;
+      }
 
-      return (int)((p/q) * 64)/(4096 * 2);
+    }
+
+
+    return (int)((p/q) * 64)/(4096 * 2);
 
 
   }

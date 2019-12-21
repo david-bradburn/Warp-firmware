@@ -2539,7 +2539,7 @@ devSSD1331init();
 					y[i] = i;
 				}
 
-				int data[96];
+				//int data[96];
 
 
 				// for(i = 0; i < length; i++)
@@ -2551,7 +2551,7 @@ devSSD1331init();
 				// {
 				// 	data[i] = reduce_accel_array_resize_offset(y, imax, i);
 				// }
-				pullingforceprint(data, 96);
+				//pullingforceprint(data, 96);
 
 				break;
       }
