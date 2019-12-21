@@ -76,7 +76,6 @@ reduce_accel_array_resize_offset(int acc[], int offset)
         {
           p += acc[i];
           q++;
-
         }
         else if(i/acc_len < (n + 1)/96 && (i + 1)/acc_len > (n + 1)/96)
         {
