@@ -2536,7 +2536,7 @@ devSSD1331init();
 
 				for(i = 0; i < imax; i++)
 				{
-					y[i] = i;
+					y[i] = i * 4096*2/150;
 				}
 
 				int *test;
