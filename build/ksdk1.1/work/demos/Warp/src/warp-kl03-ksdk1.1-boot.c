@@ -2608,7 +2608,7 @@ devSSD1331init();
 					y[i] = i;
 				}
 
-				pullingforceprint(y, i_max);
+				pullingforceprint(y, imax);
 
 				break;
       }
