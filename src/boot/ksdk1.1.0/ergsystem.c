@@ -50,13 +50,14 @@ reduce_accel_array_resize_offset(int acc[], int offset)
   //int n_1 = 1;
 
   size_t acc_len = (sizeof(acc)/sizeof(acc[0]));
+  int ar_len = (int)acc_len;
 
-  for(i = 0; i < acc_len; i++)
+  for(i = 0; i < ar_len; i++)
   {
     acc[i] -= offset;
   }
 
-  if(acc_len > 96)
+  if(ar_len > 96)
   {
     float p;
     float q;
@@ -66,25 +67,25 @@ reduce_accel_array_resize_offset(int acc[], int offset)
       p = 0;
       q = 0;
 
-      for(i = 0; i < acc_len; i++)
+      for(i = 0; i < ar_len; i++)
       {
-        if(i/acc_len < n/96 && (i + 1)/acc_len > n/96)
+        if(i/ar_len < n/96 && (i + 1)/ar_len > n/96)
         {
-          p += acc[i]*(((i + 1)/acc_len) - n/96);
-          q += (((i + 1)/acc_len) - n/96)/(1/acc_len);
+          p += acc[i]*(((i + 1)/ar_len) - n/96);
+          q += (((i + 1)/ar_len) - n/96)/(1/ar_len);
         }
-        else if(i/acc_len >= n/96 && i/acc_len < (n + 1)/96 && (i + 1)/acc_len < (n + 1)/96)
+        else if(i/ar_len >= n/96 && i/ar_len < (n + 1)/96 && (i + 1)/ar_len < (n + 1)/96)
         {
           p += acc[i];
           q++;
         }
-        else if(i/acc_len < (n + 1)/96 && (i + 1)/acc_len > (n + 1)/96)
+        else if(i/ar_len < (n + 1)/96 && (i + 1)/ar_len > (n + 1)/96)
         {
-          p += acc[i]*((n + 1)/96 - ((i)/acc_len));
-          q += ((n + 1)/96 - ((i)/acc_len))/(1/acc_len);
+          p += acc[i]*((n + 1)/96 - ((i)/ar_len));
+          q += ((n + 1)/96 - ((i)/ar_len))/(1/ar_len);
         }
 
-        if(i/acc_len > (n + 1)/96)
+        if(i/ar_len > (n + 1)/96)
         {
             break;
         }
@@ -97,11 +98,11 @@ reduce_accel_array_resize_offset(int acc[], int offset)
   }
   else
   {
-    for(i = 0; i < acc_len; i++)
+    for(i = 0; i < ar_len; i++)
     {
       accel_fit[i] = acc[i];
     }
-    for(i = acc_len; i < 96; i++)
+    for(i = ar_len; i < 96; i++)
     {
       accel_fit[i] = 0;
     }
