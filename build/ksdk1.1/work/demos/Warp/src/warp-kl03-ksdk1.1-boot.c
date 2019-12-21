@@ -2530,7 +2530,7 @@ devSSD1331init();
 				SEGGER_RTT_printf(0, "\r\t \n \nTest\n");
 				//SEGGER_RTT_printf(0, "\r\t \n \nTest\n");
 
-				int imax = 70;
+				int imax = 50;
 				int y[imax];
 				int i;
 
