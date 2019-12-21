@@ -13,8 +13,6 @@ volatile uint8_t	inBuffer[1];
 volatile uint8_t	payloadBytes[1];
 volatile int acc_prev[2] = {9, 9};
 
-//asdasdsadasd
-
 
 /*
  *	Override Warp firmware's use of these pins and define new aliases.
