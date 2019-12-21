@@ -2549,7 +2549,7 @@ devSSD1331init();
 
 				for (i = 0; i < 96; i++)
 				{
-					data[i] = reduce_accel_array_resize_offset(y, 0, imax, i);
+					data[i] = reduce_accel_array_resize_offset(y, imax, i);
 				}
 				pullingforceprint(data, 96);
 
