@@ -2539,7 +2539,7 @@ devSSD1331init();
 					y[i] = i;
 				}
 
-				//int data[96];
+				int data[96];
 
 
 				// for(i = 0; i < length; i++)
