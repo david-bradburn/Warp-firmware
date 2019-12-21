@@ -664,7 +664,7 @@ pullingforceprint(int y[])
 	clearscreen();
 
 	int i;
-	int sizey = (int)(sizeof(y)/sizeof(y[0]));
+	int sizey = (sizeof(y));
 
 	SEGGER_RTT_printf(0, "\r\n %d", sizey);
 
