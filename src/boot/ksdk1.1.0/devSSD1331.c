@@ -666,7 +666,7 @@ pullingforceprint(int y[])
 	int i;
 	size_t sizey = sizeof(y)/sizeof(y[0]);
 
-	if(sizey > 96)
+	if((int)sizey > 96)
 	{
 		recttest();
 		return 1;
@@ -674,7 +674,7 @@ pullingforceprint(int y[])
 	else
 	{
 
-		for(i = 0; i < sizey; i++)
+		for(i = 0; i < (int)sizey; i++)
 		{
 				writeCommand(kSSD1331CommandDRAWLINE);
 				writeCommand(i);
