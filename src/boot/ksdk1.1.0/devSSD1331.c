@@ -1,5 +1,7 @@
 #include <stdint.h>
 #include <stdlib.h>
+#include <unistd.h>
+
 
 #include "fsl_spi_master_driver.h"
 #include "fsl_port_hal.h"
