@@ -2657,8 +2657,6 @@ devSSD1331init();
 				hexoutz = (hexoutz ^ (1 << 13)) - (1 << 13);
 
 
-
-
 				SEGGER_RTT_printf(0,
 										"\r\t%d, %d, %d\n",
 										hexoutx,
