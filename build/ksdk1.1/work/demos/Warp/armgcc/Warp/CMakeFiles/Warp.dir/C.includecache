@@ -1087,7 +1087,7 @@ warp.h
 /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devMMA8451Q.h
 
 /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devSSD1331.c
-stdlib.h
+stdint.h
 -
 fsl_spi_master_driver.h
 /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/fsl_spi_master_driver.h
