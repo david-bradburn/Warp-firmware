@@ -665,6 +665,7 @@ pullingforceprint(int y[])
 
 	int i;
 	size_t sizey = sizeof(y)/sizeof(int);
+	//help me
 
 	if(sizey > 96)
 	{
