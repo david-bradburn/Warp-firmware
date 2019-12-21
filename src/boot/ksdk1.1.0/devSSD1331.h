@@ -44,7 +44,7 @@ typedef enum
 
 int	devSSD1331init(void);
 
-int pullingforceprint(int y[]);
+int pullingforceprint(int y[], int length);
 int writetoscreen(int ar[]);
 int writetoscreeupper(int upper);
 int writetoscreenlower(int lower);
