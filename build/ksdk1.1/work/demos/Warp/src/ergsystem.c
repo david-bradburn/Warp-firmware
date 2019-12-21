@@ -40,16 +40,12 @@ intsplittoarrayupper(int data) //so we can actually get the data in the format t
 }
 
 
-int 
+int
 reduce_accel_array_resize_offset(int acc[], int offset, int length, int index)
 {
   //int accel_fit;
   int i;
-
-
-
-
-
+  
   if(length > 96)
   {
     float p;
