@@ -1,5 +1,4 @@
 #include <stdint.h>
-//#include <stdlib.h>
 
 #include "fsl_spi_master_driver.h"
 #include "fsl_port_hal.h"
@@ -12,6 +11,7 @@
 volatile uint8_t	inBuffer[1];
 volatile uint8_t	payloadBytes[1];
 volatile int acc_prev[2] = {9, 9};
+int asdasdasd = 0;
 
 
 /*
