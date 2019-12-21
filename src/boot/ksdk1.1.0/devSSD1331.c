@@ -672,7 +672,7 @@ pullingforceprint(int y[])
 	else
 	{
 
-		for(i = 0; i < 96; i++)
+		for(i = 0; i < sizey; i++)
 		{
 				writeCommand(kSSD1331CommandDRAWLINE);
 				writeCommand(i);
