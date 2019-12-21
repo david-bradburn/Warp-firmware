@@ -661,16 +661,16 @@ writetoscreen(int ar[2]) //this bit is just to save processing as the the writin
 
 
 int
-pullingforceprint(int y[])
+pullingforceprint(int y[], int length)
 {
 	clearscreen();
 
 	int i;
-	int sizey = (sizeof(y));
+	//int sizey = (sizeof(y));
 
 	SEGGER_RTT_printf(0, "\r\n %d", sizey);
 
-	if(sizey > 96)
+	if(length > 96)
 	{
 		recttest();
 		return 1;
@@ -678,7 +678,7 @@ pullingforceprint(int y[])
 	else
 	{
 
-		for(i = 0; i < sizey; i++)
+		for(i = 0; i < length; i++)
 		{
 				writeCommand(kSSD1331CommandDRAWLINE);
 				writeCommand(i);
