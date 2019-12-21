@@ -48,7 +48,7 @@ reduce_accel_array_resize_offset(int acc[], int offset)
   int n;
   //int n_1 = 1;
 
-  int acc_len = (sizeof(acc)/sizeof(acc[0]));
+  size_t acc_len = (sizeof(acc)/sizeof(acc[0]));
 
   for(i = 0; i < acc_len; i++)
   {
@@ -92,7 +92,7 @@ reduce_accel_array_resize_offset(int acc[], int offset)
 
       accel_fit[n] = ((p/q) * 64)/(4096 * 2);
     }
-    
+
   }
   else
   {
