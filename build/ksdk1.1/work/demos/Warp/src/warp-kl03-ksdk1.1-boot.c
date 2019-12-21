@@ -2517,7 +2517,7 @@ devSSD1331init();
 
       case '1':
       {
-				SEGGER_RTT_printf(0, "\r\t \n \nAcceleration capture\n")
+				SEGGER_RTT_printf(0, "\r\t \n \nAcceleration capture\n");
 
 
 
