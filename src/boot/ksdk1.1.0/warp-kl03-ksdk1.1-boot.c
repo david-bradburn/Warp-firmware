@@ -2536,7 +2536,7 @@ devSSD1331init();
 
 				for(i = 0; i < imax; i++)
 				{
-					y[i] = i;
+					y[i] = i * 64/(4096 * 2);
 				}
 
 				int data[96];
@@ -2550,7 +2550,7 @@ devSSD1331init();
 				{
 					data[i] = reduce_accel_array_resize_offset(y, 0, imax, i);
 				}
-				pullingforceprint(test, 96);
+				pullingforceprint(data, 96);
 
 				break;
       }
