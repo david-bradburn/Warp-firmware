@@ -1,5 +1,5 @@
 #include <stdint.h>
-#include <stddef.h>
+//#include <stddef.h>
 
 #include "fsl_spi_master_driver.h"
 #include "fsl_port_hal.h"
@@ -663,7 +663,7 @@ pullingforceprint(int y[])
 	clearscreen();
 
 	int i;
-	size_t sizey = sizeof(y)/sizeof(y[0]);
+	size_t sizey = sizeof(y)/sizeof(int);
 
 	if((int)sizey > 96)
 	{
