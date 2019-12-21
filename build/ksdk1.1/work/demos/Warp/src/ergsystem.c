@@ -47,8 +47,8 @@ reduce_accel_array_resize_offset(int acc[], int offset)
   int n;
   //int n_1 = 1;
 
-  size_t acc_len = (sizeof(acc)/sizeof(acc[0]));
-  int ar_len = (int)acc_len;
+  //size_t acc_len = (sizeof(acc)/sizeof(acc[0]));
+  int ar_len = (int)(sizeof(acc)/sizeof(acc[0]));
 
   for(i = 0; i < ar_len; i++)
   {
