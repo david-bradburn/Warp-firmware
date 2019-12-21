@@ -668,7 +668,7 @@ pullingforceprint(int y[], int length)
 	int i;
 	//int sizey = (sizeof(y));
 
-	SEGGER_RTT_printf(0, "\r\n %d", sizey);
+	//SEGGER_RTT_printf(0, "\r\n %d", sizey);
 
 	if(length > 96)
 	{
