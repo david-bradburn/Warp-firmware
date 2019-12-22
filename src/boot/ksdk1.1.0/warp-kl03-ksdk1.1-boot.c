@@ -2586,10 +2586,10 @@ devSSD1331init();
 
 				}
 
-				for (i = 0; i < 96; i++)
-				{
-					SEGGER_RTT_printf(0, "\r\t %d\n", data[i]);
-				}
+				// for (i = 0; i < 96; i++)
+				// {
+				// 	SEGGER_RTT_printf(0, "\r\t %d\n", data[i]);
+				// }
 				// pullingforceprint(data, 96);
 
 				break;
