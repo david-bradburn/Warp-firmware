@@ -2530,22 +2530,39 @@ devSSD1331init();
 				SEGGER_RTT_printf(0, "\r\t \n \nTest\n");
 				//SEGGER_RTT_printf(0, "\r\t \n \nTest\n");
 
-				int imax = 50;
-				int y[imax];
+				uint16_t hexoutx;
 				int i;
 
-				for(i = 0; i < imax; i++)
-				{
-					y[i] = i;
-				}
+				int off_len = 50;
+				int offset_av = 0;
+
+
 
 				int data[96];
 
+				writeSensorRegisterMMA8451Q(0x2A, 0x01, menuI2cPullupValue);
 
-				// for(i = 0; i < length; i++)
-				// {
-				//   acc[i] -= offset;
-				// }
+				for(i = 0; i < off_len; i++)
+				{
+
+					readSensorRegisterMMA8451Q(0x01, 2);
+
+					hexoutx = ((deviceMMA8451QState.i2cBuffer[0] & 0xFF) << 6) | (deviceMMA8451QState.i2cBuffer[1] >> 2);
+
+					hexoutx = (hexoutx ^ (1 << 13)) - (1 << 13);
+
+					offset_av += hexoutx;
+
+				}
+
+				offset_av /= off_len;
+
+				SEGGER_RTT_printf(0, "\r\t \n %d\n", offset_av);
+
+				for(i = 0; i < length; i++)
+				{
+				  acc[i] -= offset;
+				}
 
 				// for (i = 0; i < 96; i++)
 				// {
