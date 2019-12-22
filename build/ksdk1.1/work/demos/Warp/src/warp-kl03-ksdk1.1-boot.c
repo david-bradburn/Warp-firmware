@@ -2560,7 +2560,7 @@ devSSD1331init();
 
 				SEGGER_RTT_printf(0, "\r\t\n %d\n", offset_av);
 
-				int length = 250;
+				int length = 50;
 				int acc[length];
 
 				for(i = 0; i < length; i++)
