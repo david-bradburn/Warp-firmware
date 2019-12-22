@@ -2531,7 +2531,7 @@ devSSD1331init();
 				//SEGGER_RTT_printf(0, "\r\t \n \nTest\n");
 
 				int16_t hexoutx;
-				int i;
+				uint16_t i;
 
 				int off_len = 50;
 				int32_t offset_av = 0;
