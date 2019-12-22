@@ -2560,7 +2560,7 @@ devSSD1331init();
 
 				SEGGER_RTT_printf(0, "\r\t\n %d\n", offset_av);
 
-				OSA_TimeDelay(1000);
+
 
 				uint16_t length = 0;
 
@@ -2570,7 +2570,10 @@ devSSD1331init();
 						length += (char2int(SEGGER_RTT_WaitKey()) * 10^(2 - i));
 				}
 
+				SEGGER_RTT_printf(0, "\r\t\n%d\n", length);
 				int16_t acc[length];
+
+				OSA_TimeDelay(1000);
 
 				for(i = 0; i < length; i++)
 				{
