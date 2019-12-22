@@ -51,7 +51,7 @@ reduce_accel_array_resize_offset(int acc[], int length, int index)
   if(length > 96)
   {
 
-    return (int)()(acc[(int)*(index/length)] * 64)/(4096 * 2));
+    return (int)((acc[(int)*(index/length)] * 64)/(4096 * 2));
     // float p;
     // float q;
     //
@@ -97,6 +97,6 @@ reduce_accel_array_resize_offset(int acc[], int length, int index)
       return 0;
     }
 
-  }
+  
 
 }
