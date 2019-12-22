@@ -2567,7 +2567,7 @@ devSSD1331init();
 				int16_t a;
 				for (i = 0; i < 3; i++)
 				{
-						length += char2int(SEGGER_RTT_WaitKey()) * 10^(2 - i)
+						length += (char2int(SEGGER_RTT_WaitKey()) * 10^(2 - i));
 				}
 
 				int16_t acc[length];
