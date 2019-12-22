@@ -2578,12 +2578,17 @@ devSSD1331init();
 
 				}
 
+				SEGGER_RTT_printf(0, "\r\t\n96 pad\n");
 
 				for (i = 0; i < 96; i++)
 				{
 					data[i] = reduce_accel_array_resize_offset(acc, length, i);
 
-					
+				}
+
+				for (i = 0; i < 96; i++)
+				{
+					SEGGER_RTT_printf(0, "\r\t %d\n", data[i]);
 				}
 				// pullingforceprint(data, 96);
 
