@@ -2559,10 +2559,10 @@ devSSD1331init();
 
 				SEGGER_RTT_printf(0, "\r\t \n %d\n", offset_av);
 
-				for(i = 0; i < length; i++)
-				{
-				  acc[i] -= offset;
-				}
+				// for(i = 0; i < length; i++)
+				// {
+				//   acc[i] -= offset;
+				// }
 
 				// for (i = 0; i < 96; i++)
 				// {
