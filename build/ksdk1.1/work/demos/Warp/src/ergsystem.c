@@ -2,6 +2,7 @@
 #include <stdlib.h>
 
 #include "ergsystem.h"
+#include "devMMA8451Q.h"
 
 int
 intsplittoarraylower(int data) //so we can actually get the data in the format the OLED is designed for.
@@ -37,6 +38,34 @@ intsplittoarrayupper(int data) //so we can actually get the data in the format t
     data -= (data % 10);
     return data/10;
   }
+}
+
+int
+offset_av_calc(int length, int menuI2cPullupValue)
+{
+  int16_t hexoutx;
+  int offset_av = 0;
+
+  enableI2Cpins(menuI2cPullupValue);
+
+  writeSensorRegisterMMA8451Q(0x2A, 0x01, menuI2cPullupValue);
+
+  for(i = 0; i < off_len; i++)
+  {
+
+    readSensorRegisterMMA8451Q(0x01, 2);
+
+    hexoutx = ((deviceMMA8451QState.i2cBuffer[0] & 0xFF) << 6) | (deviceMMA8451QState.i2cBuffer[1] >> 2);
+
+    hexoutx = (hexoutx ^ (1 << 13)) - (1 << 13);
+
+    offset_av += hexoutx;
+
+  }
+
+  offset_av /= off_len;
+
+  return offset_av;
 }
 
 
