@@ -2540,6 +2540,8 @@ devSSD1331init();
 
 				int data[96];
 
+				enableI2Cpins(menuI2cPullupValue);
+
 				writeSensorRegisterMMA8451Q(0x2A, 0x01, menuI2cPullupValue);
 
 				for(i = 0; i < off_len; i++)
