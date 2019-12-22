@@ -2562,7 +2562,7 @@ devSSD1331init();
 
 				OSA_TimeDelay(1000);
 
-				uint8_t length = 96;
+				uint8_t length = 100;
 				int16_t acc[length];
 
 				for(i = 0; i < length; i++)
@@ -2592,7 +2592,7 @@ devSSD1331init();
 				{
 					SEGGER_RTT_printf(0, "\r\t %d,\n", data[i]);
 				}
-				
+
 				pullingforceprint(data, 96);
 
 				break;
