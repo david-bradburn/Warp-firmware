@@ -50,7 +50,7 @@ reduce_accel_array_resize_offset(int16_t acc[], uint16_t length, uint16_t index)
   if(length > 96)
   {
 
-    return (int16_t)((acc[(int16_t)(index/length)] * 64)/(4096 * 2));
+    return (int16_t)((acc[(int16_t)(index*length/96)] * 64)/(4096 * 2));
 
 
   }
