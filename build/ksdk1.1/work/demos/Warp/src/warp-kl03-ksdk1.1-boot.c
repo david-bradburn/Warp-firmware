@@ -2590,7 +2590,7 @@ devSSD1331init();
 				{
 					SEGGER_RTT_printf(0, "\r\t %d\n", data[i]);
 				}
-				//pullingforceprint(data, 96);
+				pullingforceprint(data, 96);
 
 				break;
       }
