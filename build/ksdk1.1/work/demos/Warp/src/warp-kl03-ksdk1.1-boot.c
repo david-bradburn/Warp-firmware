@@ -2562,8 +2562,8 @@ devSSD1331init();
 
 				OSA_TimeDelay(1000);
 
-				int length = 100;
-				int acc[length];
+				uint8_t length = 100;
+				int16_t acc[length];
 
 				for(i = 0; i < length; i++)
 				{
