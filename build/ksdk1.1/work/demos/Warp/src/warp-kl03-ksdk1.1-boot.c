@@ -2492,10 +2492,90 @@ devSSD1331init();
 
       case '1':
       {
-				SEGGER_RTT_printf(0, "\r\t \n \nAcceleration capture\n");
+				SEGGER_RTT_printf(0, "\r\t \n \nStroke Count\n");
 
+				enableI2Cpins(menuI2cPullupValue);
 
+				writeSensorRegisterMMA8451Q(0x2A, 0x01, menuI2cPullupValue);
 
+				int16_t hexoutx;
+				int16_t hexoutx_prev;
+				uint16_t i;
+				int off_len = 50;
+				int32_t offset_av = 0;
+
+				int16_t count = 0;
+
+				int16_t strokespermin;
+				int16_t ar[2];
+
+				for(i = 0; i < off_len; i++)
+				{
+
+					readSensorRegisterMMA8451Q(0x01, 2);
+
+					hexoutx = ((deviceMMA8451QState.i2cBuffer[0] & 0xFF) << 6) | (deviceMMA8451QState.i2cBuffer[1] >> 2);
+
+					hexoutx = (hexoutx ^ (1 << 13)) - (1 << 13);
+
+					offset_av += hexoutx;
+
+				}
+
+				offset_av /= off_len;
+				hexoutx_prev = 0;
+
+				while(1)
+				{
+						readSensorRegisterMMA8451Q(0x01, 2);
+
+						hexoutx = ((deviceMMA8451QState.i2cBuffer[0] & 0xFF) << 6) | (deviceMMA8451QState.i2cBuffer[1] >> 2);
+
+						hexoutx = (hexoutx ^ (1 << 13)) - (1 << 13) - offset_av;
+
+						if(hexoutx > 0 && hexoutx_prev < 0)
+						{
+							while(1)
+							{
+								count++;
+
+								readSensorRegisterMMA8451Q(0x01, 2);
+
+								hexoutx = ((deviceMMA8451QState.i2cBuffer[0] & 0xFF) << 6) | (deviceMMA8451QState.i2cBuffer[1] >> 2);
+
+								hexoutx = (hexoutx ^ (1 << 13)) - (1 << 13) - offset_av;
+
+								if(hexoutx > 0 && hexoutx_prev < 0)
+								{
+
+									break;
+								}
+								else
+								{
+									hexoutx_prev = hexoutx;
+								}
+
+							}
+							strokespermin = 60/(count * 0.003);
+							count = 0;
+							if(strokespermin > 99)
+							{
+								strokespermin = 99;
+							}
+
+							ar[0] = intsplittoarrayupper(strokespermin);
+							ar[1] = intsplittoarraylower(strokespermin);
+
+							writetoscreen(ar);
+
+						}
+						else
+						{
+							hexoutx_prev = hexoutx;
+						}
+
+						
+				}
 
       }
 
