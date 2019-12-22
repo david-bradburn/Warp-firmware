@@ -2560,6 +2560,8 @@ devSSD1331init();
 
 				SEGGER_RTT_printf(0, "\r\t\n %d\n", offset_av);
 
+				OSA_TimeDelay(1000);
+
 				int length = 50;
 				int acc[length];
 
