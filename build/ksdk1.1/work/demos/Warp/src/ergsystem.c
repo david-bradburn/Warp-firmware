@@ -45,7 +45,7 @@ intsplittoarrayupper(int data) //so we can actually get the data in the format t
 int
 reduce_accel_array_resize_offset(int acc[], int length, int index)
 {
-  int i;
+  //int i;
 
   if(length > 96)
   {
