@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 #include "ergsystem.h"
-#include "devMMA8451Q.h"
+//#include "devMMA8451Q.h"
 
 int
 intsplittoarraylower(int data) //so we can actually get the data in the format the OLED is designed for.
