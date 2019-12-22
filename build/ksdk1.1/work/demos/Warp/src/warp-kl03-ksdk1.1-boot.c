@@ -2489,32 +2489,6 @@ devSSD1331init();
 			/*
 			 *	Dump all the sensor data in one go
 			 */
-			case 'z':
-			{
-				bool		hexModeFlag;
-
-
-				SEGGER_RTT_WriteString(0, "\r\n\tEnabling I2C pins...\n");
-				enableI2Cpins(menuI2cPullupValue);
-
-				SEGGER_RTT_WriteString(0, "\r\n\tHex or converted mode? ('h' or 'c')> ");
-				key = SEGGER_RTT_WaitKey();
-				hexModeFlag = (key == 'h' ? 1 : 0);
-
-				SEGGER_RTT_WriteString(0, "\r\n\tSet the time delay between each run in milliseconds (e.g., '1234')> ");
-				uint16_t	menuDelayBetweenEachRun = read4digits();
-				SEGGER_RTT_printf(0, "\r\n\tDelay between read batches set to %d milliseconds.\n\n", menuDelayBetweenEachRun);
-				OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
-
-				printAllSensors(true /* printHeadersAndCalibration */, hexModeFlag, menuDelayBetweenEachRun, menuI2cPullupValue);
-
-				/*
-				 *	Not reached (printAllSensors() does not return)
-				 */
-				disableI2Cpins();
-
-				break;
-			}
 
       case '1':
       {
@@ -2563,15 +2537,8 @@ devSSD1331init();
 
 
 
-				uint16_t length = 0;
+				uint16_t length = 150;
 
-				int16_t a;
-				for (i = 0; i < 3; i++)
-				{
-						length += ((int)char2int(SEGGER_RTT_WaitKey()) * (int)pow(10,(2 - i)));
-				}
-
-				SEGGER_RTT_printf(0, "\r\t\n%d\n", length);
 				int16_t acc[length];
 
 				OSA_TimeDelay(1000);
