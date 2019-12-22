@@ -2536,7 +2536,7 @@ devSSD1331init();
 				int off_len = 50;
 				int32_t offset_av = 0;
 
-				int data[96];
+				int16_t data[96];
 
 				enableI2Cpins(menuI2cPullupValue);
 
@@ -2586,11 +2586,11 @@ devSSD1331init();
 
 				}
 
-				// for (i = 0; i < 96; i++)
-				// {
-				// 	SEGGER_RTT_printf(0, "\r\t %d\n", data[i]);
-				// }
-				// pullingforceprint(data, 96);
+				for (i = 0; i < 96; i++)
+				{
+					SEGGER_RTT_printf(0, "\r\t %d\n", data[i]);
+				}
+				//pullingforceprint(data, 96);
 
 				break;
       }
