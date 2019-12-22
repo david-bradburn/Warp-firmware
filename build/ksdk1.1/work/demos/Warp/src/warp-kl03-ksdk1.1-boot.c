@@ -2527,18 +2527,18 @@ devSSD1331init();
 
       case '2':
       {
-				SEGGER_RTT_printf(0, "\r\t \n \npulling force data\n");
+				SEGGER_RTT_printf(0, "\r\t \n \nPulling force data\n");
 				//SEGGER_RTT_printf(0, "\r\t \n \nTest\n");
 
 				int16_t hexoutx;
 				int i;
 
-				int length = 50;
+				int off_len = 50;
 				int32_t offset_av = 0;
 
 				int data[96];
 
-				offset_av = offset_av_calc(length, menuI2cPullupValue);
+				offset_av = offset_av_calc(off_len, menuI2cPullupValue);
 
 				SEGGER_RTT_printf(0, "\r\t\n %d\n", offset_av);
 
@@ -2556,7 +2556,7 @@ devSSD1331init();
 
 					acc[i] += hexoutx - offset_av;
 
-					SEGGER_RTT_printf(0, "\r\t \n%d"\n, acc[i])
+					SEGGER_RTT_printf(0, "\r\t \n%d\n", acc[i]);
 
 				}
 
