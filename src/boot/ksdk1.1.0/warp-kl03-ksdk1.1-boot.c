@@ -2560,7 +2560,7 @@ devSSD1331init();
 
 				SEGGER_RTT_printf(0, "\r\t\n %d\n", offset_av);
 
-				int length = 50;
+				int length = 100;
 				int acc[length];
 
 				for(i = 0; i < length; i++)
@@ -2574,10 +2574,10 @@ devSSD1331init();
 
 					acc[i] = hexoutx - offset_av;
 
-					SEGGER_RTT_printf(0, "\r\t \n%d\n", hexoutx - offset_av);
+					SEGGER_RTT_printf(0, "\r\t%d,\n", hexoutx - offset_av);
 
 				}
-				//
+				// 
 				//
 				// for (i = 0; i < 96; i++)
 				// {

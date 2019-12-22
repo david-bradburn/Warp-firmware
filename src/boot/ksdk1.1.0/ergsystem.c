@@ -40,16 +40,6 @@ intsplittoarrayupper(int data) //so we can actually get the data in the format t
   }
 }
 
-// int
-// offset_av_calc(int length, int menuI2cPullupValue)
-// {
-//   int16_t hexoutx;
-//   int offset_av = 0;
-//
-//
-//
-//   return offset_av;
-// }
 
 
 int
