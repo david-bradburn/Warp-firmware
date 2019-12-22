@@ -661,11 +661,11 @@ writetoscreen(int ar[2]) //this bit is just to save processing as the the writin
 
 
 int
-pullingforceprint(int y[], int length)
+pullingforceprint(int16_t y[], uint8_t length)
 {
 	clearscreen();
 
-	int i;
+	uint8_t i;
 	//int sizey = (sizeof(y));
 
 	//SEGGER_RTT_printf(0, "\r\n %d", sizey);
