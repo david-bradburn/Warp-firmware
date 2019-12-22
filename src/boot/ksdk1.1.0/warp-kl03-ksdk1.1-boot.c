@@ -2562,7 +2562,7 @@ devSSD1331init();
 
 				OSA_TimeDelay(1000);
 
-				uint16_t length = 150;
+				uint16_t length = 100;
 				int16_t acc[length];
 
 				for(i = 0; i < length; i++)
@@ -2585,7 +2585,6 @@ devSSD1331init();
 				for (i = 0; i < 96; i++)
 				{
 					data[i] = reduce_accel_array_resize_offset(acc, length, i);
-
 				}
 
 				for (i = 0; i < 96; i++)
