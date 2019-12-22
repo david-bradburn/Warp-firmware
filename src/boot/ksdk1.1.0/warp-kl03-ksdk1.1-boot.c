@@ -2527,24 +2527,25 @@ devSSD1331init();
 
       case '2':
       {
-				SEGGER_RTT_printf(0, "\r\t \n \nTest\n");
+				SEGGER_RTT_printf(0, "\r\t \n \npulling force data\n");
 				//SEGGER_RTT_printf(0, "\r\t \n \nTest\n");
 
 				int16_t hexoutx;
 				int i;
 
-				int off_len = 50;
+				int length = 50;
 				int32_t offset_av = 0;
-
-
 
 				int data[96];
 
-				enableI2Cpins(menuI2cPullupValue);
+				offset_av = offset_av_calc(length, menuI2cPullupValue);
 
-				writeSensorRegisterMMA8451Q(0x2A, 0x01, menuI2cPullupValue);
+				SEGGER_RTT_printf(0, "\r\t\n %d\n", offset_av);
 
-				for(i = 0; i < off_len; i++)
+				int length = 250;
+				int acc[length];
+
+				for(i = 0; i < length; i++)
 				{
 
 					readSensorRegisterMMA8451Q(0x01, 2);
@@ -2553,24 +2554,18 @@ devSSD1331init();
 
 					hexoutx = (hexoutx ^ (1 << 13)) - (1 << 13);
 
-					offset_av += hexoutx;
+					acc[i] += hexoutx - offset_av;
+
+					SEGGER_RTT_printf(0, "\r\t \n%d"\n, acc[i])
 
 				}
 
-				offset_av /= off_len;
 
-				SEGGER_RTT_printf(0, "\r\t \n %d\n", offset_av);
-
-				// for(i = 0; i < length; i++)
-				// {
-				//   acc[i] -= offset;
-				// }
-
-				// for (i = 0; i < 96; i++)
-				// {
-				// 	data[i] = reduce_accel_array_resize_offset(y, imax, i);
-				// }
-				//pullingforceprint(data, 96);
+				for (i = 0; i < 96; i++)
+				{
+					data[i] = reduce_accel_array_resize_offset(acc, length, i);
+				}
+				pullingforceprint(data, 96);
 
 				break;
       }
