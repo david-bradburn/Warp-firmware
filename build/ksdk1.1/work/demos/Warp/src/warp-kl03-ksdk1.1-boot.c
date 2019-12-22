@@ -2537,7 +2537,7 @@ devSSD1331init();
 
 
 
-				uint16_t length = 150;
+				uint16_t length = 100;
 
 				int16_t acc[length];
 
