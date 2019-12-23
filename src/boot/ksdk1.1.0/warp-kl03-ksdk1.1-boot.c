@@ -2492,7 +2492,7 @@ devSSD1331init();
 
 
 
-				uint16_t length = read3igits();
+				uint16_t length = read3digits();
 
 				int16_t acc[length];
 
@@ -3717,7 +3717,7 @@ read4digits(void)
 int
 read3digits(void)
 {
-	uint8_t		digit1, digit2, digits3;
+	uint8_t		digit1, digit2, digit3;
 
 	digit1 = SEGGER_RTT_WaitKey();
 	digit2 = SEGGER_RTT_WaitKey();
