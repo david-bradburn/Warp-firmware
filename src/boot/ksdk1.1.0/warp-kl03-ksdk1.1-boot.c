@@ -2371,7 +2371,8 @@ devSSD1331init();
 
 				int16_t hexoutx;
 				int16_t hexoutx_prev;
-				//int16_t
+				int16_t hexoutx_prev_prev;
+				int16_t hexoutx_prev_prev_prev;
 
 				uint16_t i;
 				int off_len = 50;
@@ -2406,7 +2407,7 @@ devSSD1331init();
 
 						hexoutx = (hexoutx ^ (1 << 13)) - (1 << 13) - offset_av;
 
-						if(hexoutx > 0 && hexoutx_prev < 0)
+						if(hexoutx > 0 && hexoutx_prev > 0 && hexoutx_prev_prev < 0 && hexoutx_prev_prev_prev < 0)
 						{
 							strokespermin = 60/(count * 0.003);
 							count = 0;
@@ -2421,11 +2422,14 @@ devSSD1331init();
 							writetoscreen(ar);
 
 							count = 0;
-
+							hexoutx_prev_prev_prev = hexoutx_prev_prev;
+							hexoutx_prev_prev = hexoutx_prev;
 							hexoutx_prev = hexoutx;
 						}
 						else
 						{
+							hexoutx_prev_prev_prev = hexoutx_prev_prev;
+							hexoutx_prev_prev = hexoutx_prev;
 							hexoutx_prev = hexoutx;
 							count++;
 						}
