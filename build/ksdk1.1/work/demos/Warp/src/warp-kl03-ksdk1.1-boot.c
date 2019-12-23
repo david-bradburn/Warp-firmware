@@ -231,6 +231,7 @@ void					powerupAllSensors(void);
 uint8_t					readHexByte(void);
 uint16_t				readHexByte16(void);
 int					read4digits(void);
+int					read2digits(void);
 void					printAllSensors(bool printHeadersAndCalibration, bool hexModeFlag, int menuDelayBetweenEachRun, int i2cPullupValue);
 
 
@@ -3714,7 +3715,7 @@ read4digits(void)
 }
 
 int
-read2digts(void)
+read2digits(void)
 {
 	uint8_t		digit1, digit2;
 
