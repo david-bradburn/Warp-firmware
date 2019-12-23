@@ -2371,6 +2371,8 @@ devSSD1331init();
 
 				int16_t hexoutx;
 				int16_t hexoutx_prev;
+				//int16_t
+
 				uint16_t i;
 				int off_len = 50;
 				int32_t offset_av = 0;
@@ -2420,6 +2422,7 @@ devSSD1331init();
 
 							count = 0;
 
+							hexoutx_prev = hexoutx;
 						}
 						else
 						{
