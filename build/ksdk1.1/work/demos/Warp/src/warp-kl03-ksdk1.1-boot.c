@@ -2369,10 +2369,10 @@ devSSD1331init();
 
 				writeSensorRegisterMMA8451Q(0x2A, 0x01, menuI2cPullupValue);
 
-				int16_t hexoutx;
-				int16_t hexoutx_prev;
-				int16_t hexoutx_prev_prev;
-				int16_t hexoutx_prev_prev_prev;
+				int16_t hexoutx = 0;
+				int16_t hexoutx_prev = 0;
+				int16_t hexoutx_prev_prev = 0;
+				int16_t hexoutx_prev_prev_prev = 0;
 
 				uint16_t i;
 				int off_len = 50;
@@ -2409,7 +2409,7 @@ devSSD1331init();
 
 						if(hexoutx > 0 && hexoutx_prev > 0 && hexoutx_prev_prev < 0 && hexoutx_prev_prev_prev < 0 && hexoutx_prev_prev_prev < hexoutx_prev_prev && hexoutx > hexoutx_prev)
 						{
-							strokespermin = 60/(count * 0.103);
+							strokespermin = 60/(count * 0.013);
 
 							if(strokespermin > 99)
 							{
@@ -2437,7 +2437,7 @@ devSSD1331init();
 							count++;
 						}
 
-						OSA_TimeDelay(100);
+						OSA_TimeDelay(10);
 
 				}
 
