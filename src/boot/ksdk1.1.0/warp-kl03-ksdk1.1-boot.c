@@ -2407,7 +2407,7 @@ devSSD1331init();
 
 						hexoutx = (hexoutx ^ (1 << 13)) - (1 << 13) - offset_av;
 
-						if(hexoutx > 0 && hexoutx_prev > 0 && hexoutx_prev_prev < 0 && hexoutx_prev_prev_prev < 0)
+						if(hexoutx > 0 && hexoutx_prev > 0 && hexoutx_prev_prev < 0 && hexoutx_prev_prev_prev < 0 && count > 200)
 						{
 							strokespermin = 60/(count * 0.003);
 							count = 0;
@@ -2420,6 +2420,8 @@ devSSD1331init();
 							ar[1] = intsplittoarraylower(strokespermin);
 
 							writetoscreen(ar);
+
+							SEGGER_RTT_printf(0, "\r\t%d\n", count);
 
 							count = 0;
 							hexoutx_prev_prev_prev = hexoutx_prev_prev;
