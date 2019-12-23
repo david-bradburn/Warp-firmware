@@ -2407,9 +2407,9 @@ devSSD1331init();
 
 						hexoutx = (hexoutx ^ (1 << 13)) - (1 << 13) - offset_av;
 
-						if(hexoutx > 0 && hexoutx_prev > 0 && hexoutx_prev_prev < 0 && hexoutx_prev_prev_prev < 0 && count > 200 && hexoutx_prev_prev_prev < hexoutx_prev_prev && hexoutx > hexoutx_prev)
+						if(hexoutx > 0 && hexoutx_prev > 0 && hexoutx_prev_prev < 0 && hexoutx_prev_prev_prev < 0 && hexoutx_prev_prev_prev < hexoutx_prev_prev && hexoutx > hexoutx_prev)
 						{
-							strokespermin = 60/(count * 0.003);
+							strokespermin = 60/(count * 0.103);
 
 							if(strokespermin > 99)
 							{
@@ -2437,6 +2437,7 @@ devSSD1331init();
 							count++;
 						}
 
+						OSA_TimeDelay(100);
 
 				}
 
