@@ -2535,27 +2535,6 @@ devSSD1331init();
 
 						if(hexoutx > 0 && hexoutx_prev < 0)
 						{
-							while(1)
-							{
-								count++;
-
-								readSensorRegisterMMA8451Q(0x01, 2);
-
-								hexoutx = ((deviceMMA8451QState.i2cBuffer[0] & 0xFF) << 6) | (deviceMMA8451QState.i2cBuffer[1] >> 2);
-
-								hexoutx = (hexoutx ^ (1 << 13)) - (1 << 13) - offset_av;
-
-								if(hexoutx > 0 && hexoutx_prev < 0)
-								{
-
-									break;
-								}
-								else
-								{
-									hexoutx_prev = hexoutx;
-								}
-
-							}
 							strokespermin = 60/(count * 0.003);
 							count = 0;
 							if(strokespermin > 99)
@@ -2568,13 +2547,16 @@ devSSD1331init();
 
 							writetoscreen(ar);
 
+							count = 0;
+
 						}
 						else
 						{
 							hexoutx_prev = hexoutx;
+							count++;
 						}
 
-						
+
 				}
 
       }
