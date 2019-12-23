@@ -2056,7 +2056,7 @@ devSSD1331init();
 			}
 
 
-	
+
 
 
 
@@ -2378,7 +2378,7 @@ devSSD1331init();
 				int16_t count = 0;
 
 				int16_t strokespermin;
-				int16_t ar[2];
+				int ar[2];
 
 				for(i = 0; i < off_len; i++)
 				{
