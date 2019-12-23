@@ -2415,7 +2415,7 @@ devSSD1331init();
 							acc_max = hexoutx;
 						}
 
-						if((hexoutx > 0 && hexoutx_prev > 0 && hexoutx_prev_prev < 0 && hexoutx_prev_prev_prev < 0 && hexoutx_prev_prev_prev < hexoutx_prev_prev && hexoutx > hexoutx_prev && acc_max > 800) || count > 1000)
+						if((hexoutx > 0 && hexoutx_prev > 0 && hexoutx_prev_prev < 0 && hexoutx_prev_prev_prev < 0 && hexoutx_prev_prev_prev < hexoutx_prev_prev && hexoutx > hexoutx_prev && acc_max > 800) || count > 10000)
 						{
 							strokespermin = 60/(count * 0.006);
 
