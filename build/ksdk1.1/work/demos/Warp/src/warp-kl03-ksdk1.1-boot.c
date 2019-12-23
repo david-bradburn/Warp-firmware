@@ -231,7 +231,7 @@ void					powerupAllSensors(void);
 uint8_t					readHexByte(void);
 uint16_t				readHexByte16(void);
 int					read4digits(void);
-int					read2digits(void);
+int					read3digits(void);
 void					printAllSensors(bool printHeadersAndCalibration, bool hexModeFlag, int menuDelayBetweenEachRun, int i2cPullupValue);
 
 
@@ -2492,7 +2492,7 @@ devSSD1331init();
 
 
 
-				uint16_t length = read2digits();
+				uint16_t length = read3igits();
 
 				int16_t acc[length];
 
@@ -3715,14 +3715,15 @@ read4digits(void)
 }
 
 int
-read2digits(void)
+read3digits(void)
 {
-	uint8_t		digit1, digit2;
+	uint8_t		digit1, digit2, digits3;
 
 	digit1 = SEGGER_RTT_WaitKey();
 	digit2 = SEGGER_RTT_WaitKey();
+	digit3 = SEGGER_RTT_WaitKey();
 
-	return (digit1 - '0')*10 + (digit2 - '0')*1;
+	return (digit1 - '0')*100 + (digit2 - '0')*10 + (digit3 - '0')*1;
 
 }
 
