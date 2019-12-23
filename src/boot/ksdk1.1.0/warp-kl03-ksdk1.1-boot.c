@@ -2369,10 +2369,10 @@ devSSD1331init();
 
 				writeSensorRegisterMMA8451Q(0x2A, 0x01, menuI2cPullupValue);
 
-				int16_t hexoutx;
-				int16_t hexoutx_prev;
-				int16_t hexoutx_prev_prev;
-				int16_t hexoutx_prev_prev_prev;
+				int16_t hexoutx = 0;
+				int16_t hexoutx_prev = 0;
+				int16_t hexoutx_prev_prev = 0;
+				int16_t hexoutx_prev_prev_prev = 0;
 
 				uint16_t i;
 				int off_len = 50;
