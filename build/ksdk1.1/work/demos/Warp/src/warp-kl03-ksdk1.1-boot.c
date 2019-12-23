@@ -2407,10 +2407,10 @@ devSSD1331init();
 
 						hexoutx = (hexoutx ^ (1 << 13)) - (1 << 13) - offset_av;
 
-						if(hexoutx > 0 && hexoutx_prev > 0 && hexoutx_prev_prev < 0 && hexoutx_prev_prev_prev < 0 && count > 200)
+						if(hexoutx > 0 && hexoutx_prev > 0 && hexoutx_prev_prev < 0 && hexoutx_prev_prev_prev < 0 && count > 200 && hexoutx_prev_prev_prev < hexoutx_prev_prev && hexoutx > hexoutx_prev)
 						{
 							strokespermin = 60/(count * 0.003);
-							count = 0;
+
 							if(strokespermin > 99)
 							{
 								strokespermin = 99;
@@ -2424,6 +2424,7 @@ devSSD1331init();
 							SEGGER_RTT_printf(0, "\r\t%d\n", count);
 
 							count = 0;
+
 							hexoutx_prev_prev_prev = hexoutx_prev_prev;
 							hexoutx_prev_prev = hexoutx_prev;
 							hexoutx_prev = hexoutx;
