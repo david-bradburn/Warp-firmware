@@ -2386,6 +2386,7 @@ devSSD1331init();
 				int ar[2];
 
 				int16_t acc_max = 0;
+				int16_t acc_min = 0;
 
 				for(i = 0; i < off_len; i++)
 				{
@@ -2415,8 +2416,12 @@ devSSD1331init();
 						{
 							acc_max = hexoutx;
 						}
+						else if(hexoutx < acc_min)
+						{
+							acc_min = hexoutx;
+						}
 
-						if((hexoutx > 0 && hexoutx_prev > 0 && hexoutx_prev_prev < 0 && hexoutx_prev_prev_prev < 0 && hexoutx_prev_prev_prev < hexoutx_prev_prev && hexoutx > hexoutx_prev && acc_max > 500) || count > 10000)
+						if((hexoutx > 0 && hexoutx_prev > 0 && hexoutx_prev_prev < 0 && hexoutx_prev_prev_prev < 0 && hexoutx_prev_prev_prev < hexoutx_prev_prev && hexoutx > hexoutx_prev && acc_max > 500 && acc_min < -500) || count > 10000)
 						{
 							strokespermin = 60/(count * 0.006);
 
