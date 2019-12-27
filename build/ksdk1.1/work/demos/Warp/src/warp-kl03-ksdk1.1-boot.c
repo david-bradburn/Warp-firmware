@@ -2467,8 +2467,8 @@ devSSD1331init();
 				SEGGER_RTT_printf(0, "\r\t \n \nPulling force data\n");
 				//SEGGER_RTT_printf(0, "\r\t \n \nTest\n");
 
-				int16_t hexoutx;
-				int16_t hexoutx_prev;
+				int16_t hexoutx = 0;
+				int16_t hexoutx_prev = 0;
 				uint16_t i = 0;
 
 				int off_len = 50;
@@ -2510,7 +2510,7 @@ devSSD1331init();
 				}
 
 
-				//OSA_TimeDelay(1000);
+				i = 0;
 
 				while(1)
 				{
