@@ -2404,6 +2404,8 @@ devSSD1331init();
 				offset_av /= off_len;
 				hexoutx_prev = 0;
 
+				int16_t x = 0.5
+
 				while(1)
 				{
 						readSensorRegisterMMA8451Q(0x01, 2);
@@ -2411,6 +2413,9 @@ devSSD1331init();
 						hexoutx = ((deviceMMA8451QState.i2cBuffer[0] & 0xFF) << 6) | (deviceMMA8451QState.i2cBuffer[1] >> 2);
 
 						hexoutx = (hexoutx ^ (1 << 13)) - (1 << 13) - offset_av;
+
+
+						hexoutx = (1 - x)*hexoutx_prev + x*hexoutx;
 
 						if(hexoutx > acc_max)
 						{
@@ -2421,7 +2426,7 @@ devSSD1331init();
 							acc_min = hexoutx;
 						}
 
-						if((hexoutx > 0 && hexoutx_prev > 0 && hexoutx_prev_prev < 0 && hexoutx_prev_prev_prev < 0 && hexoutx_prev_prev_prev < hexoutx_prev_prev && hexoutx > hexoutx_prev && acc_max > 500 && acc_min < -500) || count > 10000)
+						if((hexoutx > 0 && hexoutx_prev > 0 && hexoutx_prev_prev < 0 && hexoutx_prev_prev_prev < 0 && hexoutx_prev_prev_prev < hexoutx_prev_prev && hexoutx > hexoutx_prev && acc_max > 500 && acc_min < -300) || count > 10000)
 						{
 							strokespermin = 60/(count * 0.006);
 
@@ -2519,9 +2524,10 @@ devSSD1331init();
 
 					hexoutx = ((deviceMMA8451QState.i2cBuffer[0] & 0xFF) << 6) | (deviceMMA8451QState.i2cBuffer[1] >> 2);
 
-					hexoutx = ((hexoutx ^ (1 << 13)) - (1 << 13)) - offset_av;
+					hexoutx = (hexoutx ^ (1 << 13)) - (1 << 13) - offset_av;
 
 					SEGGER_RTT_printf(0, "\r\t%d,\n", hexoutx);
+
 					if(hexoutx < 0 && i != 0)
 					{
 						break;
