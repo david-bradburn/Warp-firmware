@@ -2527,7 +2527,7 @@ devSSD1331init();
 						break;
 					}
 
-					if (hexoutx > 0 && hexoutx_prev > 0 && hexoutx> 50)
+					if (hexoutx > 0 && hexoutx_prev > 0 && hexoutx > 50)
 					{
 						acc[i] = hexoutx;
 						i++;
