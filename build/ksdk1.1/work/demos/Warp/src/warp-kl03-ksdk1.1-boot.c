@@ -2444,6 +2444,7 @@ devSSD1331init();
 							hexoutx_prev = hexoutx;
 
 							acc_max = 0;
+							acc_min = 0;
 
 						}
 						else
@@ -2467,7 +2468,8 @@ devSSD1331init();
 				//SEGGER_RTT_printf(0, "\r\t \n \nTest\n");
 
 				int16_t hexoutx;
-				uint16_t i;
+				int16_t hexoutx_prev;
+				uint16_t i = 0;
 
 				int off_len = 50;
 				int32_t offset_av = 0;
@@ -2498,24 +2500,46 @@ devSSD1331init();
 
 
 
-				uint16_t length = read3digits();
+				//uint16_t length = read3digits();
 
-				int16_t acc[length];
+				int16_t acc[120];
 
-				OSA_TimeDelay(1000);
+				for(i = 0; i < 120; i++)
+				{
+					acc[i] = 0;
+				}
 
-				for(i = 0; i < length; i++)
+
+				//OSA_TimeDelay(1000);
+
+				while(1)
 				{
 
 					readSensorRegisterMMA8451Q(0x01, 2);
 
+					hexoutx_prev = hexoutx;
+
 					hexoutx = ((deviceMMA8451QState.i2cBuffer[0] & 0xFF) << 6) | (deviceMMA8451QState.i2cBuffer[1] >> 2);
 
-					hexoutx = (hexoutx ^ (1 << 13)) - (1 << 13);
+					hexoutx = ((hexoutx ^ (1 << 13)) - (1 << 13)) - offset_av;
 
-					acc[i] = hexoutx - offset_av;
+					SEGGER_RTT_printf(0, "\r\t%d,\n", hexoutx);
+					if(hexoutx < 0 && i != 0)
+					{
+						break;
+					}
 
-					SEGGER_RTT_printf(0, "\r\t%d,\n", hexoutx - offset_av);
+					if (hexoutx > 0 && hexoutx_prev > 0 && hexoutx> 50)
+					{
+						acc[i] = hexoutx;
+						i++;
+						if (i > 120)
+						{
+							break;
+						}
+					}
+
+					OSA_TimeDelay(20)
 
 				}
 
