@@ -2530,7 +2530,7 @@ devSSD1331init();
 
 					SEGGER_RTT_printf(0, "\r\t%d,\n", hexoutx);
 
-					if(hexoutx < 0 && i != 0)
+					if(hexoutx < 0 || i != 0)
 					{
 						break;
 					}
@@ -2549,7 +2549,7 @@ devSSD1331init();
 
 					if(i = 0)
 					{
-					OSA_TimeDelay(20);
+						OSA_TimeDelay(20);
 					}
 				}
 
