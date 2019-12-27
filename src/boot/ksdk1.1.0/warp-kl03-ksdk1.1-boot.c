@@ -2500,11 +2500,11 @@ devSSD1331init();
 
 
 
-				//uint16_t length = read3digits();
+				uint16_t length = 100;
 
-				int16_t acc[120];
+				int16_t acc[length];
 
-				for(i = 0; i < 120; i++)
+				for(i = 0; i < length; i++)
 				{
 					acc[i] = 0;
 				}
@@ -2531,7 +2531,7 @@ devSSD1331init();
 					{
 						acc[i] = hexoutx;
 						i++;
-						if (i > 120)
+						if (i >= length)
 						{
 							break;
 						}
@@ -2547,7 +2547,7 @@ devSSD1331init();
 
 				for (i = 0; i < 96; i++)
 				{
-					data[i] = reduce_accel_array_resize_offset(acc, 120, i);
+					data[i] = reduce_accel_array_resize_offset(acc, length, i);
 				}
 
 				for (i = 0; i < 96; i++)
