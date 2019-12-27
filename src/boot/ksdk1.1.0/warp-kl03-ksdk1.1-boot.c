@@ -2547,7 +2547,7 @@ devSSD1331init();
 
 					hexoutx_prev = hexoutx;
 
-					if(i = 0)
+					if(i == 0)
 					{
 						OSA_TimeDelay(20);
 					}
