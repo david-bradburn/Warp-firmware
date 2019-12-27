@@ -2539,7 +2539,7 @@ devSSD1331init();
 						}
 					}
 
-					OSA_TimeDelay(20)
+					OSA_TimeDelay(20);
 
 				}
 
@@ -2547,7 +2547,7 @@ devSSD1331init();
 
 				for (i = 0; i < 96; i++)
 				{
-					data[i] = reduce_accel_array_resize_offset(acc, length, i);
+					data[i] = reduce_accel_array_resize_offset(acc, 120, i);
 				}
 
 				for (i = 0; i < 96; i++)
