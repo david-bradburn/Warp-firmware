@@ -2404,7 +2404,9 @@ devSSD1331init();
 				offset_av /= off_len;
 				hexoutx_prev = 0;
 
-				float x = 0.5;
+				int16_t w1 = 1;
+				int16_t w2 = 1;
+
 
 				while(1)
 				{
@@ -2415,7 +2417,7 @@ devSSD1331init();
 						hexoutx = (hexoutx ^ (1 << 13)) - (1 << 13) - offset_av;
 
 
-						hexoutx = (1 - x)*hexoutx_prev + x*hexoutx;
+						hexoutx = (w1*hexoutx_prev + w2*hexoutx)/(w1 + w2);
 
 						if(hexoutx > acc_max)
 						{
