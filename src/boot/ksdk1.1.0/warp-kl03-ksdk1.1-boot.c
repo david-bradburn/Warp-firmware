@@ -2517,8 +2517,6 @@ devSSD1331init();
 
 					readSensorRegisterMMA8451Q(0x01, 2);
 
-					hexoutx_prev = hexoutx;
-
 					hexoutx = ((deviceMMA8451QState.i2cBuffer[0] & 0xFF) << 6) | (deviceMMA8451QState.i2cBuffer[1] >> 2);
 
 					hexoutx = ((hexoutx ^ (1 << 13)) - (1 << 13)) - offset_av;
@@ -2538,6 +2536,8 @@ devSSD1331init();
 							break;
 						}
 					}
+
+					hexoutx_prev = hexoutx;
 
 					OSA_TimeDelay(20);
 
