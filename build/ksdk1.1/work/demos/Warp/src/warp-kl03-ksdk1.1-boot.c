@@ -2530,7 +2530,7 @@ devSSD1331init();
 
 					SEGGER_RTT_printf(0, "\r\t%d,\n", hexoutx);
 
-					if(hexoutx < 0 || i != 0)
+					if(hexoutx < 0 && i != 0)
 					{
 						break;
 					}
