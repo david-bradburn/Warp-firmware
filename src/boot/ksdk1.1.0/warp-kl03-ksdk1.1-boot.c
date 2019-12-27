@@ -2547,8 +2547,10 @@ devSSD1331init();
 
 					hexoutx_prev = hexoutx;
 
+					if(i = 0)
+					{
 					OSA_TimeDelay(20);
-
+					}
 				}
 
 				SEGGER_RTT_printf(0, "\r\t\n96 pad\n");
