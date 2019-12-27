@@ -2404,7 +2404,7 @@ devSSD1331init();
 				offset_av /= off_len;
 				hexoutx_prev = 0;
 
-				int16_t x = 0.5;
+				float x = 0.5;
 
 				while(1)
 				{
