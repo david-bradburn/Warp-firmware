@@ -150,33 +150,6 @@ home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/boards/Warp/gpio_pins.c.s:
 	$(MAKE) -f CMakeFiles/Warp.dir/build.make CMakeFiles/Warp.dir/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/boards/Warp/gpio_pins.c.s
 .PHONY : home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/boards/Warp/gpio_pins.c.s
 
-home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/INA219.obj: home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/INA219.c.obj
-
-.PHONY : home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/INA219.obj
-
-# target to build an object file
-home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/INA219.c.obj:
-	$(MAKE) -f CMakeFiles/Warp.dir/build.make CMakeFiles/Warp.dir/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/INA219.c.obj
-.PHONY : home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/INA219.c.obj
-
-home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/INA219.i: home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/INA219.c.i
-
-.PHONY : home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/INA219.i
-
-# target to preprocess a source file
-home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/INA219.c.i:
-	$(MAKE) -f CMakeFiles/Warp.dir/build.make CMakeFiles/Warp.dir/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/INA219.c.i
-.PHONY : home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/INA219.c.i
-
-home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/INA219.s: home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/INA219.c.s
-
-.PHONY : home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/INA219.s
-
-# target to generate assembly for a file
-home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/INA219.c.s:
-	$(MAKE) -f CMakeFiles/Warp.dir/build.make CMakeFiles/Warp.dir/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/INA219.c.s
-.PHONY : home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/INA219.c.s
-
 home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/SEGGER_RTT.obj: home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/SEGGER_RTT.c.obj
 
 .PHONY : home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/SEGGER_RTT.obj
@@ -230,6 +203,33 @@ home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/SEGGER_RTT_print
 home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/SEGGER_RTT_printf.c.s:
 	$(MAKE) -f CMakeFiles/Warp.dir/build.make CMakeFiles/Warp.dir/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/SEGGER_RTT_printf.c.s
 .PHONY : home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/SEGGER_RTT_printf.c.s
+
+home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devINA219.obj: home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devINA219.c.obj
+
+.PHONY : home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devINA219.obj
+
+# target to build an object file
+home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devINA219.c.obj:
+	$(MAKE) -f CMakeFiles/Warp.dir/build.make CMakeFiles/Warp.dir/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devINA219.c.obj
+.PHONY : home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devINA219.c.obj
+
+home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devINA219.i: home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devINA219.c.i
+
+.PHONY : home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devINA219.i
+
+# target to preprocess a source file
+home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devINA219.c.i:
+	$(MAKE) -f CMakeFiles/Warp.dir/build.make CMakeFiles/Warp.dir/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devINA219.c.i
+.PHONY : home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devINA219.c.i
+
+home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devINA219.s: home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devINA219.c.s
+
+.PHONY : home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devINA219.s
+
+# target to generate assembly for a file
+home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devINA219.c.s:
+	$(MAKE) -f CMakeFiles/Warp.dir/build.make CMakeFiles/Warp.dir/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devINA219.c.s
+.PHONY : home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devINA219.c.s
 
 home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devMMA8451Q.obj: home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devMMA8451Q.c.obj
 
@@ -522,15 +522,15 @@ help:
 	@echo "... home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/boards/Warp/gpio_pins.obj"
 	@echo "... home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/boards/Warp/gpio_pins.i"
 	@echo "... home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/boards/Warp/gpio_pins.s"
-	@echo "... home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/INA219.obj"
-	@echo "... home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/INA219.i"
-	@echo "... home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/INA219.s"
 	@echo "... home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/SEGGER_RTT.obj"
 	@echo "... home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/SEGGER_RTT.i"
 	@echo "... home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/SEGGER_RTT.s"
 	@echo "... home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/SEGGER_RTT_printf.obj"
 	@echo "... home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/SEGGER_RTT_printf.i"
 	@echo "... home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/SEGGER_RTT_printf.s"
+	@echo "... home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devINA219.obj"
+	@echo "... home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devINA219.i"
+	@echo "... home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devINA219.s"
 	@echo "... home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devMMA8451Q.obj"
 	@echo "... home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devMMA8451Q.i"
 	@echo "... home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devMMA8451Q.s"
