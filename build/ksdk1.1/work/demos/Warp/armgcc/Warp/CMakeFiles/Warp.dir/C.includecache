@@ -802,16 +802,6 @@ device/fsl_device_registers.h
 fsl_gpio_driver.h
 /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/boards/Warp/fsl_gpio_driver.h
 
-/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/INA219.c
-INA219.h
-/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/INA219.h
-stdint.h
-/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/stdint.h
-
-/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/INA219.h
-stdint.h
-/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/stdint.h
-
 /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/SEGGER_RTT.c
 SEGGER_RTT.h
 /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/SEGGER_RTT.h
@@ -839,6 +829,34 @@ stdlib.h
 -
 stdarg.h
 -
+
+/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devINA219.c
+stdlib.h
+-
+fsl_misc_utilities.h
+/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/fsl_misc_utilities.h
+fsl_device_registers.h
+/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/fsl_device_registers.h
+fsl_i2c_master_driver.h
+/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/fsl_i2c_master_driver.h
+fsl_spi_master_driver.h
+/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/fsl_spi_master_driver.h
+fsl_rtc_driver.h
+/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/fsl_rtc_driver.h
+fsl_clock_manager.h
+/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/fsl_clock_manager.h
+fsl_power_manager.h
+/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/fsl_power_manager.h
+fsl_mcglite_hal.h
+/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/fsl_mcglite_hal.h
+fsl_port_hal.h
+/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/fsl_port_hal.h
+gpio_pins.h
+/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/gpio_pins.h
+SEGGER_RTT.h
+/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/SEGGER_RTT.h
+warp.h
+/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/warp.h
 
 /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devINA219.h
 
