@@ -48,13 +48,17 @@ writeCommandarr(uint8_t * commandBytes, uint8_t no_bytes)
 	 */
 	GPIO_DRV_ClearPinOutput(kSSD1331PinDC);
 
+	unit8_t i = 0;
+	for (i = 0; i< no_bytes; i++)
+	{
+		status = SPI_DRV_MasterTransferBlocking(0	/* master instance */,
+						NULL		/* spi_master_user_config_t */,
+						(const uint8_t * restrict)&commandBytes[i],
+						(uint8_t * restrict)&inBuffer[0],
+						1		/* transfer size */,
+						1000		/* timeout in microseconds (unlike I2C which is ms) */);
 
-	status = SPI_DRV_MasterTransferBlocking(0	/* master instance */,
-					NULL		/* spi_master_user_config_t */,
-					(const uint8_t * restrict)&commandBytes,
-					(uint8_t * restrict)&inBuffer[0],
-					no_bytes		/* transfer size */,
-					100000		/* timeout in microseconds (unlike I2C which is ms) */);
+	}
 
 	/*
 	 *	Drive /CS high
@@ -120,7 +124,7 @@ default_colour(void)
 int
 recttest(void)
 {
-	uint8_t bytes[] = {kSSD1331CommandDRAWRECT, 0x00, 0x00, 0x5F, 0x3F, default_colour_arr, default_colour_arr, 0x00};
+	uint8_t bytes[11] = {kSSD1331CommandDRAWRECT, 0x00, 0x00, 0x5F, 0x3F, default_colour_arr, default_colour_arr};
 	spi_status_t status = writeCommandarr(bytes, 11);
 
 	SEGGER_RTT_printf(0, "\r\t\n %d \n", status);
