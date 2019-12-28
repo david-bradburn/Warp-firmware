@@ -14,7 +14,7 @@
 volatile uint8_t	inBuffer[1];
 volatile uint8_t	payloadBytes[1];
 volatile int acc_prev[2] = {9, 9};
-int asdasdasd = 0;
+//int asdasdasd = 0;
 
 
 /*

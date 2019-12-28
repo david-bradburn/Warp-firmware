@@ -2549,7 +2549,7 @@ devSSD1331init();
 
 					if(i == 0)
 					{
-						OSA_TimeDelay(20);
+						OSA_TimeDelay(10);
 					}
 				}
 
