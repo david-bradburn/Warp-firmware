@@ -1839,7 +1839,7 @@ devSSD1331init();
 						acc_max = hexoutx;
 					}
 
-					OSA_TimeDelay(10);
+					//OSA_TimeDelay(10);
 
 
 					if(hexoutx < 0 && acc_max > 500)
