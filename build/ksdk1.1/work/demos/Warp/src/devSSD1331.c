@@ -48,7 +48,7 @@ writeCommandarr(uint8_t * commandBytes, uint8_t no_bytes)
 	 */
 	GPIO_DRV_ClearPinOutput(kSSD1331PinDC);
 
-	unit8_t i = 0;
+	uint8_t i = 0;
 	for (i = 0; i< no_bytes; i++)
 	{
 		status = SPI_DRV_MasterTransferBlocking(0	/* master instance */,
