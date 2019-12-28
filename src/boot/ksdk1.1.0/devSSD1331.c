@@ -493,7 +493,7 @@ writetoscreen(int ar[2]) //this bit is just to save processing as the the writin
 
 
 int
-pullingforceprint(int16_t y[], uint8_t length)
+pullingforceprint(uint8_t y[], uint8_t length)
 {
 	clearscreen();
 
