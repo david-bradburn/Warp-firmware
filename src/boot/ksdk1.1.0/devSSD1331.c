@@ -121,7 +121,7 @@ int
 recttest(void)
 {
 	uint8_t bytes[] = {kSSD1331CommandDRAWRECT, 0x00, 0x00, 0x5F, 0x3F, default_colour_arr, default_colour_arr};
-	WarpStatus status = writeCommandarr(bytes, 11);
+	spi_status_t status = writeCommandarr(bytes, 11);
 
 	SEGGER_RTT_printf(0, "\r\t\n %d \n", status);
 
