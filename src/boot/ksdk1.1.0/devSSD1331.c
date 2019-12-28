@@ -516,9 +516,9 @@ pullingforceprint(uint8_t y[], uint8_t length)
 		for(i = 0; i < 96; i++)
 		{
 			bytes[1] = i;
-			bytes[2] = y[i];
+			bytes[2] = 64 - y[i];
 			bytes[3] = i;
-			bytes[4] = y[i];
+			bytes[4] = 64 - y[i];
 
 			writeCommandarr(bytes, 8);
 		}
