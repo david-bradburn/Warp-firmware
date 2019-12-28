@@ -2528,7 +2528,7 @@ devSSD1331init();
 
 					hexoutx = (hexoutx ^ (1 << 13)) - (1 << 13) - offset_av;
 
-					SEGGER_RTT_printf(0, "\r\t%d,\n", hexoutx);
+					SEGGER_RTT_printf(0, "\r\t%d, %d\n", i, hexoutx);
 
 					if(hexoutx < 0 && i != 0)
 					{
