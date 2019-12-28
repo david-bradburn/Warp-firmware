@@ -30,6 +30,43 @@ enum
 };
 
 static int
+writeCommandarr(uint8_t * commandBytes, uint8_t no_bytes)
+{
+	spi_status_t status;
+
+	/*
+	 *	Drive /CS low.
+	 *
+	 *	Make sure there is a high-to-low transition by first driving high, delay, then drive low.
+	 */
+	GPIO_DRV_SetPinOutput(kSSD1331PinCSn);
+	OSA_TimeDelay(10);
+	GPIO_DRV_ClearPinOutput(kSSD1331PinCSn);
+
+	/*
+	 *	Drive DC low (command).
+	 */
+	GPIO_DRV_ClearPinOutput(kSSD1331PinDC);
+
+
+	status = SPI_DRV_MasterTransferBlocking(0	/* master instance */,
+					NULL		/* spi_master_user_config_t */,
+					(const uint8_t * restrict)&commandBytes,
+					(uint8_t * restrict)&inBuffer[0],
+					no_bytes		/* transfer size */,
+					1000		/* timeout in microseconds (unlike I2C which is ms) */);
+
+	/*
+	 *	Drive /CS high
+	 */
+	GPIO_DRV_SetPinOutput(kSSD1331PinCSn);
+
+	return status;
+}
+
+
+
+static int
 writeCommand(uint8_t commandByte)
 {
 	spi_status_t status;
@@ -47,6 +84,7 @@ writeCommand(uint8_t commandByte)
 	 *	Drive DC low (command).
 	 */
 	GPIO_DRV_ClearPinOutput(kSSD1331PinDC);
+
 
 	payloadBytes[0] = commandByte;
 	status = SPI_DRV_MasterTransferBlocking(0	/* master instance */,
@@ -77,17 +115,13 @@ default_colour(void)
 	return 0;
 }
 
+#define default_colour_arr 0x00, 0x3F, 0x00
+
 int
 recttest(void)
 {
-	writeCommand(kSSD1331CommandDRAWRECT);
-	writeCommand(0x00);
-	writeCommand(0x00);
-	writeCommand(0x5F);
-	writeCommand(0x3F);
-
-	default_colour();
-	default_colour();
+	uint8_t * bytes = {kSSD1331CommandDRAWRECT, 0x00, 0x00, 0x5F, 0x3F, default_colour_arr};
+	writeCommandarr(bytes, 8)
 
 	return 0;
 }
@@ -791,8 +825,10 @@ devSSD1331init(void)
 	//...
 	//3,3
 	//50, 3
-	int bv[2] = {0, 0};
-	writetoscreen(bv);
+
+	recttest();
+	// int bv[2] = {0, 0};
+	// writetoscreen(bv);
 
 	return 0;
 }

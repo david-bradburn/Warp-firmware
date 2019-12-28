@@ -200,7 +200,7 @@ volatile lpuart_state_t 			lpuartState;
 /*
  *	TODO: move magic default numbers into constant definitions.
  */
-volatile uint32_t			gWarpI2cBaudRateKbps		= 10000;
+volatile uint32_t			gWarpI2cBaudRateKbps		= 200;
 volatile uint32_t			gWarpUartBaudRateKbps		= 1;
 volatile uint32_t			gWarpSpiBaudRateKbps		= 10000;
 volatile uint32_t			gWarpSleeptimeSeconds		= 0;
@@ -939,11 +939,74 @@ warpLowPowerSecondsSleep(uint32_t sleepSeconds, bool forceAllPinsIntoLowPowerSta
 
 
 
+void
+printPinDirections(void)
+{
+	/*
+#ifdef WARP_BUILD_ENABLE_SEGGER_RTT_PRINTF
+	SEGGER_RTT_printf(0, "KL03_VDD_ADC:%d\n", GPIO_DRV_GetPinDir(kWarpPinKL03_VDD_ADC));
+	OSA_TimeDelay(100);
+	SEGGER_RTT_printf(0, "I2C0_SDA:%d\n", GPIO_DRV_GetPinDir(kWarpPinI2C0_SDA));
+	OSA_TimeDelay(100);
+	SEGGER_RTT_printf(0, "I2C0_SCL:%d\n", GPIO_DRV_GetPinDir(kWarpPinI2C0_SCL));
+	OSA_TimeDelay(100);
+	SEGGER_RTT_printf(0, "SPI_MOSI:%d\n", GPIO_DRV_GetPinDir(kWarpPinSPI_MOSI));
+	OSA_TimeDelay(100);
+	SEGGER_RTT_printf(0, "SPI_MISO:%d\n", GPIO_DRV_GetPinDir(kWarpPinSPI_MISO));
+	OSA_TimeDelay(100);
+	SEGGER_RTT_printf(0, "SPI_SCK_I2C_PULLUP_EN:%d\n", GPIO_DRV_GetPinDir(kWarpPinSPI_SCK_I2C_PULLUP_EN));
+	OSA_TimeDelay(100);
+	SEGGER_RTT_printf(0, "TPS82740A_VSEL2:%d\n", GPIO_DRV_GetPinDir(kWarpPinTPS82740_VSEL2));
+	OSA_TimeDelay(100);
+	SEGGER_RTT_printf(0, "ADXL362_CS:%d\n", GPIO_DRV_GetPinDir(kWarpPinADXL362_CS));
+	OSA_TimeDelay(100);
+	SEGGER_RTT_printf(0, "kWarpPinPAN1326_nSHUTD:%d\n", GPIO_DRV_GetPinDir(kWarpPinPAN1326_nSHUTD));
+	OSA_TimeDelay(100);
+	SEGGER_RTT_printf(0, "TPS82740A_CTLEN:%d\n", GPIO_DRV_GetPinDir(kWarpPinTPS82740A_CTLEN));
+	OSA_TimeDelay(100);
+	SEGGER_RTT_printf(0, "TPS82740B_CTLEN:%d\n", GPIO_DRV_GetPinDir(kWarpPinTPS82740B_CTLEN));
+	OSA_TimeDelay(100);
+	SEGGER_RTT_printf(0, "TPS82740A_VSEL1:%d\n", GPIO_DRV_GetPinDir(kWarpPinTPS82740_VSEL1));
+	OSA_TimeDelay(100);
+	SEGGER_RTT_printf(0, "TPS82740A_VSEL3:%d\n", GPIO_DRV_GetPinDir(kWarpPinTPS82740_VSEL3));
+	OSA_TimeDelay(100);
+	SEGGER_RTT_printf(0, "CLKOUT32K:%d\n", GPIO_DRV_GetPinDir(kWarpPinCLKOUT32K));
+	OSA_TimeDelay(100);
+	SEGGER_RTT_printf(0, "TS5A3154_IN:%d\n", GPIO_DRV_GetPinDir(kWarpPinTS5A3154_IN));
+	OSA_TimeDelay(100);
+	SEGGER_RTT_printf(0, "SI4705_nRST:%d\n", GPIO_DRV_GetPinDir(kWarpPinSI4705_nRST));
+	OSA_TimeDelay(100);
+#endif
+	*/
+}
 
 
 
+void
+dumpProcessorState(void)
+{
+/*
+	uint32_t	cpuClockFrequency;
 
-
+	CLOCK_SYS_GetFreq(kCoreClock, &cpuClockFrequency);
+#ifdef WARP_BUILD_ENABLE_SEGGER_RTT_PRINTF
+	SEGGER_RTT_printf(0, "\r\n\n\tCPU @ %u KHz\n", (cpuClockFrequency / 1000));
+	SEGGER_RTT_printf(0, "\r\tCPU power mode: %u\n", POWER_SYS_GetCurrentMode());
+	SEGGER_RTT_printf(0, "\r\tCPU clock manager configuration: %u\n", CLOCK_SYS_GetCurrentConfiguration());
+	SEGGER_RTT_printf(0, "\r\tRTC clock: %d\n", CLOCK_SYS_GetRtcGateCmd(0));
+	SEGGER_RTT_printf(0, "\r\tSPI clock: %d\n", CLOCK_SYS_GetSpiGateCmd(0));
+	SEGGER_RTT_printf(0, "\r\tI2C clock: %d\n", CLOCK_SYS_GetI2cGateCmd(0));
+	SEGGER_RTT_printf(0, "\r\tLPUART clock: %d\n", CLOCK_SYS_GetLpuartGateCmd(0));
+	SEGGER_RTT_printf(0, "\r\tPORT A clock: %d\n", CLOCK_SYS_GetPortGateCmd(0));
+	SEGGER_RTT_printf(0, "\r\tPORT B clock: %d\n", CLOCK_SYS_GetPortGateCmd(1));
+	SEGGER_RTT_printf(0, "\r\tFTF clock: %d\n", CLOCK_SYS_GetFtfGateCmd(0));
+	SEGGER_RTT_printf(0, "\r\tADC clock: %d\n", CLOCK_SYS_GetAdcGateCmd(0));
+	SEGGER_RTT_printf(0, "\r\tCMP clock: %d\n", CLOCK_SYS_GetCmpGateCmd(0));
+	SEGGER_RTT_printf(0, "\r\tVREF clock: %d\n", CLOCK_SYS_GetVrefGateCmd(0));
+	SEGGER_RTT_printf(0, "\r\tTPM clock: %d\n", CLOCK_SYS_GetTpmGateCmd(0));
+#endif
+*/
+}
 
 #ifdef WARP_BUILD_ENABLE_THERMALCHAMBERANALYSIS
 void
@@ -1183,92 +1246,15 @@ main(void)
 
 
 
-	/*
-	 *	Initialize all the sensors
-	 */
-#ifdef WARP_BUILD_ENABLE_DEVBMX055
-	initBMX055accel(0x18	/* i2cAddress */,	&deviceBMX055accelState	);
-	initBMX055gyro(	0x68	/* i2cAddress */,	&deviceBMX055gyroState	);
-	initBMX055mag(	0x10	/* i2cAddress */,	&deviceBMX055magState	);
-#endif
+
 
 #ifdef WARP_BUILD_ENABLE_DEVMMA8451Q
 	initMMA8451Q(	0x1D	/* i2cAddress */,	&deviceMMA8451QState	);
 #endif
 
-#ifdef WARP_BUILD_ENABLE_DEVLPS25H
-	initLPS25H(	0x5C	/* i2cAddress */,	&deviceLPS25HState	);
-#endif
-
-#ifdef WARP_BUILD_ENABLE_DEVHDC1000
-	initHDC1000(	0x43	/* i2cAddress */,	&deviceHDC1000State	);
-#endif
-
-#ifdef WARP_BUILD_ENABLE_DEVMAG3110
-	initMAG3110(	0x0E	/* i2cAddress */,	&deviceMAG3110State	);
-#endif
-
-// #ifdef WARP_BUILD_ENABLE_DEVSI7021
-// 	initSI7021(	0x40	/* i2cAddress */,	&deviceSI7021State	);
-// #endif
-
-#ifdef WARP_BUILD_ENABLE_DEVL3GD20H
-	initL3GD20H(	0x6A	/* i2cAddress */,	&deviceL3GD20HState	);
-#endif
-
-#ifdef WARP_BUILD_ENABLE_DEVBME680
-	initBME680(	0x77	/* i2cAddress */,	&deviceBME680State	);
-#endif
-
-#ifdef WARP_BUILD_ENABLE_DEVTCS34725
-	initTCS34725(	0x29	/* i2cAddress */,	&deviceTCS34725State	);
-#endif
-
-#ifdef WARP_BUILD_ENABLE_DEVSI4705
-	initSI4705(	0x11	/* i2cAddress */,	&deviceSI4705State	);
-#endif
-
-#ifdef WARP_BUILD_ENABLE_DEVCCS811
-	initCCS811(	0x5A	/* i2cAddress */,	&deviceCCS811State	);
-#endif
-
-#ifdef WARP_BUILD_ENABLE_DEVAMG8834
-	initAMG8834(	0x68	/* i2cAddress */,	&deviceAMG8834State	);
-#endif
-
-#ifdef WARP_BUILD_ENABLE_DEVAS7262
-	initAS7262(	0x49	/* i2cAddress */,	&deviceAS7262State	);
-#endif
-
-#ifdef WARP_BUILD_ENABLE_DEVAS7263
-	initAS7263(	0x49	/* i2cAddress */,	&deviceAS7263State	);
-#endif
-
-#ifdef WARP_BUILD_ENABLE_DEVINA219
-	initINA219(	0x40	/* i2cAddress */,	&deviceINA219State	);
-#endif
-
-#ifdef WARP_BUILD_ENABLE_DEVRV8803C7
-  initRV8803C7(0x32 /* i2cAddress */, &deviceRV8803C7State);
-  enableI2Cpins(menuI2cPullupValue);
-  setRTCCountdownRV8803C7(0, TD_1HZ, false);
-  disableI2Cpins();
-#endif
-
-	/*
-	 *	Initialization: Devices hanging off SPI
-	 */
-#ifdef WARP_BUILD_ENABLE_DEVADXL362
-	initADXL362(&deviceADXL362State);
-#endif
 
 
-	/*
-	 *	Initialization: the PAN1326, generating its 32k clock
-	 */
-#ifdef WARP_BUILD_ENABLE_DEVPAN1326
-	initPAN1326B(&devicePAN1326BState);
-#endif
+
 
 
 
@@ -1280,26 +1266,7 @@ main(void)
 	disableSssupply();
 
 
-	/*
-	 *	TODO: initialize the kWarpPinKL03_VDD_ADC, write routines to read the VDD and temperature
-	 */
 
-
-
-
-#ifdef WARP_BUILD_BOOT_TO_CSVSTREAM
-	/*
-	 *	Force to printAllSensors
-	 */
-	gWarpI2cBaudRateKbps = 300;
-	warpSetLowPowerMode(kWarpPowerModeRUN, 0 /* sleep seconds : irrelevant here */);
-	enableSssupply(3000);
-	enableI2Cpins(menuI2cPullupValue);
-	printAllSensors(false /* printHeadersAndCalibration */, false /* hexModeFlag */, 0 /* menuDelayBetweenEachRun */, menuI2cPullupValue);
-	/*
-	 *	Notreached
-	 */
-#endif
 
 devSSD1331init();
 
@@ -1348,54 +1315,7 @@ devSSD1331init();
 
 		SEGGER_RTT_WriteString(0, "\rSelect:\n");
 		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
-		SEGGER_RTT_WriteString(0, "\r- 'a': set default sensor.\n");
-		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
-		SEGGER_RTT_WriteString(0, "\r- 'b': set I2C baud rate.\n");
-		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
-		SEGGER_RTT_WriteString(0, "\r- 'c': set SPI baud rate.\n");
-		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
-		SEGGER_RTT_WriteString(0, "\r- 'd': set UART baud rate.\n");
-		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
-		SEGGER_RTT_WriteString(0, "\r- 'e': set default register address.\n");
-		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
-		SEGGER_RTT_WriteString(0, "\r- 'f': write byte to sensor.\n");
-		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
-		SEGGER_RTT_WriteString(0, "\r- 'g': set default SSSUPPLY.\n");
-		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
-		SEGGER_RTT_WriteString(0, "\r- 'h': powerdown command to all sensors.\n");
-		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
-		SEGGER_RTT_WriteString(0, "\r- 'i': set pull-up enable value.\n");
-		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
 
-#ifdef WARP_BUILD_ENABLE_SEGGER_RTT_PRINTF
-		SEGGER_RTT_printf(0, "\r- 'j': repeat read reg 0x%02x on sensor #%d.\n", menuRegisterAddress, menuTargetSensor);
-		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
-#endif
-
-		SEGGER_RTT_WriteString(0, "\r- 'k': sleep until reset.\n");
-		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
-		SEGGER_RTT_WriteString(0, "\r- 'l': send repeated byte on I2C.\n");
-		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
-		SEGGER_RTT_WriteString(0, "\r- 'm': send repeated byte on SPI.\n");
-		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
-		SEGGER_RTT_WriteString(0, "\r- 'n': enable SSSUPPLY.\n");
-		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
-		SEGGER_RTT_WriteString(0, "\r- 'o': disable SSSUPPLY.\n");
-		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
-		SEGGER_RTT_WriteString(0, "\r- 'p': switch to VLPR mode.\n");
-		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
-		SEGGER_RTT_WriteString(0, "\r- 'r': switch to RUN mode.\n");
-		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
-		SEGGER_RTT_WriteString(0, "\r- 's': power up all sensors.\n");
-		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
-		SEGGER_RTT_WriteString(0, "\r- 't': dump processor state.\n");
-		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
-		SEGGER_RTT_WriteString(0, "\r- 'u': set I2C address.\n");
-		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
-#ifdef WARP_BUILD_ENABLE_DEVRV8803C7
-		SEGGER_RTT_WriteString(0, "\r- 'v': Enter VLLS0 low-power mode for 3s, then reset\n");
-		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
-#endif
 		SEGGER_RTT_WriteString(0, "\r- 'x': disable SWD and spin for 10 secs.\n");
 		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
 
@@ -1416,9 +1336,6 @@ devSSD1331init();
 		SEGGER_RTT_WriteString(0, "\r- '3': Read all accelerations (X,Y,Z) for data collection\n");//Read 1000 currents via INA219
 		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
 
-		SEGGER_RTT_WriteString(0, "\r- '4': write to OLED\n");
-		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
-
 		SEGGER_RTT_WriteString(0, "\r- '5': Rowing System\n");
 		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
 
@@ -1433,360 +1350,7 @@ devSSD1331init();
 
 		switch (key)
 		{
-			/*
-			 *		Select sensor
-			 */
-			case 'a':
-			{
-				SEGGER_RTT_WriteString(0, "\r\tSelect:\n");
-#ifdef WARP_BUILD_ENABLE_DEVADXL362
-				SEGGER_RTT_WriteString(0, "\r\t- '1' ADXL362			(0x00--0x2D): 1.6V -- 3.5V\n");
-				#else
-				SEGGER_RTT_WriteString(0, "\r\t- '1' ADXL362			(0x00--0x2D): 1.6V -- 3.5V (compiled out) \n");
-#endif
-				OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
-
-#ifdef WARP_BUILD_ENABLE_DEVBMX055
-				SEGGER_RTT_WriteString(0, "\r\t- '2' BMX055accel		(0x00--0x3F): 2.4V -- 3.6V\n");
-				SEGGER_RTT_WriteString(0, "\r\t- '3' BMX055gyro			(0x00--0x3F): 2.4V -- 3.6V\n");
-				SEGGER_RTT_WriteString(0, "\r\t- '4' BMX055mag			(0x40--0x52): 2.4V -- 3.6V\n");
-				#else
-				SEGGER_RTT_WriteString(0, "\r\t- '2' BMX055accel 		(0x00--0x3F): 2.4V -- 3.6V (compiled out) \n");
-				SEGGER_RTT_WriteString(0, "\r\t- '3' BMX055gyro			(0x00--0x3F): 2.4V -- 3.6V (compiled out) \n");
-				SEGGER_RTT_WriteString(0, "\r\t- '4' BMX055mag			(0x40--0x52): 2.4V -- 3.6V (compiled out) \n");
-#endif
-				OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
-
-#ifdef WARP_BUILD_ENABLE_DEVMMA8451Q
-				SEGGER_RTT_WriteString(0, "\r\t- '5' MMA8451Q			(0x00--0x31): 1.95V -- 3.6V\n");
-				#else
-				SEGGER_RTT_WriteString(0, "\r\t- '5' MMA8451Q			(0x00--0x31): 1.95V -- 3.6V (compiled out) \n");
-#endif
-				OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
-
-#ifdef WARP_BUILD_ENABLE_DEVLPS25H
-				SEGGER_RTT_WriteString(0, "\r\t- '6' LPS25H			(0x08--0x24): 1.7V -- 3.6V\n");
-				#else
-				SEGGER_RTT_WriteString(0, "\r\t- '6' LPS25H			(0x08--0x24): 1.7V -- 3.6V (compiled out) \n");
-#endif
-				OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
-
-#ifdef WARP_BUILD_ENABLE_DEVMAG3110
-				SEGGER_RTT_WriteString(0, "\r\t- '7' MAG3110			(0x00--0x11): 1.95V -- 3.6V\n");
-				#else
-				SEGGER_RTT_WriteString(0, "\r\t- '7' MAG3110			(0x00--0x11): 1.95V -- 3.6V (compiled out) \n");
-#endif
-				OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
-
-#ifdef WARP_BUILD_ENABLE_DEVHDC1000
-				SEGGER_RTT_WriteString(0, "\r\t- '8' HDC1000			(0x00--0x1F): 3.0V -- 5.0V\n");
-				#else
-				SEGGER_RTT_WriteString(0, "\r\t- '8' HDC1000			(0x00--0x1F): 3.0V -- 5.0V (compiled out) \n");
-#endif
-				OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
-
-#ifdef WARP_BUILD_ENABLE_DEVSI7021
-				SEGGER_RTT_WriteString(0, "\r\t- '9' SI7021			(0x00--0x0F): 1.9V -- 3.6V\n");
-				#else
-				SEGGER_RTT_WriteString(0, "\r\t- '9' SI7021			(0x00--0x0F): 1.9V -- 3.6V (compiled out) \n");
-#endif
-				OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
-
-#ifdef WARP_BUILD_ENABLE_DEVL3GD20H
-				SEGGER_RTT_WriteString(0, "\r\t- 'a' L3GD20H			(0x0F--0x39): 2.2V -- 3.6V\n");
-				#else
-				SEGGER_RTT_WriteString(0, "\r\t- 'a' L3GD20H			(0x0F--0x39): 2.2V -- 3.6V (compiled out) \n");
-#endif
-				OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
-
-#ifdef WARP_BUILD_ENABLE_DEVBME680
-				SEGGER_RTT_WriteString(0, "\r\t- 'b' BME680			(0xAA--0xF8): 1.6V -- 3.6V\n");
-				#else
-				SEGGER_RTT_WriteString(0, "\r\t- 'b' BME680			(0xAA--0xF8): 1.6V -- 3.6V (compiled out) \n");
-#endif
-				OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
-
-#ifdef WARP_BUILD_ENABLE_DEVTCS34725
-				SEGGER_RTT_WriteString(0, "\r\t- 'd' TCS34725			(0x00--0x1D): 2.7V -- 3.3V\n");
-				#else
-				SEGGER_RTT_WriteString(0, "\r\t- 'd' TCS34725			(0x00--0x1D): 2.7V -- 3.3V (compiled out) \n");
-#endif
-				OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
-
-#ifdef WARP_BUILD_ENABLE_DEVSI4705
-				SEGGER_RTT_WriteString(0, "\r\t- 'e' SI4705			(n/a):        2.7V -- 5.5V\n");
-				#else
-				SEGGER_RTT_WriteString(0, "\r\t- 'e' SI4705			(n/a):        2.7V -- 5.5V (compiled out) \n");
-#endif
-				OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
-
-#ifdef WARP_BUILD_ENABLE_DEVPAN1326
-				SEGGER_RTT_WriteString(0, "\r\t- 'f' PAN1326			(n/a)\n");
-				#else
-				SEGGER_RTT_WriteString(0, "\r\t- 'f' PAN1326			(n/a) (compiled out) \n");
-#endif
-				OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
-
-#ifdef WARP_BUILD_ENABLE_DEVCCS811
-				SEGGER_RTT_WriteString(0, "\r\t- 'g' CCS811			(0x00--0xFF): 1.8V -- 3.6V\n");
-				#else
-				SEGGER_RTT_WriteString(0, "\r\t- 'g' CCS811			(0x00--0xFF): 1.8V -- 3.6V (compiled out) \n");
-#endif
-				OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
-
-#ifdef WARP_BUILD_ENABLE_DEVAMG8834
-				SEGGER_RTT_WriteString(0, "\r\t- 'h' AMG8834			(0x00--?): ?V -- ?V\n");
-				#else
-				SEGGER_RTT_WriteString(0, "\r\t- 'h' AMG8834			(0x00--?): ?V -- ?V (compiled out) \n");
-#endif
-				OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
-
-#ifdef WARP_BUILD_ENABLE_DEVAS7262
-				SEGGER_RTT_WriteString(0, "\r\t- 'j' AS7262			(0x00--0x2B): 2.7V -- 3.6V\n");
-				#else
-				SEGGER_RTT_WriteString(0, "\r\t- 'j' AS7262			(0x00--0x2B): 2.7V -- 3.6V (compiled out) \n");
-#endif
-				OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
-
-#ifdef WARP_BUILD_ENABLE_DEVAS7263
-				SEGGER_RTT_WriteString(0, "\r\t- 'k' AS7263			(0x00--0x2B): 2.7V -- 3.6V\n");
-				#else
-				SEGGER_RTT_WriteString(0, "\r\t- 'k' AS7263			(0x00--0x2B): 2.7V -- 3.6V (compiled out) \n");
-#endif
-
-#ifdef WARP_BUILD_ENABLE_DEVINA219
-				SEGGER_RTT_WriteString(0, "\r\t- 'm' INA219			\n");
-				#else
-				SEGGER_RTT_WriteString(0, "\r\t- 'm' INA219			\n");
-#endif
-				OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
-
-				SEGGER_RTT_WriteString(0, "\r\tEnter selection> ");
-				OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
-
-				key = SEGGER_RTT_WaitKey();
-
-				switch(key)
-				{
-#ifdef WARP_BUILD_ENABLE_DEVADXL362
-					case '1':
-					{
-						menuTargetSensor = kWarpSensorADXL362;
-
-						break;
-					}
-#endif
-#ifdef WARP_BUILD_ENABLE_DEVBMX055
-					case '2':
-					{
-						menuTargetSensor = kWarpSensorBMX055accel;
-						menuI2cDevice = &deviceBMX055accelState;
-						break;
-					}
-#endif
-#ifdef WARP_BUILD_ENABLE_DEVBMX055
-					case '3':
-					{
-						menuTargetSensor = kWarpSensorBMX055gyro;
-						menuI2cDevice = &deviceBMX055gyroState;
-						break;
-					}
-#endif
-#ifdef WARP_BUILD_ENABLE_DEVBMX055
-					case '4':
-					{
-						menuTargetSensor = kWarpSensorBMX055mag;
-						menuI2cDevice = &deviceBMX055magState;
-						break;
-					}
-#endif
-#ifdef WARP_BUILD_ENABLE_DEVMMA8451Q
-					case '5':
-					{
-						menuTargetSensor = kWarpSensorMMA8451Q;
-						menuI2cDevice = &deviceMMA8451QState;
-						break;
-					}
-#endif
-#ifdef WARP_BUILD_ENABLE_DEVLPS25H
-					case '6':
-					{
-						menuTargetSensor = kWarpSensorLPS25H;
-						menuI2cDevice = &deviceLPS25HState;
-						break;
-					}
-#endif
-#ifdef WARP_BUILD_ENABLE_DEVMAG3110
-					case '7':
-					{
-						menuTargetSensor = kWarpSensorMAG3110;
-						menuI2cDevice = &deviceMAG3110State;
-						break;
-					}
-#endif
-#ifdef WARP_BUILD_ENABLE_DEVHDC1000
-					case '8':
-					{
-						menuTargetSensor = kWarpSensorHDC1000;
-						menuI2cDevice = &deviceHDC1000State;
-						break;
-					}
-#endif
-#ifdef WARP_BUILD_ENABLE_DEVSI7021
-					case '9':
-					{
-						menuTargetSensor = kWarpSensorSI7021;
-						menuI2cDevice = &deviceSI7021State;
-						break;
-					}
-#endif
-#ifdef WARP_BUILD_ENABLE_DEVL3GD20H
-					case 'a':
-					{
-						menuTargetSensor = kWarpSensorL3GD20H;
-						menuI2cDevice = &deviceL3GD20HState;
-						break;
-					}
-#endif
-#ifdef WARP_BUILD_ENABLE_DEVBME680
-					case 'b':
-					{
-						menuTargetSensor = kWarpSensorBME680;
-						menuI2cDevice = &deviceBME680State;
-						break;
-					}
-#endif
-#ifdef WARP_BUILD_ENABLE_DEVTCS34725
-					case 'd':
-					{
-						menuTargetSensor = kWarpSensorTCS34725;
-						menuI2cDevice = &deviceTCS34725State;
-						break;
-					}
-#endif
-#ifdef WARP_BUILD_ENABLE_DEVSI4705
-					case 'e':
-					{
-						menuTargetSensor = kWarpSensorSI4705;
-						menuI2cDevice = &deviceSI4705State;
-						break;
-					}
-#endif
-#ifdef WARP_BUILD_ENABLE_DEVPAN1326
-					case 'f':
-					{
-						menuTargetSensor = kWarpSensorPAN1326;
-
-						break;
-					}
-#endif
-#ifdef WARP_BUILD_ENABLE_DEVCCS811
-					case 'g':
-					{
-						menuTargetSensor = kWarpSensorCCS811;
-						menuI2cDevice = &deviceCCS811State;
-						break;
-					}
-#endif
-#ifdef WARP_BUILD_ENABLE_DEVAMG8834
-					case 'h':
-					{
-						menuTargetSensor = kWarpSensorAMG8834;
-						menuI2cDevice = &deviceAMG8834State;
-						break;
-					}
-#endif
-#ifdef WARP_BUILD_ENABLE_DEVAS7262
-					case 'j':
-					{
-						menuTargetSensor = kWarpSensorAS7262;
-						menuI2cDevice = &deviceAS7262State;
-						break;
-					}
-#endif
-#ifdef WARP_BUILD_ENABLE_DEVAS7263
-					case 'k':
-					{
-						menuTargetSensor = kWarpSensorAS7263;
-						menuI2cDevice = &deviceAS7263State;
-						break;
-					}
-#endif
-
-#ifdef WARP_BUILD_ENABLE_DEVINA219
-					case 'm':
-					{
-						menuTargetSensor = kWarpSensorINA219;
-						menuI2cDevice = &deviceINA219State;
-						break;
-					}
-#endif
-					default:
-					{
-#ifdef WARP_BUILD_ENABLE_SEGGER_RTT_PRINTF
-						SEGGER_RTT_printf(0, "\r\tInvalid selection '%c' !\n", key);
-#endif
-					}
-				}
-
-				break;
-			}
-
-			/*
-			 *	Change default I2C baud rate
-			 */
-			case 'b':
-			{
-				SEGGER_RTT_WriteString(0, "\r\n\tSet I2C baud rate in kbps (e.g., '0001')> ");
-				gWarpI2cBaudRateKbps = read4digits();
-
-				/*
-				 *	Round 9999kbps to 10Mbps
-				 */
-				if (gWarpI2cBaudRateKbps == 9999)
-				{
-					gWarpI2cBaudRateKbps = 10000;
-				}
-
-#ifdef WARP_BUILD_ENABLE_SEGGER_RTT_PRINTF
-				SEGGER_RTT_printf(0, "\r\n\tI2C baud rate set to %d kb/s", gWarpI2cBaudRateKbps);
-#endif
-
-				break;
-			}
-
-			/*
-			 *	Change default SPI baud rate
-			 */
-			case 'c':
-			{
-				SEGGER_RTT_WriteString(0, "\r\n\tSet SPI baud rate in kbps (e.g., '0001')> ");
-				gWarpSpiBaudRateKbps = read4digits();
-
-				/*
-				 *	Round 9999kbps to 10Mbps
-				 */
-				if (gWarpSpiBaudRateKbps == 9999)
-				{
-					gWarpSpiBaudRateKbps = 10000;
-				}
-
-#ifdef WARP_BUILD_ENABLE_SEGGER_RTT_PRINTF
-				SEGGER_RTT_printf(0, "\r\n\tSPI baud rate: %d kb/s", gWarpSpiBaudRateKbps);
-#endif
-
-				break;
-			}
-
-
-
-
-
-
-
-
-
-
+			
 
 
 			/*
