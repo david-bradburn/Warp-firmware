@@ -1853,7 +1853,7 @@ devSSD1331init();
 
 				int16_t acc_shuff[length];
 				uint8_t n = 0;
-				for(n = 0; n < length; i++)
+				for(n = 0; n < length; n++)
 				{
 					if(i >= length)
 					{
@@ -1862,7 +1862,7 @@ devSSD1331init();
 					acc_shuff[n] = acc[i];
 					i++;
 				}
-				
+
 				SEGGER_RTT_printf(0, "\r\t\n96 pad\n");
 
 				for (i = 0; i < 96; i++)
