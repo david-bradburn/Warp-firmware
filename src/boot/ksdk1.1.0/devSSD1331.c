@@ -120,8 +120,8 @@ default_colour(void)
 int
 recttest(void)
 {
-	uint8_t * bytes = {kSSD1331CommandDRAWRECT, 0x00, 0x00, 0x5F, 0x3F, default_colour_arr};
-	writeCommandarr(bytes, 8)
+	uint8_t * bytes[] = {kSSD1331CommandDRAWRECT, 0x00, 0x00, 0x5F, 0x3F, default_colour_arr};
+	writeCommandarr(bytes, 8);
 
 	return 0;
 }
