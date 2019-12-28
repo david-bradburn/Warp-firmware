@@ -248,33 +248,12 @@ draweight(uint8_t loc_x, uint8_t loc_y)
 int
 drawnine(uint8_t loc_x, uint8_t loc_y)
 {
-	writeCommand(kSSD1331CommandDRAWLINE);
-	writeCommand(loc_x + 42);
-	writeCommand(loc_y);
-	writeCommand(loc_x);
-	writeCommand(loc_y);
-	default_colour();
+	uint8_t bytes[] = {kSSD1331CommandDRAWLINE, loc_x + 42, loc_y, loc_x, loc_y, default_colour_arr,
+										kSSD1331CommandDRAWLINE, loc_x, loc_y, loc_x, loc_y + 28, default_colour_arr,
+										kSSD1331CommandDRAWLINE, loc_x, loc_y + 28, loc_x + 42, loc_y + 28, default_colour_arr,
+										kSSD1331CommandDRAWLINE, loc_x + 42, loc_y, loc_x + 42, loc_y + 56, default_colour_arr};
 
-	writeCommand(kSSD1331CommandDRAWLINE);
-	writeCommand(loc_x);
-	writeCommand(loc_y);
-	writeCommand(loc_x);
-	writeCommand(loc_y + 28);
-	default_colour();
-
-	writeCommand(kSSD1331CommandDRAWLINE);
-	writeCommand(loc_x);
-	writeCommand(loc_y + 28);
-	writeCommand(loc_x + 42);
-	writeCommand(loc_y + 28);
-	default_colour();
-
-	writeCommand(kSSD1331CommandDRAWLINE);
-	writeCommand(loc_x + 42);
-	writeCommand(loc_y);
-	writeCommand(loc_x + 42);
-	writeCommand(loc_y + 56);
-	default_colour();
+writeCommandarr(bytes, 32);
 
 	return 0;
 }
@@ -283,40 +262,13 @@ drawnine(uint8_t loc_x, uint8_t loc_y)
 int
 drawzero(uint8_t loc_x, uint8_t loc_y)
 {
-	writeCommand(kSSD1331CommandDRAWLINE);
-	writeCommand(loc_x + 42);
-	writeCommand(loc_y);
-	writeCommand(loc_x);
-	writeCommand(loc_y);
-	default_colour();
+	uint8_t bytes[] = {kSSD1331CommandDRAWLINE, loc_x + 42, loc_y, loc_x, loc_y, default_colour_arr,
+										kSSD1331CommandDRAWLINE, loc_x, loc_y, loc_x, loc_y + 56, default_colour_arr,
+										kSSD1331CommandDRAWLINE, loc_x, loc_y + 56, loc_x + 42, loc_y + 56, default_colour_arr,
+										kSSD1331CommandDRAWLINE, loc_x + 42, loc_y + 56, loc_x + 42, loc_y, default_colour_arr,
+										kSSD1331CommandDRAWLINE, loc_x + 42, loc_y, loc_x, loc_y + 56, default_colour_arr};
 
-	writeCommand(kSSD1331CommandDRAWLINE);
-	writeCommand(loc_x);
-	writeCommand(loc_y);
-	writeCommand(loc_x);
-	writeCommand(loc_y + 56);
-	default_colour();
-
-	writeCommand(kSSD1331CommandDRAWLINE);
-	writeCommand(loc_x);
-	writeCommand(loc_y + 56);
-	writeCommand(loc_x + 42);
-	writeCommand(loc_y + 56);
-	default_colour();
-
-	writeCommand(kSSD1331CommandDRAWLINE);
-	writeCommand(loc_x + 42);
-	writeCommand(loc_y + 56);
-	writeCommand(loc_x + 42);
-	writeCommand(loc_y);
-	default_colour();
-
-	writeCommand(kSSD1331CommandDRAWLINE);
-	writeCommand(loc_x + 42);
-	writeCommand(loc_y);
-	writeCommand(loc_x);
-	writeCommand(loc_y + 56);
-	default_colour();
+	writeCommandarr(bytes, 40);
 	return 0;
 }
 
