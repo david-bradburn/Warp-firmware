@@ -30,7 +30,7 @@ enum
 };
 
 static int
-writeCommandarr(uint8_t * commandBytes, uint8_t no_bytes)
+writeCommandarr(uint8_t * commandBytes[], uint8_t no_bytes)
 {
 	spi_status_t status;
 
@@ -54,7 +54,7 @@ writeCommandarr(uint8_t * commandBytes, uint8_t no_bytes)
 					(const uint8_t * restrict)&commandBytes,
 					(uint8_t * restrict)&inBuffer[0],
 					no_bytes		/* transfer size */,
-					10000		/* timeout in microseconds (unlike I2C which is ms) */);
+					100000		/* timeout in microseconds (unlike I2C which is ms) */);
 
 	/*
 	 *	Drive /CS high
