@@ -43,7 +43,6 @@ CMakeFiles/Warp.dir/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/
  /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/warp.h \
  /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devMMA8451Q.h \
  /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devSSD1331.h \
- /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devINA219.h \
  /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/ergsystem.h
 
 /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/armgcc/Warp/../../../../platform/utilities/inc/fsl_misc_utilities.h:
@@ -131,7 +130,5 @@ CMakeFiles/Warp.dir/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/
 /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devMMA8451Q.h:
 
 /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devSSD1331.h:
-
-/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devINA219.h:
 
 /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/ergsystem.h:
