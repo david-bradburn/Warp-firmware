@@ -509,7 +509,8 @@ pullingforceprint(int16_t y[], uint8_t length)
 	}
 	else
 	{
-		uint8_t bytes[];
+		uint8_t bytes[8];
+		
 		for(i = 0; i < 96; i++)
 		{
 				bytes = {kSSD1331CommandDRAWLINE, i, y[i], i, y[i], default_colour_arr};
