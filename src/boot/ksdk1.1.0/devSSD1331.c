@@ -54,7 +54,7 @@ writeCommandarr(uint8_t * commandBytes, uint8_t no_bytes)
 					(const uint8_t * restrict)&commandBytes,
 					(uint8_t * restrict)&inBuffer[0],
 					no_bytes		/* transfer size */,
-					1000		/* timeout in microseconds (unlike I2C which is ms) */);
+					10000		/* timeout in microseconds (unlike I2C which is ms) */);
 
 	/*
 	 *	Drive /CS high
@@ -121,7 +121,7 @@ int
 recttest(void)
 {
 	uint8_t bytes[] = {kSSD1331CommandDRAWRECT, 0x00, 0x00, 0x5F, 0x3F, default_colour_arr, default_colour_arr};
-	spi_status_t status = writeCommandarr(bytes, 12);
+	spi_status_t status = writeCommandarr(bytes, 11);
 
 	SEGGER_RTT_printf(0, "\r\t\n %d \n", status);
 
