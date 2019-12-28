@@ -2325,9 +2325,10 @@ devSSD1331init();
 
 					acc[i] = hexoutx;
 					i++;
+					
 					if(i >= length)
 					{
-						i = 0
+						i = 0;
 					}
 
 					OSA_TimeDelay(10);
