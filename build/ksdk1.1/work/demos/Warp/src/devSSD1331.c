@@ -281,11 +281,9 @@ clearscreen(void)
 	/*
 	 *	Clear Screen
 	 */
-	writeCommand(kSSD1331CommandCLEAR);
-	writeCommand(0x00);
-	writeCommand(0x00);
-	writeCommand(0x5F);
-	writeCommand(0x3F);
+	uint bytes[] = {kSSD1331CommandCLEAR, 0x00, 0x00, 0x5F, 0x3F};
+
+	writeCommandarr(bytes, 5);
 
 	return 0;
 }
@@ -293,11 +291,10 @@ clearscreen(void)
 int
 clearscreenupper(void)
 {
-	writeCommand(kSSD1331CommandCLEAR);
-	writeCommand(0x00);
-	writeCommand(0x00);
-	writeCommand(0x2F);
-	writeCommand(0x3F);
+
+	uint bytes[] = {kSSD1331CommandCLEAR, 0x00, 0x00, 0x2F, 0x3F};
+
+	writeCommandarr(bytes, 5);
 
 	return 0;
 }
@@ -305,11 +302,9 @@ clearscreenupper(void)
 int
 clearscreenlower(void)
 {
-	writeCommand(kSSD1331CommandCLEAR);
-	writeCommand(0x30);
-	writeCommand(0x00);
-	writeCommand(0x5F);
-	writeCommand(0x3F);
+	uint bytes[] = {kSSD1331CommandCLEAR, 0x30, 0x00, 0x5F, 0x3F};
+
+	writeCommandarr(bytes, 5);
 
 	return 0;
 }
