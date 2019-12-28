@@ -802,6 +802,16 @@ device/fsl_device_registers.h
 fsl_gpio_driver.h
 /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/boards/Warp/fsl_gpio_driver.h
 
+/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/INA219.c
+INA219.h
+/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/INA219.h
+stdint.h
+/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/stdint.h
+
+/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/INA219.h
+stdint.h
+/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/stdint.h
+
 /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/SEGGER_RTT.c
 SEGGER_RTT.h
 /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/SEGGER_RTT.h
@@ -829,6 +839,8 @@ stdlib.h
 -
 stdarg.h
 -
+
+/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devINA219.h
 
 /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devMMA8451Q.c
 stdlib.h
@@ -931,6 +943,8 @@ devMMA8451Q.h
 /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devMMA8451Q.h
 devSSD1331.h
 /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devSSD1331.h
+devINA219.h
+/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devINA219.h
 ergsystem.h
 /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/ergsystem.h
 
