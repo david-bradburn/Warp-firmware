@@ -18,6 +18,9 @@ CMakeFiles/Warp.dir/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/boards/Warp
  ../../../../platform/startup/MKL03Z4/system_MKL03Z4.h
  /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/boards/Warp/gpio_pins.c
  /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/boards/Warp/gpio_pins.h
+CMakeFiles/Warp.dir/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/INA219.c.obj
+ /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/INA219.c
+ /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/INA219.h
 CMakeFiles/Warp.dir/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/SEGGER_RTT.c.obj
  /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/SEGGER_RTT.c
  /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/SEGGER_RTT.h
@@ -140,6 +143,7 @@ CMakeFiles/Warp.dir/home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/
  ../../../../platform/utilities/inc/fsl_misc_utilities.h
  /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/SEGGER_RTT.h
  /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/SEGGER_RTT_Conf.h
+ /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devINA219.h
  /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devMMA8451Q.h
  /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devSSD1331.h
  /home/djb243/CW4/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/ergsystem.h
