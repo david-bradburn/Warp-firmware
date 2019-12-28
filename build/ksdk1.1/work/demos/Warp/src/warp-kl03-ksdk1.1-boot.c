@@ -88,7 +88,7 @@
 #endif
 
 #	include "devSSD1331.h"
-#	include "devINA219.h"
+//#	include "devINA219.h"
 # include "ergsystem.h"
 
 #define WARP_BUILD_ENABLE_SEGGER_RTT_PRINTF
