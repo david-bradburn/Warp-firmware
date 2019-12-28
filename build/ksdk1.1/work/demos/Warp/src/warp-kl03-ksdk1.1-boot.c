@@ -2417,7 +2417,7 @@ devSSD1331init();
 						hexoutx = (hexoutx ^ (1 << 13)) - (1 << 13) - offset_av;
 
 
-						hexoutx = (w1*hexoutx_prev + w2*hexoutx)/(w1 + w2);
+						hexoutx = ((10001 - count)*hexoutx_prev + count*hexoutx)/(count);
 
 						if(hexoutx > acc_max)
 						{
@@ -2632,20 +2632,20 @@ devSSD1331init();
 
 			}
 
-
-			case '4':
-			{
-
-					SEGGER_RTT_WriteString(0, "\r- Please enter 2 number\n");
-
-					int ar[2];
-
-					ar[0] = char2int(SEGGER_RTT_WaitKey());
-					ar[1] = char2int(SEGGER_RTT_WaitKey());
-
-					writetoscreen(ar);
-					break;
-			}
+			//
+			// case '4':
+			// {
+			//
+			// 		SEGGER_RTT_WriteString(0, "\r- Please enter 2 number\n");
+			//
+			// 		int ar[2];
+			//
+			// 		ar[0] = char2int(SEGGER_RTT_WaitKey());
+			// 		ar[1] = char2int(SEGGER_RTT_WaitKey());
+			//
+			// 		writetoscreen(ar);
+			// 		break;
+			// }
 
 			case '5':
 			{
