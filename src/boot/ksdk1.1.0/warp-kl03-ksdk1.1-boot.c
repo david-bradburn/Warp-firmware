@@ -1807,6 +1807,8 @@ devSSD1331init();
 
 				i = 0;
 
+				int16_t acc_max = 0;
+
 				while(1)
 				{
 
@@ -1832,26 +1834,40 @@ devSSD1331init();
 						i = 0;
 					}
 
+					if(hexoutx > acc_max)
+					{
+						acc_max = hexoutx;
+					}
+
 					OSA_TimeDelay(10);
-					// if (hexoutx > 0 && hexoutx_prev > 0 && hexoutx > 100)
-					// {
-					// 	acc[i] = hexoutx;
-					// 	i++;
-					// 	if (i >= length)
-					// 	{
-					// 		break;
-					// 	}
-					// }
+
+
+					if(hexoutx < 0 && acc_max > 500)
+					{
+						break;
+					}
 
 					//hexoutx_prev = hexoutx;
 
 				}
 
+				int16_t acc_shuff[length];
+				uint8_t n = 0;
+				for(n = 0; n < length; i++)
+				{
+					if(i >= length)
+					{
+						i = 0;
+					}
+					acc_shuff[n] = acc[i];
+					i++;
+				}
+				
 				SEGGER_RTT_printf(0, "\r\t\n96 pad\n");
 
 				for (i = 0; i < 96; i++)
 				{
-					data[i] = reduce_accel_array_resize_offset(acc, length, i);
+					data[i] = reduce_accel_array_resize_offset(acc_shuff, length, i);
 				}
 
 				for (i = 0; i < 96; i++)
