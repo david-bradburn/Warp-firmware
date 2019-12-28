@@ -200,7 +200,7 @@ volatile lpuart_state_t 			lpuartState;
 /*
  *	TODO: move magic default numbers into constant definitions.
  */
-volatile uint32_t			gWarpI2cBaudRateKbps		= 200;
+volatile uint32_t			gWarpI2cBaudRateKbps		= 10000;
 volatile uint32_t			gWarpUartBaudRateKbps		= 1;
 volatile uint32_t			gWarpSpiBaudRateKbps		= 10000;
 volatile uint32_t			gWarpSleeptimeSeconds		= 0;
@@ -939,74 +939,11 @@ warpLowPowerSecondsSleep(uint32_t sleepSeconds, bool forceAllPinsIntoLowPowerSta
 
 
 
-void
-printPinDirections(void)
-{
-	/*
-#ifdef WARP_BUILD_ENABLE_SEGGER_RTT_PRINTF
-	SEGGER_RTT_printf(0, "KL03_VDD_ADC:%d\n", GPIO_DRV_GetPinDir(kWarpPinKL03_VDD_ADC));
-	OSA_TimeDelay(100);
-	SEGGER_RTT_printf(0, "I2C0_SDA:%d\n", GPIO_DRV_GetPinDir(kWarpPinI2C0_SDA));
-	OSA_TimeDelay(100);
-	SEGGER_RTT_printf(0, "I2C0_SCL:%d\n", GPIO_DRV_GetPinDir(kWarpPinI2C0_SCL));
-	OSA_TimeDelay(100);
-	SEGGER_RTT_printf(0, "SPI_MOSI:%d\n", GPIO_DRV_GetPinDir(kWarpPinSPI_MOSI));
-	OSA_TimeDelay(100);
-	SEGGER_RTT_printf(0, "SPI_MISO:%d\n", GPIO_DRV_GetPinDir(kWarpPinSPI_MISO));
-	OSA_TimeDelay(100);
-	SEGGER_RTT_printf(0, "SPI_SCK_I2C_PULLUP_EN:%d\n", GPIO_DRV_GetPinDir(kWarpPinSPI_SCK_I2C_PULLUP_EN));
-	OSA_TimeDelay(100);
-	SEGGER_RTT_printf(0, "TPS82740A_VSEL2:%d\n", GPIO_DRV_GetPinDir(kWarpPinTPS82740_VSEL2));
-	OSA_TimeDelay(100);
-	SEGGER_RTT_printf(0, "ADXL362_CS:%d\n", GPIO_DRV_GetPinDir(kWarpPinADXL362_CS));
-	OSA_TimeDelay(100);
-	SEGGER_RTT_printf(0, "kWarpPinPAN1326_nSHUTD:%d\n", GPIO_DRV_GetPinDir(kWarpPinPAN1326_nSHUTD));
-	OSA_TimeDelay(100);
-	SEGGER_RTT_printf(0, "TPS82740A_CTLEN:%d\n", GPIO_DRV_GetPinDir(kWarpPinTPS82740A_CTLEN));
-	OSA_TimeDelay(100);
-	SEGGER_RTT_printf(0, "TPS82740B_CTLEN:%d\n", GPIO_DRV_GetPinDir(kWarpPinTPS82740B_CTLEN));
-	OSA_TimeDelay(100);
-	SEGGER_RTT_printf(0, "TPS82740A_VSEL1:%d\n", GPIO_DRV_GetPinDir(kWarpPinTPS82740_VSEL1));
-	OSA_TimeDelay(100);
-	SEGGER_RTT_printf(0, "TPS82740A_VSEL3:%d\n", GPIO_DRV_GetPinDir(kWarpPinTPS82740_VSEL3));
-	OSA_TimeDelay(100);
-	SEGGER_RTT_printf(0, "CLKOUT32K:%d\n", GPIO_DRV_GetPinDir(kWarpPinCLKOUT32K));
-	OSA_TimeDelay(100);
-	SEGGER_RTT_printf(0, "TS5A3154_IN:%d\n", GPIO_DRV_GetPinDir(kWarpPinTS5A3154_IN));
-	OSA_TimeDelay(100);
-	SEGGER_RTT_printf(0, "SI4705_nRST:%d\n", GPIO_DRV_GetPinDir(kWarpPinSI4705_nRST));
-	OSA_TimeDelay(100);
-#endif
-	*/
-}
 
 
 
-void
-dumpProcessorState(void)
-{
-/*
-	uint32_t	cpuClockFrequency;
 
-	CLOCK_SYS_GetFreq(kCoreClock, &cpuClockFrequency);
-#ifdef WARP_BUILD_ENABLE_SEGGER_RTT_PRINTF
-	SEGGER_RTT_printf(0, "\r\n\n\tCPU @ %u KHz\n", (cpuClockFrequency / 1000));
-	SEGGER_RTT_printf(0, "\r\tCPU power mode: %u\n", POWER_SYS_GetCurrentMode());
-	SEGGER_RTT_printf(0, "\r\tCPU clock manager configuration: %u\n", CLOCK_SYS_GetCurrentConfiguration());
-	SEGGER_RTT_printf(0, "\r\tRTC clock: %d\n", CLOCK_SYS_GetRtcGateCmd(0));
-	SEGGER_RTT_printf(0, "\r\tSPI clock: %d\n", CLOCK_SYS_GetSpiGateCmd(0));
-	SEGGER_RTT_printf(0, "\r\tI2C clock: %d\n", CLOCK_SYS_GetI2cGateCmd(0));
-	SEGGER_RTT_printf(0, "\r\tLPUART clock: %d\n", CLOCK_SYS_GetLpuartGateCmd(0));
-	SEGGER_RTT_printf(0, "\r\tPORT A clock: %d\n", CLOCK_SYS_GetPortGateCmd(0));
-	SEGGER_RTT_printf(0, "\r\tPORT B clock: %d\n", CLOCK_SYS_GetPortGateCmd(1));
-	SEGGER_RTT_printf(0, "\r\tFTF clock: %d\n", CLOCK_SYS_GetFtfGateCmd(0));
-	SEGGER_RTT_printf(0, "\r\tADC clock: %d\n", CLOCK_SYS_GetAdcGateCmd(0));
-	SEGGER_RTT_printf(0, "\r\tCMP clock: %d\n", CLOCK_SYS_GetCmpGateCmd(0));
-	SEGGER_RTT_printf(0, "\r\tVREF clock: %d\n", CLOCK_SYS_GetVrefGateCmd(0));
-	SEGGER_RTT_printf(0, "\r\tTPM clock: %d\n", CLOCK_SYS_GetTpmGateCmd(0));
-#endif
-*/
-}
+
 
 #ifdef WARP_BUILD_ENABLE_THERMALCHAMBERANALYSIS
 void
@@ -2325,7 +2262,7 @@ devSSD1331init();
 
 					acc[i] = hexoutx;
 					i++;
-					
+
 					if(i >= length)
 					{
 						i = 0;
