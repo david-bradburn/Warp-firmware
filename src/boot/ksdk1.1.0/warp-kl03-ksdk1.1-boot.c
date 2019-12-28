@@ -1926,20 +1926,20 @@ devSSD1331init();
 
 			}
 
-			//
-			// case '4':
-			// {
-			//
-			// 		SEGGER_RTT_WriteString(0, "\r- Please enter 2 number\n");
-			//
-			// 		int ar[2];
-			//
-			// 		ar[0] = char2int(SEGGER_RTT_WaitKey());
-			// 		ar[1] = char2int(SEGGER_RTT_WaitKey());
-			//
-			// 		writetoscreen(ar);
-			// 		break;
-			// }
+			
+			case '4':
+			{
+
+					SEGGER_RTT_WriteString(0, "\r- Please enter 2 number\n");
+
+					int ar[2];
+
+					ar[0] = char2int(SEGGER_RTT_WaitKey());
+					ar[1] = char2int(SEGGER_RTT_WaitKey());
+
+					writetoscreen(ar);
+					break;
+			}
 
 			case '5':
 			{
