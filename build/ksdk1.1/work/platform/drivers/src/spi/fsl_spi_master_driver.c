@@ -212,7 +212,7 @@ spi_status_t SPI_DRV_MasterTransferBlocking(uint32_t instance,
     errorStatus = SPI_DRV_MasterStartTransfer(instance, device);
     if (errorStatus != kStatus_SPI_Success)
     {
-        return 1;
+        return 0;
     }
 
     /* As this is a synchronous transfer, wait until the transfer is complete.*/
