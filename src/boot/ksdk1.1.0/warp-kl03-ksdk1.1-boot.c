@@ -202,7 +202,7 @@ volatile lpuart_state_t 			lpuartState;
  */
 volatile uint32_t			gWarpI2cBaudRateKbps		= 200;
 volatile uint32_t			gWarpUartBaudRateKbps		= 1;
-volatile uint32_t			gWarpSpiBaudRateKbps		= 10000;
+volatile uint32_t			gWarpSpiBaudRateKbps		= 200;
 volatile uint32_t			gWarpSleeptimeSeconds		= 0;
 volatile WarpModeMask			gWarpMode			= kWarpModeDisableAdcOnSleep;
 volatile uint32_t			gWarpI2cTimeoutMilliseconds	= 5;
@@ -1350,7 +1350,7 @@ devSSD1331init();
 
 		switch (key)
 		{
-			
+
 
 
 			/*
