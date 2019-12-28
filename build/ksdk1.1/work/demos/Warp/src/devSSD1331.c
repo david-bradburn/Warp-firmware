@@ -520,7 +520,7 @@ pullingforceprint(int16_t y[], uint8_t length)
 			bytes[3] = i;
 			bytes[4] = y[i];
 
-				writeCommandarr(bytes, 8);
+			writeCommandarr(bytes, 8);
 		}
 	}
 
