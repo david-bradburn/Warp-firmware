@@ -30,7 +30,7 @@ enum
 };
 
 static int
-writeCommandarr(uint8_t * commandBytes[], uint8_t no_bytes)
+writeCommandarr(uint8_t commandBytes[], uint8_t no_bytes)
 {
 	spi_status_t status;
 
