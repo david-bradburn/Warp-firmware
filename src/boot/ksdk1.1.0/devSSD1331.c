@@ -40,7 +40,7 @@ writeCommandarr(uint8_t * commandBytes, uint8_t no_bytes)
 	 *	Make sure there is a high-to-low transition by first driving high, delay, then drive low.
 	 */
 	GPIO_DRV_SetPinOutput(kSSD1331PinCSn);
-	OSA_TimeDelay(10);
+	OSA_TimeDelay(5);
 	GPIO_DRV_ClearPinOutput(kSSD1331PinCSn);
 
 	/*
