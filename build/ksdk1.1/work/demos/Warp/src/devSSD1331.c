@@ -540,7 +540,7 @@ pullingforcelive(uint8_t y[], uint8_t length, uint8_t n[])
 
 		for(i = 0; i < length; i++)
 		{
-			if(n[i] = 0)
+			if(n[i] == 0)
 			{
 				clearscreen();
 			}
