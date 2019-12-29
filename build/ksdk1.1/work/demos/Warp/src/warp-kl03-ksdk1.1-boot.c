@@ -1990,9 +1990,9 @@ devSSD1331init();
 
 				i = 0;
 				uint8_t cycles = 5;
-				uint8_t p;
+				uint8_t p = 0;
 
-				while(1);
+				while(1)
 				{
 					for(p = 0; p < cycles; p++)
 					{
