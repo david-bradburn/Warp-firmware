@@ -1959,12 +1959,11 @@ devSSD1331init();
 
 				int16_t hexoutx = 0;
 
-				uint16_t i = 0;
+				uint8_t i = 0;
 
 				int off_len = 50;
 				int32_t offset_av = 0;
 
-				uint8_t data[96];
 
 				enableI2Cpins(menuI2cPullupValue);
 
