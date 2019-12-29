@@ -1984,12 +1984,14 @@ devSSD1331init();
 
 				offset_av /= off_len;
 
-				uint8_t data[5];
-				uint8_t n[5];
+
 				SEGGER_RTT_printf(0, "\r\t\n %d\n", offset_av);
 
 				i = 0;
-				uint8_t cycles = 5;
+				uint8_t cycles = 20;
+
+				uint8_t data[cycles];
+				uint8_t n[cycles];
 				uint8_t p = 0;
 
 				while(1)
