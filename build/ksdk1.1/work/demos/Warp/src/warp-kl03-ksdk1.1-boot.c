@@ -1657,7 +1657,7 @@ devSSD1331init();
 				enableI2Cpins(menuI2cPullupValue);
 
 				writeSensorRegisterMMA8451Q(0x09, 0x80, menuI2cPullupValue);
-				writeSensorRegisterMMA8451Q(0x2A, 0x01, menuI2cPullupValue);
+				//writeSensorRegisterMMA8451Q(0x2A, 0x01, menuI2cPullupValue);
 
 				int16_t hexoutx = 0;
 				int16_t hexoutx_prev = 0;
@@ -1775,7 +1775,7 @@ devSSD1331init();
 				enableI2Cpins(menuI2cPullupValue);
 
 				writeSensorRegisterMMA8451Q(0x09, 0x80, menuI2cPullupValue);
-				writeSensorRegisterMMA8451Q(0x2A, 0x01, menuI2cPullupValue);
+				//writeSensorRegisterMMA8451Q(0x2A, 0x01, menuI2cPullupValue);
 
 				for(i = 0; i < off_len; i++)
 				{
@@ -2051,7 +2051,7 @@ devSSD1331init();
 				int16_t hexoutx;
 
 				writeSensorRegisterMMA8451Q(0x09, 0x80, menuI2cPullupValue);
-				writeSensorRegisterMMA8451Q(0x2A, 0x01, menuI2cPullupValue);
+				//writeSensorRegisterMMA8451Q(0x2A, 0x01, menuI2cPullupValue);
 
 					while(1)
 					{
