@@ -530,6 +530,33 @@ pullingforceprint(uint8_t y[], uint8_t length)
 
 
 
+int
+pullingforcelive(uint8_t y[], uint8_t length, uint8_t n[])
+{
+
+	uint8_t i;
+		// uint8_t bytes[8];
+	uint8_t bytes[] = {kSSD1331CommandDRAWLINE, 0, 0, 0, 0, default_colour_arr};
+
+		for(i = 0; i < length; i++)
+		{
+			if(n[i] = 0)
+			{
+				clearscreen();
+			}
+			bytes[1] = n[i];
+			bytes[2] = 64 - y[i];
+			bytes[3] = n[i];
+			bytes[4] = 64 - y[i];
+
+			writeCommandarr(bytes, 8);
+		}
+
+
+
+	return 0;
+}
+
 
 
 
