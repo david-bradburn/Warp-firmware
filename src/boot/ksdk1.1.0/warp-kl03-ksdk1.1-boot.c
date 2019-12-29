@@ -1797,7 +1797,7 @@ devSSD1331init();
 
 
 
-				uint16_t length = 1;
+				uint16_t length = 100;
 
 				int16_t acc[length];
 
@@ -1990,7 +1990,7 @@ devSSD1331init();
 				SEGGER_RTT_printf(0, "\r\t\n %d\n", offset_av);
 
 				i = 0;
-				uint8_t cycles = 96;
+				uint8_t cycles = 1;
 
 				uint8_t data[cycles];
 				uint8_t n[cycles];
