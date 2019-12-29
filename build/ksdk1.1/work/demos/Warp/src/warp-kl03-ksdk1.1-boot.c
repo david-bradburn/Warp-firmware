@@ -2044,73 +2044,25 @@ devSSD1331init();
 
 			case '9':
 			{
+				SEGGER_RTT_WriteString(0, "\r\n\tPrinting MMA8451Q register 1000 times \n");
+				enableI2Cpins(menuI2cPullupValue);
+				int16_t hexout;
 
-              SEGGER_RTT_WriteString(0, "\r\n\tPrinting MMA8451Q register 1000 times \n");
-							enableI2Cpins(menuI2cPullupValue);
-							int16_t hexout;
+				writeSensorRegisterMMA8451Q(0x09, 0x80, menuI2cPullupValue);
+				writeSensorRegisterMMA8451Q(0x2A, 0x01, menuI2cPullupValue);
 
-							writeSensorRegisterMMA8451Q(0x2A, 0x01, menuI2cPullupValue);
+					while(1)
+					{
 
-							#ifdef WARP_BUILD_ENABLE_SEGGER_RTT_PRINTF
-
-							int i = 0;
-							int i_max = 1000;
-
-							SEGGER_RTT_printf(0, "\r\t \n \nX Acceleration\n");
-							for (i = 0; i<i_max; i++)
-							{
 							readSensorRegisterMMA8451Q(0x01, 2);
 
-							hexout = ((deviceMMA8451QState.i2cBuffer[0] & 0xFF) << 6) | (deviceMMA8451QState.i2cBuffer[1] >> 2);
+							hexoutx = ((deviceMMA8451QState.i2cBuffer[0] & 0xFF) << 6) | (deviceMMA8451QState.i2cBuffer[1] >> 2);
 
-							hexout = (hexout ^ (1 << 13)) - (1 << 13);
+							hexoutx = ((hexoutx ^ (1 << 13)) - (1 << 13)) - offset_av;
 
-							SEGGER_RTT_printf(0,
-													"\r\t0x%04x --> %d\n",
-													hexout,
-													hexout);
+							SEGGER_RTT_printf(0, "\r\t%d\n", hexoutx);
 
-
-							}
-
-
-							SEGGER_RTT_printf(0, "\r\t \n \nY Acceleration\n");
-							for (i = 0; i<i_max; i++)
-							{
-
-							readSensorRegisterMMA8451Q(0x03, 2);
-
-							hexout = ((deviceMMA8451QState.i2cBuffer[0] & 0xFF) << 6) | (deviceMMA8451QState.i2cBuffer[1] >> 2);
-
-							hexout = (hexout ^ (1 << 13)) - (1 << 13);
-
-
-							SEGGER_RTT_printf(0,
-													"\r\t0x%04x --> %d\n",
-													hexout,
-													hexout);
-							}
-
-
-							SEGGER_RTT_printf(0, "\r\t \n \nZ Acceleration\n");
-							for (i = 0; i < i_max; i++)
-							{
-
-							readSensorRegisterMMA8451Q(0x05, 2);
-
-							hexout = ((deviceMMA8451QState.i2cBuffer[0] & 0xFF) << 6) | (deviceMMA8451QState.i2cBuffer[1] >> 2);
-
-							hexout = (hexout ^ (1 << 13)) - (1 << 13);
-
-							SEGGER_RTT_printf(0,
-													"\r\t0x%04x --> %d\n",
-													hexout,
-													hexout);
-
-							}
-
-							#endif
-							break;
+					}
 
 			}
 
