@@ -1988,7 +1988,7 @@ devSSD1331init();
 				SEGGER_RTT_printf(0, "\r\t\n %d\n", offset_av);
 
 				i = 0;
-				uint8_t cycles = 20;
+				uint8_t cycles = 96;
 
 				uint8_t data[cycles];
 				uint8_t n[cycles];
@@ -2004,7 +2004,7 @@ devSSD1331init();
 
 						hexoutx = ((hexoutx ^ (1 << 13)) - (1 << 13)) - offset_av;
 
-						SEGGER_RTT_printf(0, "\r\t%d\n", hexoutx);
+						//SEGGER_RTT_printf(0, "\r\t%d\n", hexoutx);
 
 						n[p] = i;
 						data[p] = (uint8_t)((hexoutx * 32)/(4096 * 2) + 32);
