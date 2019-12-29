@@ -2046,7 +2046,7 @@ devSSD1331init();
 			{
 				SEGGER_RTT_WriteString(0, "\r\n\tPrinting MMA8451Q register 1000 times \n");
 				enableI2Cpins(menuI2cPullupValue);
-				int16_t hexout;
+				int16_t hexoutx;
 
 				writeSensorRegisterMMA8451Q(0x09, 0x80, menuI2cPullupValue);
 				writeSensorRegisterMMA8451Q(0x2A, 0x01, menuI2cPullupValue);
