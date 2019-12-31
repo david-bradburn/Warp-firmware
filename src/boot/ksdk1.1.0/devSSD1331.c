@@ -565,6 +565,7 @@ pullingforcelivewithotuscrolling(uint8_t data)
 
 
 	writeCommandarr(bytes1, 7);
+	OSA_TimeDelay(1);
 	writeCommandarr(test, 5);
 	//writeCommandarr(bytes2, 5);
 	//writeCommandarr(bytes3, 5);
