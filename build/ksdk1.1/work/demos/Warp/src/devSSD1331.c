@@ -556,13 +556,13 @@ pullingforcelive(uint8_t y[], uint8_t length, uint8_t n[])
 int
 pullingforcelivewithotuscrolling(uint8_t data)
 {
-	uint8_t bytes1[] = {kSSD1331CommandCOPY, 1, 0, 95, 63, 0, 0,
-											kSSD1331CommandCLEAR, 0x5F, 0x00, 0x5F, 0x3F,
-											kSSD1331CommandDRAWLINE, 95, 64 - data, 95, 64 - data, default_colour_arr};
+	uint8_t bytes1[] = {kSSD1331CommandCOPY, 1, 0, 95, 63, 0, 0};
+											// kSSD1331CommandCLEAR, 0x5F, 0x00, 0x5F, 0x3F,
+											// kSSD1331CommandDRAWLINE, 95, 64 - data, 95, 64 - data, default_colour_arr};
 
 
 
-	writeCommandarr(bytes1, 20);
+	writeCommandarr(bytes1, 7);
 	// writeCommandarr(bytes2, 5);
 	// writeCommandarr(test, 8);
 
