@@ -1639,7 +1639,7 @@ devSSD1331init();
 			case '5':
 			{
 
-				SEGGER_RTT_printf(0, "\r\t\n Live printing with scrolling\n")
+				SEGGER_RTT_printf(0, "\r\t\n Live printing with scrolling\n");
 
 				enableI2Cpins(menuI2cPullupValue);
 
@@ -1729,7 +1729,7 @@ devSSD1331init();
 
 			case '7':
 			{
-				SEGGER_RTT_printf(0, "\r\t\n Live printing without scrolling\n")
+				SEGGER_RTT_printf(0, "\r\t\n Live printing without scrolling\n");
 
 
 				int16_t hexoutx = 0;
@@ -1788,7 +1788,7 @@ devSSD1331init();
 			{
 				SEGGER_RTT_WriteString(0, "\r\n\tPrinting x acceleration forever \n");
 				enableI2Cpins(menuI2cPullupValue);
-				int16_t hexoutx;
+				int16_t hexoutx = 0;
 
 				writeSensorRegisterMMA8451Q(0x2A, 0x01, menuI2cPullupValue);
 				writeSensorRegisterMMA8451Q(0x09, 0x80, menuI2cPullupValue);
