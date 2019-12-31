@@ -1435,7 +1435,7 @@ devSSD1331init();
 
 							writetoscreen(ar);
 
-							SEGGER_RTT_printf(0, "\r\t%d\n", count);
+							//SEGGER_RTT_printf(0, "\r\t%d\n", count);
 
 
 
