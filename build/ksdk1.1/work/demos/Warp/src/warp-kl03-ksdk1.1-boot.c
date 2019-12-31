@@ -1362,7 +1362,7 @@ devSSD1331init();
 				int off_len = 50;
 				int32_t offset_av = 0;
 
-				int16_t count = 0;
+				//int16_t count = 0;
 
 				int16_t strokespermin;
 				int ar[2];
@@ -1389,6 +1389,8 @@ devSSD1331init();
 				int16_t w1 = 4;
 				int16_t w2 = 1;
 
+				uint32_t milliseconds_start = OSA_TimeGetMsec();
+				uint32_t milliseconds_end;
 
 				while(1)
 				{
@@ -1410,9 +1412,11 @@ devSSD1331init();
 							acc_min = hexoutx;
 						}
 
-						if((hexoutx > 0 && hexoutx_prev > 0 && hexoutx_prev_prev < 0 && hexoutx_prev_prev_prev < 0 && hexoutx_prev_prev_prev < hexoutx_prev_prev && hexoutx > hexoutx_prev && acc_max > 1000 && acc_min < -600) || count > 10000)
+						if((hexoutx > 0 && hexoutx_prev > 0 && hexoutx_prev_prev < 0 && hexoutx_prev_prev_prev < 0 && hexoutx_prev_prev_prev < hexoutx_prev_prev && hexoutx > hexoutx_prev && acc_max > 1000 && acc_min < -600) || (OSA_TimeGetMsec() - milliseconds_start) > 60000)
 						{
-							strokespermin = 60/(count * 0.006);
+							milliseconds_end = OSA_TimeGetMsec();
+
+							strokespermin = 60000/(milliseconds_end- milliseconds_start);
 
 							if(strokespermin > 99)
 							{
@@ -1426,7 +1430,7 @@ devSSD1331init();
 
 							SEGGER_RTT_printf(0, "\r\t%d\n", count);
 
-							count = 0;
+
 
 							hexoutx_prev_prev_prev = hexoutx_prev_prev;
 							hexoutx_prev_prev = hexoutx_prev;
@@ -1435,13 +1439,15 @@ devSSD1331init();
 							acc_max = 0;
 							acc_min = 0;
 
+							milliseconds_start = OSA_TimeGetMsec();
+
 						}
 						else
 						{
 							hexoutx_prev_prev_prev = hexoutx_prev_prev;
 							hexoutx_prev_prev = hexoutx_prev;
 							hexoutx_prev = hexoutx;
-							count++;
+
 						}
 
 						OSA_TimeDelay(3);
