@@ -1333,20 +1333,12 @@ devSSD1331init();
 			case '0':
 			{
 
-
-
-				rtc_datetime_t date;
-				uint32_t seconds;
+				uint32_t milliseconds;
 
 				while(1)
 				{
-				// get date time and convert to seconds
-				RTC_DRV_GetDatetime(0, &date);
-
-				// convert to sec and add offset
-				RTC_HAL_ConvertDatetimeToSecs(&date, &seconds);
-
-				SEGGER_RTT_printf(0, "\r\t %d \n", seconds);
+					milliseconds = OSA_TimeGetMsec();
+					SEGGER_RTT_printf(0, "\r\t %d \n", milliseconds);
 				}
 
 			}
