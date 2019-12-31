@@ -1773,9 +1773,9 @@ devSSD1331init();
 
 					hexoutx = ((deviceMMA8451QState.i2cBuffer[0] & 0xFF) << 6) | (deviceMMA8451QState.i2cBuffer[1] >> 2);
 
-					hexoutx = ((hexoutx ^ (1 << 13)) - (1 << 13)) - offset;
+					hexoutx = ((hexoutx ^ (1 << 13)) - (1 << 13)) - offset_av;
 
-					data = (uint8_t)((hexoutx * 32)/(4096 * 2) + 32)
+					data = (uint8_t)((hexoutx * 32)/(4096 * 2) + 32);
 
 					pullingforcelivewithotuscrolling(data);
 
