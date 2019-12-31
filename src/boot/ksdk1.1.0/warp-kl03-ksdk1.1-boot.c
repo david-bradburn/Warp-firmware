@@ -1787,6 +1787,7 @@ devSSD1331init();
 			case '9':
 			{
 				SEGGER_RTT_WriteString(0, "\r\n\tPrinting x acceleration forever \n");
+				
 				enableI2Cpins(menuI2cPullupValue);
 				int16_t hexoutx = 0;
 
