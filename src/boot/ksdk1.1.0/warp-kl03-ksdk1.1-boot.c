@@ -1729,6 +1729,8 @@ devSSD1331init();
 
 			case '7':
 			{
+
+				clearscreen();
 				SEGGER_RTT_printf(0, "\r\t\n Live printing without scrolling\n");
 
 
