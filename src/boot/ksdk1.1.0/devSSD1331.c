@@ -557,7 +557,7 @@ int
 pullingforcelivewithotuscrolling(uint8_t data)
 {
 	uint8_t bytes1[] = {kSSD1331CommandCOPY, 0x01, 0x00, 0x5F, 0x3F, 0x00, 0x00};
-	unit8_t bytes2[] = {kSSD1331CommandCLEAR, 95, 0, 95, 63};
+	uint8_t bytes2[] = {kSSD1331CommandCLEAR, 95, 0, 95, 63};
 	uint8_t bytes3[] = {kSSD1331CommandDRAWLINE, 95, 64 - data, 95, 64 - data, default_colour_arr};
 
 
