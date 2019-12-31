@@ -40,7 +40,7 @@ typedef enum
 	kSSD1331CommandPRECHARGEC	= 0x8C,
 	kSSD1331CommandPRECHARGELEVEL	= 0xBB,
 	kSSD1331CommandVCOMH		= 0xBE,
-	kSSD1331CommandCOPY			= 0x23
+	kSSD1331CommandCOPY			= 0x23,
 } SSD1331Commands;
 
 int	devSSD1331init(void);
