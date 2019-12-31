@@ -560,9 +560,11 @@ pullingforcelivewithotuscrolling(uint8_t data)
 	uint8_t bytes2[5] = {kSSD1331CommandCLEAR, 95, 0, 95, 63};
 	uint8_t	bytes3[5] = {kSSD1331CommandDRAWLINE, 95, 64 - data, 95, 64 - data};
 
+
+
 	writeCommandarr(bytes1, 7);
-	writeCommandarr(bytes2, 5);
-	writeCommandarr(bytes3, 5);
+	//writeCommandarr(bytes2, 5);
+	//writeCommandarr(bytes3, 5);
 
 	return 0;
 }

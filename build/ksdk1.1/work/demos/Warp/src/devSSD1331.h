@@ -48,6 +48,7 @@ int	devSSD1331init(void);
 int pullingforceprint(uint8_t y[], uint8_t length);
 int pullingforcelive(uint8_t y[], uint8_t length, uint8_t n[]);
 int pullingforcelivewithotuscrolling(uint8_t data);
+
 int writetoscreen(int ar[]);
 int writetoscreeupper(int upper);
 int writetoscreenlower(int lower);
