@@ -1412,11 +1412,18 @@ devSSD1331init();
 							acc_min = hexoutx;
 						}
 
-						if((hexoutx > 0 && hexoutx_prev > 0 && hexoutx_prev_prev < 0 && hexoutx_prev_prev_prev < 0 && hexoutx_prev_prev_prev < hexoutx_prev_prev && hexoutx > hexoutx_prev && acc_max > 1000 && acc_min < -600) || (OSA_TimeGetMsec() - milliseconds_start) > 60000)
+						if((hexoutx > 0 && hexoutx_prev > 0 && hexoutx_prev_prev < 0 && hexoutx_prev_prev_prev < 0 && hexoutx_prev_prev_prev < hexoutx_prev_prev && hexoutx > hexoutx_prev && acc_max > 1000 && acc_min < -600) || (OSA_TimeGetMsec() - milliseconds_start) > 60000 || ((OSA_TimeGetMsec() < milliseconds_start) && (65535 - milliseconds_start + OSA_TimeGetMsec() > 60000))
 						{
 							milliseconds_end = OSA_TimeGetMsec();
 
-							strokespermin = 60000/(milliseconds_end- milliseconds_start);
+							if(milliseconds_end < milliseconds_start)
+							{
+								strokespermin = 60000/(65535 - milliseconds_start + milliseconds_end)
+							}
+							else
+							{
+								strokespermin = 60000/(milliseconds_end - milliseconds_start);
+							}
 
 							if(strokespermin > 99)
 							{
