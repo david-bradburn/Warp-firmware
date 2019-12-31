@@ -52,3 +52,5 @@ int pullingforcelivewithotuscrolling(uint8_t data);
 int writetoscreen(int ar[]);
 int writetoscreeupper(int upper);
 int writetoscreenlower(int lower);
+
+int clearscreen(void);
