@@ -498,10 +498,6 @@ pullingforceprint(uint8_t y[], uint8_t length)
 	clearscreen();
 
 	uint8_t i;
-	//uint8_t n;
-	//int sizey = (sizeof(y));
-
-	//SEGGER_RTT_printf(0, "\r\n %d", sizey);
 
 	if(length > 96)
 	{
@@ -510,7 +506,6 @@ pullingforceprint(uint8_t y[], uint8_t length)
 	}
 	else
 	{
-		// uint8_t bytes[8];
 		uint8_t bytes[] = {kSSD1331CommandDRAWLINE, 0, 0, 0, 0, default_colour_arr};
 
 		for(i = 0; i < 96; i++)
@@ -553,6 +548,17 @@ pullingforcelive(uint8_t y[], uint8_t length, uint8_t n[])
 		}
 
 
+
+	return 0;
+}
+
+
+int
+pullingforcelivewithotuscrolling(uint8_t data)
+{
+	uint8_t bytes[] = {kSSD1331CommandCOPY, 1, 0, 95, 63, 0, 0, kSSD1331CommandCLEAR, 95, 0, 95, 63, kSSD1331CommandDRAWLINE, 95, data, 95, data};
+
+	writeCommandarr(bytes, 17);
 
 	return 0;
 }
