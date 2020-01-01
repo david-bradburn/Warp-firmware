@@ -1307,16 +1307,16 @@ devSSD1331init();
 		SEGGER_RTT_WriteString(0, "\rSelect:\n");
 		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
 
-		SEGGER_RTT_WriteString(0, "\r- '1': read INA219 registers.\n");//Read 1 current via INA219
+		SEGGER_RTT_WriteString(0, "\r- '1': Stroke Counter\n");//Read 1 current via INA219
 		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
 
-		SEGGER_RTT_WriteString(0, "\r- '2': Place point on OLED\n");//Read 1000 currents via INA219
+		SEGGER_RTT_WriteString(0, "\r- '2': Capture a stroke (not working)\n");//Read 1000 currents via INA219
 		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
 
 		SEGGER_RTT_WriteString(0, "\r- '3': Read all accelerations (X,Y,Z) for data collection\n");//Read 1000 currents via INA219
 		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
 
-		SEGGER_RTT_WriteString(0, "\r- '5': Rowing System\n");
+		SEGGER_RTT_WriteString(0, "\r- '5': Constant stroke monitoring\n");
 		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
 
 		SEGGER_RTT_WriteString(0, "\r- '9': Read n accelerations \n");//Read 1000 currents via INA219
