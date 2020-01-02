@@ -1389,6 +1389,8 @@ devSSD1331init();
 				int16_t w1 = 4;
 				int16_t w2 = 1;
 
+				int16_t strokespermin_prev = 0;
+
 				uint32_t milliseconds_start = OSA_TimeGetMsec();
 				uint32_t milliseconds_end;
 
@@ -1416,6 +1418,7 @@ devSSD1331init();
 						{
 							milliseconds_end = OSA_TimeGetMsec();
 
+							strokespermin_prev = strokespermin;
 							if(milliseconds_end < milliseconds_start)
 							{
 								strokespermin = 60000/(65535 - milliseconds_start + milliseconds_end);
@@ -1427,7 +1430,7 @@ devSSD1331init();
 
 							if(strokespermin > 99)
 							{
-								strokespermin = 99;
+								strokespermin = strokespermin_prev;
 								SEGGER_RTT_printf(0, "\r\t %d, %d, %d, %d\n", hexoutx, hexoutx_prev, hexoutx_prev_prev, hexoutx_prev_prev_prev);
 							}
 
