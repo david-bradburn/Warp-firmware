@@ -1433,11 +1433,12 @@ devSSD1331init();
 							{
 								if(counter > 5)
 								{
-									strokespermin = strokespermin_prev;
+									strokespermin = 99;
 									counter_99 = 0;
 								}
 								else
 								{
+									strokespermin = strokespermin_prev;
 									counter_99++;
 								}
 								SEGGER_RTT_printf(0, "\r\t %d, %d, %d, %d\n", hexoutx, hexoutx_prev, hexoutx_prev_prev, hexoutx_prev_prev_prev);
