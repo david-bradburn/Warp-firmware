@@ -1431,7 +1431,7 @@ devSSD1331init();
 
 							if(strokespermin > 99)
 							{
-								if(counter > 5)
+								if(counter_99 > 5)
 								{
 									strokespermin = 99;
 									counter_99 = 0;
