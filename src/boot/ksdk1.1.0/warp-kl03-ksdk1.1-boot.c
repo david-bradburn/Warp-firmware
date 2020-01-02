@@ -1428,7 +1428,7 @@ devSSD1331init();
 							if(strokespermin > 99)
 							{
 								strokespermin = 99;
-								SEGGER_RTT_printf(0, "\r\t %d, %d, %d, %d", hexoutx, hexoutx_prev, hexoutx_prev_prev, hexoutx_prev_prev_prev);
+								SEGGER_RTT_printf(0, "\r\t %d, %d, %d, %d\n", hexoutx, hexoutx_prev, hexoutx_prev_prev, hexoutx_prev_prev_prev);
 							}
 
 							ar[0] = intsplittoarrayupper(strokespermin);
