@@ -1434,6 +1434,12 @@ devSSD1331init();
 								if(counter_99 > 5)
 								{
 									strokespermin = 99;
+
+									ar[0] = intsplittoarrayupper(strokespermin);
+									ar[1] = intsplittoarraylower(strokespermin);
+
+									writetoscreen(ar);
+
 									counter_99 = 0;
 								}
 								else
@@ -1443,11 +1449,16 @@ devSSD1331init();
 								}
 								SEGGER_RTT_printf(0, "\r\t %d, %d, %d, %d\n", hexoutx, hexoutx_prev, hexoutx_prev_prev, hexoutx_prev_prev_prev);
 							}
+							else
+							{
+								ar[0] = intsplittoarrayupper(strokespermin);
+								ar[1] = intsplittoarraylower(strokespermin);
 
-							ar[0] = intsplittoarrayupper(strokespermin);
-							ar[1] = intsplittoarraylower(strokespermin);
+								writetoscreen(ar);
 
-							writetoscreen(ar);
+								counter_99 = 0;
+							}
+
 
 							//SEGGER_RTT_printf(0, "\r\t%d\n", count);
 
