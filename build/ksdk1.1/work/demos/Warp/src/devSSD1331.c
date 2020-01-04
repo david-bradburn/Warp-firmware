@@ -532,12 +532,17 @@ pullingforcelive(uint8_t y[], uint8_t length, uint8_t n[])
 	uint8_t i;
 
 	uint8_t bytes[] = {kSSD1331CommandDRAWLINE, 0, 0, 0, 0, default_colour_arr};
+	
+	uint8_t lines[] = {kSSD1331CommandDRAWLINE, 0, 32, 95, 32, default_colour_arr,
+										kSSD1331CommandDRAWLINE, 0, 48, 95, 48, default_colour_arr,
+										kSSD1331CommandDRAWLINE, 0, 16, 95, 16, default_colour_arr};
 
 		for(i = 0; i < length; i++)
 		{
 			if(n[i] == 0)
 			{
 				clearscreen();
+				writeCommandarr(lines, 24);
 			}
 			bytes[1] = n[i];
 			bytes[2] = 64 - y[i];
