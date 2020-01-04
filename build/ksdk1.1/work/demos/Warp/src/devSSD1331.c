@@ -120,6 +120,7 @@ default_colour(void)
 }
 
 #define default_colour_arr 0x00, 0x3F, 0x00
+#define marker_colour 0x3F, 0x00, 0x00
 
 //#define top_line
 
@@ -532,10 +533,10 @@ pullingforcelive(uint8_t y[], uint8_t length, uint8_t n[])
 	uint8_t i;
 
 	uint8_t bytes[] = {kSSD1331CommandDRAWLINE, 0, 0, 0, 0, default_colour_arr};
-	
-	uint8_t lines[] = {kSSD1331CommandDRAWLINE, 0, 32, 95, 32, default_colour_arr,
-										kSSD1331CommandDRAWLINE, 0, 48, 95, 48, default_colour_arr,
-										kSSD1331CommandDRAWLINE, 0, 16, 95, 16, default_colour_arr};
+
+	uint8_t lines[] = {kSSD1331CommandDRAWLINE, 0, 32, 95, 32, marker_colour,
+										kSSD1331CommandDRAWLINE, 0, 48, 95, 48, marker_colour,
+										kSSD1331CommandDRAWLINE, 0, 16, 95, 16, marker_colour};
 
 		for(i = 0; i < length; i++)
 		{
